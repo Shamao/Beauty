@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    signingConfigs {
+        release {
+            keyAlias 'beautiful'
+            keyPassword 'beauty'
+            storeFile file('/Users/ssss/androidStudioProject/beauty/beauty.jks')
+            storePassword 'beauty'
+        }
+    }
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "princessmakeup.buykee.com.beauty"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 8000
+        versionName "8.0.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions {
+        abortOnError false
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
+    }
+    retrolambda {
+        //指定将源码编译的级别，使用下列代码，会将代码编译到兼容1.6的字节码格式
+        javaVersion JavaVersion.VERSION_1_7
+    }
+    productFlavors {
+        cosmeapp {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "cosmeapp"]
+        }
+        huawei {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+        }
+        inew {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "new"]
+        }
+        old {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "old"]
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:recyclerview-v7:25.1.0'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
+    compile 'com.jakewharton:butterknife:8.2.1'
+    compile 'com.android.support:multidex:1.0.0'
+    //umeng
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    //alibaba
+    compile 'com.taobao.android:alisdk-hotfix:1.4.0'
+    compile 'com.alibaba:fastjson:1.1.46.android'
+    compile 'com.taobao.android:weex_sdk:0.9.5@aar'
+    compile 'com.android.support:design:25.1.0'
+    //    apt 'com.alibaba:arouter-compiler:1.0.1'
+    //    compile 'com.alibaba:arouter-api:1.0.3'
+    compile 'io.reactivex:rxjava:1.2.0'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile project(':common')
+}
+
+
+apt {
+    arguments {
+        moduleName project.getName();
+    }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!-- default -->
+    <color name="default_black">#ff2d2d34</color>
+    <color name="default_grey_dark">#ff7b7a87</color>
+    <color name="default_grey_middle">#ff7b7a87</color>
+    <color name="default_grey_light">#ffb3b4c4</color>
+    <color name="default_grey_bg">#f7f7f7</color>
+    <color name="default_blue">#ff1d96d5</color>
+    <color name="default_pink">#ffff4a83</color>
+    <color name="default_pink_light">#ffff79a5</color>
+    <color name="default_white">#ffffff</color>
+    <color name="default_red">#fffc3d39</color>
+    <color name="default_gold">#fff9b552</color>
+    <color name="default_daka_flag">#bfffffff</color>
+    <color name="default_divide">#ffe0e0e0</color>
+    <color name="default_separator">#ffeeeeee</color>
+    <color name="default_yellow">#F7B62D</color>
+    <color name="default_hint">#bbbcc3</color>
+    <color name="default_action_bar">#f9f9f9</color>
+
+    <!-- Vt 肤质-->
+    <color name="vt_gm">#ff75cccb</color>
+    <color name="vt_orange">#ffff9966</color>
+    <color name="vt_blue">#ff0099cc</color>
+    <color name="vt_doyen">#ffcc6699</color>
+    <color name="vt_shop">#ffcc6699</color>
+    <color name="vt_cute">#ff996699</color>
+
+
+</resources>
