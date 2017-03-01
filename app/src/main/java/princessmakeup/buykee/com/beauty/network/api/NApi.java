@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import princessmakeup.buykee.com.beauty.bean.bean.MNoticeCount;
 import princessmakeup.buykee.com.beauty.bean.bean.MProductCate;
 import princessmakeup.buykee.com.beauty.bean.bean.UserBean;
-import princessmakeup.buykee.com.beauty.bean.index.AdBean;
 import princessmakeup.buykee.com.beauty.network.rx.RxJavaHelper;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -20,18 +19,6 @@ import static princessmakeup.buykee.com.beauty.network.api.NApiManager.getNApiSe
 public class NApi {
 
 
-    /**
-     * 启动页广告
-     *
-     * @param subscriber
-     */
-    public static void getCoopenAd(NApiSubscriber subscriber) {
-        NApiManager.getNApiService().getIndexCoopenAd()
-                .map(new HttpResultFunc<AdBean>())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(subscriber);
-    }
 
     /**
      *  获取用户信息

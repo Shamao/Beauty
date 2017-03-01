@@ -105,6 +105,7 @@ public class MainActivity extends BaseFragmentActivity {
                 switch (item.getItemId()) {
                     case R.id.action_user:
                         Logger.d(ConstTag.Click, "user");
+                        item.setIcon(R.drawable.ic_setting);
                         break;
                 }
                 return false;

@@ -8,7 +8,6 @@ import princessmakeup.buykee.com.beauty.bean.base.BaseResult;
 import princessmakeup.buykee.com.beauty.bean.bean.MNoticeCount;
 import princessmakeup.buykee.com.beauty.bean.bean.MProductCate;
 import princessmakeup.buykee.com.beauty.bean.bean.UserBean;
-import princessmakeup.buykee.com.beauty.bean.index.AdBean;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import retrofit2.http.Streaming;
@@ -35,8 +34,7 @@ public interface ApiService {
 
 
 
-    @GET("index/coopen-ad")
-    Observable<BaseResult<AdBean>> getIndexCoopenAd();
+
 
     @GET("home/info")
     Observable<BaseResult<UserBean>> getHomeInfo(@Query("user_id") String user_id);

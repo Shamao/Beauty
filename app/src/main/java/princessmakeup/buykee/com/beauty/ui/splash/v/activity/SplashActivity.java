@@ -4,31 +4,28 @@ import android.animation.ValueAnimator;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import butterknife.BindView;
 import princessmakeup.buykee.com.beauty.R;
+import princessmakeup.buykee.com.beauty.Utils.DisplayUtils;
 import princessmakeup.buykee.com.beauty.base.BaseActivity;
-import princessmakeup.buykee.com.beauty.bean.index.AdBean;
 import princessmakeup.buykee.com.beauty.ui.main.MainActivity;
 import princessmakeup.buykee.com.beauty.ui.splash.p.SplashPresent;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
-import princessmakeup.buykee.com.common.utils.DeviceUtils;
 import princessmakeup.buykee.com.common.utils.Logger;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
 
 
 public class SplashActivity extends BaseActivity<SplashPresent> {
 
-    @BindView(R.id.iv_logo)
+    @BindView(R.id.logo_iv)
     ImageView mLogoIv;
-    @BindView(R.id.tv_count_down)
+    @BindView(R.id.count_down_tv)
     TextView mTvCountDown;
 
-    AdBean mAdBean;
 
     @Override
     public int getLayoutId() {
@@ -43,6 +40,9 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
     @Override
     public void initView(Bundle savedInstanceState) {
         mPresenter = new SplashPresent(this);
+
+        startCountDown();
+        translateY();
     }
 
     @Override
@@ -55,35 +55,32 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
         mPresenter.loadData(0, null);
     }
 
-
     @Override
     public void initListener() {
         super.initListener();
     }
 
     private void translateY() {
-        ValueAnimator animator = ValueAnimator.ofFloat(1, 1.3f);
-        animator.setDuration(1000);
+        ValueAnimator animator = ValueAnimator.ofFloat(1, 1.5f);
+        animator.setDuration(2000);
+        animator.setStartDelay(1000);
+        animator.setInterpolator(new AccelerateInterpolator());
         animator.start();
 
+        final int screenHeight = DisplayUtils.getScreenHeight(SplashActivity.this);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
+            public void onAnimationUpdate(ValueAnimator animation) {//1-1.3
                 float value = (float) animation.getAnimatedValue();
-                mLogoIv.setTranslationY(value * DeviceUtils.getScreenHeight(SplashActivity.this) * (1 - value));
+                mLogoIv.setTranslationY(screenHeight * (1 - value));
             }
         });
     }
 
     @Override
     public void onSuccess(int category, Object object) {
-        mAdBean = (AdBean) object;
-        if ("1".equals(mAdBean.getHasAd())) {
-            Glide.with(this).load(mAdBean.getImgUrl()).crossFade().into(mLogoIv);
-        } else {
-            startCountDown();
-        }
-        translateY();
+
+
     }
 
     /**
