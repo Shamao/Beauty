@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UIDotIndicatorView">
+        <attr name="select_color" format="color|reference"/>
+        <attr name="un_select_color" format="color|reference"/>
+        <attr name="min_width" format="dimension"/>
+        <attr name="offset" format="dimension"/>
+        <attr name="margin" format="dimension"/>
+    </declare-styleable>
+</resources>

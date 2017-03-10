@@ -12,6 +12,7 @@ import butterknife.BindView;
 import princessmakeup.buykee.com.beauty.R;
 import princessmakeup.buykee.com.beauty.Utils.DisplayUtils;
 import princessmakeup.buykee.com.beauty.base.BaseActivity;
+import princessmakeup.buykee.com.beauty.ui.ToolActivity;
 import princessmakeup.buykee.com.beauty.ui.main.MainActivity;
 import princessmakeup.buykee.com.beauty.ui.splash.p.SplashPresent;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
@@ -96,7 +97,7 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
 
             @Override
             public void onFinish() {
-                ActivityUtils.startActivity(SplashActivity.this, MainActivity.class);
+                ActivityUtils.startActivity(SplashActivity.this, ToolActivity.class);
                 finish();
             }
         };

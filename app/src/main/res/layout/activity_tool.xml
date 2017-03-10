@@ -1,35 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_tool"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context="princessmakeup.buykee.com.beauty.ui.ToolActivity">
-    <ScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:fillViewport="true">
-        <LinearLayout
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/tv_html"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:text="android"/>
+            android:layout_height="200dp"
+            tools:background="#1e58f5"/>
 
-            <TextView
-                android:id="@+id/tv_app"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:text="android"/>
-        </LinearLayout>
-    </ScrollView>
 
-</RelativeLayout>
+    </FrameLayout>
+
+    <princessmakeup.buykee.com.beauty.ui.views.UIDotIndicatorView
+        android:id="@+id/indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:min_width="4dp"
+        app:offset="12dp"
+        app:select_color="@color/default_pink"
+        app:un_select_color="#01fffb"
+    />
+    <TextView
+        android:id="@+id/reduce_tv"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="----"/>
+
+    <TextView
+        android:id="@+id/color_tv"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="color"/>
+
+    <TextView
+        android:id="@+id/add_tv"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="++++"/>
+
+    <TextView
+        android:id="@+id/reduce_anim_tv"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="--"/>
+
+    <TextView
+        android:id="@+id/add_anim_tv"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:text="++++"/>
+
+    <princessmakeup.buykee.com.beauty.ui.views.Common.IndicatorDotView
+        android:id="@+id/dot_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+    <!--<princessmakeup.buykee.com.beauty.ui.views.Common.IndicatorDotView-->
+    <!--android:layout_width="10dp"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:layout_centerInParent="true"/>-->
+
+    <!--<princessmakeup.buykee.com.beauty.ui.views.Common.IndicatorDotView-->
+    <!--android:layout_width="40dp"-->
+    <!--android:layout_height="20dp"-->
+    <!--android:layout_centerInParent="true"/>-->
+
+</LinearLayout>
