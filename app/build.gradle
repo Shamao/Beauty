@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
-apply plugin: 'me.tatarka.retrolambda'
+//apply plugin: 'me.tatarka.retrolambda'
 
 android {
     signingConfigs {
@@ -40,10 +40,10 @@ android {
         // 防止在发布的时候出现因MissingTranslation导致Build Failed!
         disable 'MissingTranslation'
     }
-    retrolambda {
-        //指定将源码编译的级别，使用下列代码，会将代码编译到兼容1.6的字节码格式
-        javaVersion JavaVersion.VERSION_1_7
-    }
+//    retrolambda {
+//        //指定将源码编译的级别，使用下列代码，会将代码编译到兼容1.6的字节码格式
+//        javaVersion JavaVersion.VERSION_1_7
+//    }
     productFlavors {
         cosmeapp {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "cosmeapp"]

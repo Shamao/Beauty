@@ -11,9 +11,8 @@ import android.widget.TextView;
 import butterknife.BindView;
 import princessmakeup.buykee.com.beauty.R;
 import princessmakeup.buykee.com.beauty.Utils.DisplayUtils;
+import princessmakeup.buykee.com.beauty.Utils.tools.ToolActivity;
 import princessmakeup.buykee.com.beauty.base.BaseActivity;
-import princessmakeup.buykee.com.beauty.ui.ToolActivity;
-import princessmakeup.buykee.com.beauty.ui.main.MainActivity;
 import princessmakeup.buykee.com.beauty.ui.splash.p.SplashPresent;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
 import princessmakeup.buykee.com.common.utils.Logger;
@@ -27,7 +26,6 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
     @BindView(R.id.count_down_tv)
     TextView mTvCountDown;
 
-
     @Override
     public int getLayoutId() {
         return R.layout.activity_splash;
@@ -37,11 +35,9 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
     public void initData() {
     }
 
-
     @Override
     public void initView(Bundle savedInstanceState) {
         mPresenter = new SplashPresent(this);
-
         startCountDown();
         translateY();
     }

@@ -23,6 +23,5 @@ public class SplashModel implements IBaseModel {
 
     @Override
     public void loadData(final int category, Map<String, String> params) {
-
     }
 }

@@ -1,6 +1,5 @@
 package princessmakeup.buykee.com.beauty.ui;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
