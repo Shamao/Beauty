@@ -1,1 +1,3 @@
-# beauy
+
+# Beauty
+
