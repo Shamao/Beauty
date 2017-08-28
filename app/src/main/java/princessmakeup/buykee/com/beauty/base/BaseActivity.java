@@ -1,28 +1,23 @@
 package princessmakeup.buykee.com.beauty.base;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-import com.umeng.analytics.MobclickAgent;
 
 import butterknife.ButterKnife;
+import princessmakeup.buykee.com.beauty.Manager.AppManager;
 import princessmakeup.buykee.com.common.utils.Logger;
-import princessmakeup.buykee.com.common.utils.ToastUtils;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
 
 
 /**
- * Created by Steam on 16/11/25.
+ * Created by lsd on 16/11/25.
  */
 
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements IBaseView {
+public abstract class BaseActivity extends AppCompatActivity {
 
-    protected P mPresenter;
-    protected String tag;
-
+    protected String mTag;
 
     public abstract int getLayoutId();
 
@@ -38,127 +33,73 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
 
     @Override
-    public Context getContext() {
-        return this;
-    }
-
-    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppManager.getInstance().addActivity(this);
         setContentView(getLayoutId());
-        initBaseData();
-        //initData -->initView-->loadData-->initListener 顺序 或者 直接在initView 按功能分
-        initData();
+        initInnerData();
+        Logger.d(ConstTag.LifeCycle, mTag + "-onCreate");
+        Logger.d(ConstTag.ActivityStack, AppManager.getInstance().getAllActivities());
 
-        initView(savedInstanceState);
+        initInnerView(savedInstanceState);
 
         loadData();
 
         initListener();
 
-        if (mPresenter != null) {
-            mPresenter.onCreate(savedInstanceState);
-        }
     }
 
-    private void initBaseData() {
+    private void initInnerView(Bundle savedInstanceState) {
         ButterKnife.bind(this);
-        tag = getClass().getSimpleName();
-
+        initView(savedInstanceState);
     }
 
-
-    /**
-     * Finds the topmost view in the current view hierarchy.
-     *
-     * @return
-     */
-    public View getRootView() {
-        return this.getWindow().getDecorView().getRootView();
-    }
-
-
-    /**
-     * 已处理debug和release 减少代码量
-     *
-     * @param Object
-     */
-    protected void logger(Object... Object) {
-        Logger.d(tag, Object);
+    private void initInnerData() {
+        mTag = getClass().getSimpleName() + "@" + hashCode();
+        initData();
     }
 
 
     @Override
     protected void onStart() {
         super.onStart();
-        Logger.d(ConstTag.LifeCycle, tag + "-onStart");
-
-        if (mPresenter != null) {
-            mPresenter.onStart();
-        }
+        Logger.d(ConstTag.LifeCycle, mTag + "-onStart");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        if (mPresenter != null) {
-            mPresenter.onReStart();
-        }
-        Logger.d(ConstTag.LifeCycle, tag + "-onReStart");
+        Logger.d(ConstTag.LifeCycle, mTag + "-onReStart");
     }
 
     @Override
     protected void onResume() {
-        Logger.d(ConstTag.LifeCycle, tag + "-onResume");
-        MobclickAgent.onResume(this);
         super.onResume();
-        if (mPresenter != null) {
-            mPresenter.onResume();
-        }
+        Logger.d(ConstTag.LifeCycle, mTag + "-onResume");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        MobclickAgent.onPause(this);
-        Logger.d(ConstTag.LifeCycle, tag + "-onPause");
-        if (mPresenter != null) {
-            mPresenter.onPause();
-        }
+        Logger.d(ConstTag.LifeCycle, mTag + "-onPause");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Logger.d(ConstTag.LifeCycle, tag + "-onStop");
-        if (mPresenter != null) {
-            mPresenter.onStop();
-        }
+        Logger.d(ConstTag.LifeCycle, mTag + "-onStop");
     }
 
     @Override
     protected void onDestroy() {
-        Logger.d(ConstTag.LifeCycle, tag + "-onDestroy");
-        if (mPresenter != null) {
-            mPresenter.onDestroy();
-            mPresenter.detachView();
-        }
+        AppManager.getInstance().removeActivity(this);
         super.onDestroy();
+        Logger.d(ConstTag.LifeCycle, mTag + "-onDestroy");
     }
 
     @Override
-    public void showLoading() {
-
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Logger.d(ConstTag.LifeCycle, mTag + "-onNewIntent");
     }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showMessage(String msg) {
-//        ToastUtils.show(this, msg, Toast.LENGTH_SHORT);
-    }
-
 }

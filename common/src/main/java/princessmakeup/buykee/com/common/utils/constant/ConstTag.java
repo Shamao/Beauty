@@ -13,7 +13,9 @@ public class ConstTag {
 
     public static final String Error = "error";
 
-    public static final String LifeCycle = "lifeCycle";//适用于生命周期
+    public static final String LifeCycle = "life_cycle";//适用于生命周期
+
+    public static final String ActivityStack = "activity_stack";
 
     public static final String nanoTime = "nanoTime";
 

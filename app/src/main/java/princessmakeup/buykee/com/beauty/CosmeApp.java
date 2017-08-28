@@ -50,8 +50,8 @@ public class CosmeApp extends MultiDexApplication {
     }
 
     private void initWeex() {
-        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
-        WXSDKEngine.initialize(this, config);
+//        InitConfig config = new InitConfig.Builder().setImgAdapter(new ImageAdapter()).build();
+//        WXSDKEngine.initialize(this, config);
     }
 
     private void initHotFix() {
@@ -110,11 +110,6 @@ public class CosmeApp extends MultiDexApplication {
         return mUserAgent;
     }
 
-    /**
-     * schema跳转处理
-     *
-     * @param schema
-     */
     public void redirectSchema(String schema) {
         try {
             //            if (schema != null && !schema.equals("")) {

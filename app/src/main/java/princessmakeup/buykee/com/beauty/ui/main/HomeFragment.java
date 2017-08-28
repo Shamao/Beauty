@@ -11,7 +11,7 @@ import princessmakeup.buykee.com.beauty.base.BaseFragment;
  * Created by lsd on 17/1/19.
  */
 
-public class HomeFragment extends BaseFragment<MainPresent> {
+public class HomeFragment extends BaseFragment {
     private static HomeFragment mHomeFragment;
 
     @Override
@@ -31,7 +31,6 @@ public class HomeFragment extends BaseFragment<MainPresent> {
     @Override
     protected void loadData() {
         super.loadData();
-
     }
 
     public static Fragment newInstance(Bundle bundle) {
@@ -46,30 +45,5 @@ public class HomeFragment extends BaseFragment<MainPresent> {
 
             return mHomeFragment;
         }
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void showMessage(String msg) {
-
-    }
-
-    @Override
-    public void onSuccess(int category, Object object) {
-
-    }
-
-    @Override
-    public void onFailed(Object object) {
-
     }
 }

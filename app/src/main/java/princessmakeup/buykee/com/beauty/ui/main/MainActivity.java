@@ -1,6 +1,7 @@
 package princessmakeup.buykee.com.beauty.ui.main;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -8,11 +9,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +22,7 @@ import butterknife.BindView;
 import princessmakeup.buykee.com.beauty.R;
 import princessmakeup.buykee.com.beauty.base.BaseFragmentActivity;
 import princessmakeup.buykee.com.common.utils.Logger;
-import princessmakeup.buykee.com.common.utils.constant.ConstCategory;
+import princessmakeup.buykee.com.common.utils.ToastUtils;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
 
 import static princessmakeup.buykee.com.beauty.R.id.drawer;
@@ -28,6 +30,7 @@ import static princessmakeup.buykee.com.beauty.R.id.toolbar;
 
 
 public class MainActivity extends BaseFragmentActivity {
+    private boolean mIsExit;
     @BindView(toolbar)
     Toolbar mToolbar;
     @BindView(drawer)
@@ -42,7 +45,6 @@ public class MainActivity extends BaseFragmentActivity {
 
     @Override
     public void initData() {
-        mPresenter = new MainPresent(this);
     }
 
     @Override
@@ -76,7 +78,6 @@ public class MainActivity extends BaseFragmentActivity {
     private void loadUserCenter() {
         Map<String, String> params = new HashMap<>();
         params.put("user_id", "24801006");
-        mPresenter.loadData(ConstCategory.MAIN_CENTER, params);
     }
 
 
@@ -114,20 +115,6 @@ public class MainActivity extends BaseFragmentActivity {
     }
 
     @Override
-    public void onSuccess(int category, Object object) {
-         if (category==ConstCategory.MAIN_CENTER){
-             Logger.d("todo","MAIN_CENTER");
-         }
-    }
-
-    @Override
-    public void onFailed(Object object) {
-
-
-    }
-
-
-    @Override
     public Fragment newInstance() {
         return HomeFragment.newInstance(null);
     }
@@ -137,10 +124,6 @@ public class MainActivity extends BaseFragmentActivity {
         return R.id.container;
     }
 
-    @Override
-    public void onFragmentInteraction(String content, Type type) {
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -156,5 +139,26 @@ public class MainActivity extends BaseFragmentActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (mIsExit) {
+                this.finish();
+            } else {
+                ToastUtils.showShort(this, "你有本事就给我再按一次退出");
+                mIsExit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mIsExit = false;
+                    }
+                }, 1500);
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

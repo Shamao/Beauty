@@ -1,4 +1,4 @@
-package princessmakeup.buykee.com.beauty.ui.splash.v.activity;
+package princessmakeup.buykee.com.beauty.ui.splash;
 
 import android.animation.ValueAnimator;
 import android.os.Bundle;
@@ -13,18 +13,17 @@ import princessmakeup.buykee.com.beauty.R;
 import princessmakeup.buykee.com.beauty.Utils.DisplayUtils;
 import princessmakeup.buykee.com.beauty.Utils.tools.ToolActivity;
 import princessmakeup.buykee.com.beauty.base.BaseActivity;
-import princessmakeup.buykee.com.beauty.ui.splash.p.SplashPresent;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
-import princessmakeup.buykee.com.common.utils.Logger;
-import princessmakeup.buykee.com.common.utils.constant.ConstTag;
 
 
-public class SplashActivity extends BaseActivity<SplashPresent> {
+public class SplashActivity extends BaseActivity {
 
     @BindView(R.id.logo_iv)
     ImageView mLogoIv;
     @BindView(R.id.count_down_tv)
     TextView mTvCountDown;
+
+    CountDownTimer mCountDownTimer;
 
     @Override
     public int getLayoutId() {
@@ -37,7 +36,6 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        mPresenter = new SplashPresent(this);
         startCountDown();
         translateY();
     }
@@ -49,7 +47,6 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
 
     @Override
     public void loadData() {
-        mPresenter.loadData(0, null);
     }
 
     @Override
@@ -74,18 +71,13 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
         });
     }
 
-    @Override
-    public void onSuccess(int category, Object object) {
-
-
-    }
 
     /**
      * 开启倒计时
      */
     private void startCountDown() {
         mTvCountDown.setVisibility(View.VISIBLE);
-        CountDownTimer countDownTimer = new CountDownTimer(4000, 1000) {
+        mCountDownTimer = new CountDownTimer(4000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 mTvCountDown.setText(getString(R.string.count_down, millisUntilFinished / 1000));
@@ -97,11 +89,14 @@ public class SplashActivity extends BaseActivity<SplashPresent> {
                 finish();
             }
         };
-        countDownTimer.start();
+        mCountDownTimer.start();
     }
 
     @Override
-    public void onFailed(Object object) {
-        Logger.d(ConstTag.todo, "fail");
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+        }
     }
 }
