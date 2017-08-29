@@ -7,7 +7,7 @@
     tools:background="#ff0"
     android:layout_height="190dp"
     android:orientation="horizontal"
-    tools:context="princessmakeup.buykee.com.beauty.Utils.tools.HelloWorldActivity">
+    tools:context="beauty.louise.com.Utils.tools.HelloWorldActivity">
     <Button
         android:id="@+id/switch_btn"
         android:layout_centerInParent="true"

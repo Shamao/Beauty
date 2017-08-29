@@ -1,4 +1,4 @@
-package princessmakeup.buykee.com.beauty;
+package beauty.louise.com;
 
 import org.junit.Test;
 

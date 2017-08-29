@@ -17,7 +17,7 @@
         android:layout_marginTop="@dimen/margin_huge"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@mipmap/launcher"
+            android:src="@mipmap/ic_launcher"
             tools:background="#f00"/>
 
         <TextView
