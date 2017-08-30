@@ -14,5 +14,5 @@
         android:id="@+id/iv_gif"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        tools:src="@mipmap/launcher"/>
+        tools:src="@mipmap/ic_launcher"/>
 </RelativeLayout>

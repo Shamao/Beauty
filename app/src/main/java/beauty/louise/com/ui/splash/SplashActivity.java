@@ -8,11 +8,12 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import butterknife.BindView;
 import beauty.louise.com.R;
 import beauty.louise.com.Utils.DisplayUtils;
 import beauty.louise.com.Utils.tools.ToolActivity;
 import beauty.louise.com.base.BaseActivity;
+import beauty.louise.com.ui.main.MainActivity;
+import butterknife.BindView;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
 
 
@@ -32,6 +33,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void initData() {
+
     }
 
     @Override
@@ -85,7 +87,7 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void onFinish() {
-                ActivityUtils.startActivity(SplashActivity.this, ToolActivity.class);
+                ActivityUtils.startActivity(SplashActivity.this, MainActivity.class);
                 finish();
             }
         };
@@ -93,10 +95,16 @@ public class SplashActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop() {
+        super.onStop();
         if (mCountDownTimer != null) {
             mCountDownTimer.cancel();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }
