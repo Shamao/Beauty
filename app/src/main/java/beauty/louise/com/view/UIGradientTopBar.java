@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import beauty.louise.com.R;
 import butterknife.BindView;
+import butterknife.OnClick;
 import princessmakeup.buykee.com.common.base.BaseLayout;
 
 /**
@@ -37,7 +38,6 @@ public class UIGradientTopBar extends BaseLayout {
     private String mTitle;
     private int mTitleSize;
     private int mTitleColor;
-    private int mTitleGravity;
     private float mBgAlpha;
 
 
@@ -67,9 +67,8 @@ public class UIGradientTopBar extends BaseLayout {
         mTitle = array.getString(R.styleable.UIGradientTopBar_bbs_title);
         mTitleSize = (int) array.getDimension(R.styleable.UIGradientTopBar_bbs_title_size, TypedValue
                 .applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getContext().getResources().getDisplayMetrics()));
-        mTitleColor =
-                array.getColor(R.styleable.UIGradientTopBar_bbs_title_color,
-                               getResources().getColor(R.color.default_black));
+        mTitleColor = array.getColor(R.styleable.UIGradientTopBar_bbs_title_color,
+                                     getResources().getColor(R.color.default_black));
         mBgAlpha = array.getFloat(R.styleable.UIGradientTopBar_bbs_bg_alpha, 1.0f);
         array.recycle();
     }
@@ -86,26 +85,28 @@ public class UIGradientTopBar extends BaseLayout {
     }
 
 
-    @Override
-    public void initListener() {
-        super.initListener();
-        mLeftIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) {
-                    mListener.onLeftClick(v);
-                }
-            }
-        });
+    @OnClick(R.id.left_iv)
+    void onLeftClick(View view) {
+        if (mListener != null) {
+            mListener.onLeftClick(view);
+        }
+    }
 
-        mRightIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mListener != null) {
-                    mListener.onRightClick(v);
-                }
-            }
-        });
+    @OnClick(R.id.right_iv)
+    void onRightClick(View view) {
+        if (mListener != null) {
+            mListener.onRightClick(view);
+        }
+    }
+
+    public void setOnTopBarClickListener(OnTopBarClickListener listener) {
+        mListener = listener;
+    }
+
+    public interface OnTopBarClickListener {
+        void onLeftClick(View view);
+
+        void onRightClick(View view);
     }
 
     public void setLeftDraw(Drawable drawable) {
@@ -133,7 +134,6 @@ public class UIGradientTopBar extends BaseLayout {
         mTitleTv.setText(title);
     }
 
-
     public void setTitleGravity(int gravity) {
         mTitleTv.setGravity(gravity);
     }
@@ -144,15 +144,6 @@ public class UIGradientTopBar extends BaseLayout {
 
     private OnTopBarClickListener mListener;
 
-    public void setOnTopBarClickListener(OnTopBarClickListener listener) {
-        mListener = listener;
-    }
-
-    public interface OnTopBarClickListener {
-        void onLeftClick(View view);
-
-        void onRightClick(View view);
-    }
 
     public void setBgAlpha(@FloatRange(from = 0.0, to = 1.0) float alpha) {
         mBgView.setAlpha(alpha);

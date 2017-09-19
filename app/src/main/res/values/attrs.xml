@@ -16,4 +16,13 @@
         <attr name="bbs_title_color" format="color|reference"/>
         <attr name="bbs_bg_alpha" format="float"/>
     </declare-styleable>
+
+    <declare-styleable name="UIRatioImageView">
+        <attr name="vertical_weight" format="integer"/>
+        <attr name="horizontal_weight" format="integer"/>
+        <attr name="base_line" format="enum">
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+    </declare-styleable>
 </resources>

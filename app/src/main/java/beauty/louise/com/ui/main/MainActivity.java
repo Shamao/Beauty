@@ -23,6 +23,7 @@ import princessmakeup.buykee.com.common.utils.ActivityUtils;
 public class MainActivity extends BaseActivity {
     @BindView(R.id.gradient_bar)
     UIGradientTopBar mGradientTopBar;
+
     @BindView(R.id.swipe)
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.recycler)
@@ -34,16 +35,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.ac_main;
     }
 
     @Override
     public void initData() {
         mData = new ArrayList<>();
-        mData.add(new MImageBean());
-        mData.add(new MImageBean());
-        mData.add(new MImageBean());
-        mData.add(new MImageBean());
         mData.add(new MImageBean());
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MImageBean.class, new CoverProvider());

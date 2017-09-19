@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,11 +8,18 @@
     android:orientation="vertical"
     tools:context="beauty.louise.com.zLab.LabActivity">
 
-    <TextView
+    <beauty.louise.com.view.UIGradientTopBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bbs_left_src="@drawable/ic_back_round"
+        app:bbs_title="Hello Lab"/>
+
+    <beauty.louise.com.view.UIRatioImageView
+        android:id="@+id/logo_iv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="hello Lab"
-        android:textSize="24sp"/>
+        android:src="@mipmap/ic_launcher"
+        app:horizontal_weight="1"
+        app:vertical_weight="1"/>
 
 </LinearLayout>

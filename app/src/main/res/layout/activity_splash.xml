@@ -5,13 +5,7 @@
     android:id="@+id/a_start"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.splash.v.activity.SplashActivity">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/margin_large"
-        android:src="@drawable/ic_app_property"/>
+    tools:context=".ui.splash.SplashActivity">
     <ImageView
         android:id="@+id/logo_iv"
         android:layout_width="200dp"
