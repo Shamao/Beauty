@@ -8,13 +8,6 @@
     <dimen name="margin_big">12dp</dimen>
     <dimen name="margin_large">16dp</dimen>
     <dimen name="margin_huge">24dp</dimen>
-    <!-- padding -->
-    <dimen name="padding_mini">5dp</dimen>
-    <dimen name="padding_small">8dp</dimen>
-    <dimen name="padding_middle">10dp</dimen>
-    <dimen name="padding_big">12dp</dimen>
-    <dimen name="padding_large">16dp</dimen>
-    <dimen name="padding_huge">18dp</dimen>
     <!--font-->
     <dimen name="font_mini">10sp</dimen>
     <dimen name="font_small">12sp</dimen>

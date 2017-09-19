@@ -3,10 +3,10 @@ package beauty.louise.com.Utils;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 
-import beauty.louise.com.AppManager;
 import beauty.louise.com.CosmeApp;
 import beauty.louise.com.bean.bean.MAlert;
 import beauty.louise.com.ui.views.UIDialogTextView;
+import princessmakeup.buykee.com.common.manager.AppManager;
 
 /**
  * Created by Steam on 16/12/13.
@@ -25,7 +25,7 @@ public class AlertUtils {
 
         UIDialogTextView messageTv = new UIDialogTextView(CosmeApp.getInstance());
         AlertDialog.Builder builder =
-                new AlertDialog.Builder(AppManager.getInstance().currentActivity())
+                new AlertDialog.Builder(AppManager.getInstance().getCurActivity())
                         .setView(messageTv);
         if (alertModel.getPositive() != null) {
             builder.setPositiveButton(alertModel.getPositive().getName(), new DialogInterface.OnClickListener() {

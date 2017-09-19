@@ -10,10 +10,9 @@ import android.widget.TextView;
 
 import beauty.louise.com.R;
 import beauty.louise.com.Utils.DisplayUtils;
-import beauty.louise.com.Utils.tools.ToolActivity;
-import beauty.louise.com.base.BaseActivity;
 import beauty.louise.com.ui.main.MainActivity;
 import butterknife.BindView;
+import princessmakeup.buykee.com.common.base.BaseActivity;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
 
 

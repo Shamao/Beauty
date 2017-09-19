@@ -7,4 +7,13 @@
         <attr name="offset" format="dimension"/>
         <attr name="margin" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="UIGradientTopBar">
+        <attr name="bbs_left_src" format="reference"/>
+        <attr name="bbs_right_src" format="reference"/>
+        <attr name="bbs_title" format="string|reference"/>
+        <attr name="bbs_title_size" format="dimension|reference"/>
+        <attr name="bbs_title_color" format="color|reference"/>
+        <attr name="bbs_bg_alpha" format="float"/>
+    </declare-styleable>
 </resources>

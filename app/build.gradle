@@ -57,6 +57,18 @@ android {
             manifestPlaceholders = [UMENG_CHANNEL_VALUE: "old"]
         }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -64,19 +76,21 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testCompile 'junit:junit:4.12'
+    //alibaba
+    //    apt 'com.alibaba:arouter-compiler:1.0.1'
+
+    //    compile 'com.alibaba:arouter-api:1.0.3'
+    compile project(':common')
+    //sdk 
+    compile(name: 'YoukuPlayerOpenSDK-release', ext: 'aar')
+    compile files('libs/mma_sdk.jar')
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
-    apt 'com.jakewharton:butterknife-compiler:8.2.1'
-    compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.android.support:multidex:1.0.0'
-    //alibaba
     compile 'com.taobao.android:alisdk-hotfix:1.4.0'
-    compile 'com.alibaba:fastjson:1.1.46.android'
+    compile 'com.alibaba:fastjson:1.1.56.android'
     compile 'com.taobao.android:weex_sdk:0.9.5@aar'
     compile 'com.android.support:design:25.1.0'
-    //    apt 'com.alibaba:arouter-compiler:1.0.1'
-    //    compile 'com.alibaba:arouter-api:1.0.3'
     compile 'io.reactivex:rxjava:1.2.0'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -86,8 +100,11 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile project(':common')
     compile 'me.drakeet.multitype:multitype:3.3.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+    apt 'com.jakewharton:butterknife-compiler:8.2.1'
 }
 
 

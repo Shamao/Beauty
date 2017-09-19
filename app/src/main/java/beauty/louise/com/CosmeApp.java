@@ -8,6 +8,7 @@ import com.taobao.hotfix.PatchLoadStatusListener;
 import com.taobao.hotfix.util.PatchStatusCode;
 import com.taobao.weex.InitConfig;
 import com.taobao.weex.WXSDKEngine;
+import com.youku.cloud.player.YoukuPlayerConfig;
 
 import beauty.louise.com.ui.weex.ImageAdapter;
 import princessmakeup.buykee.com.common.utils.CommonUtils;
@@ -17,6 +18,10 @@ import princessmakeup.buykee.com.common.utils.CommonUtils;
  */
 
 public class CosmeApp extends MultiDexApplication {
+
+    public static final String CLIENT_ID_WITH_AD = "93673f8ce4bdade1";//youku
+    public static final String CLIENT_SECRET_WITH_AD = "66346a3d8d2c72b98bb560c8d2a6b848";//youku
+
 
     public static CosmeApp mCosmeApp;
     public static WebView mWebView;
@@ -40,6 +45,18 @@ public class CosmeApp extends MultiDexApplication {
         initHotFix();
 
         initWeex();
+
+        initYouku();
+    }
+
+
+    private void initYouku() {
+        //        youku
+        YoukuPlayerConfig.setLog(true);
+        //        /**设置client_id和client_secret*/
+        YoukuPlayerConfig.setClientIdAndSecret(CLIENT_ID_WITH_AD, CLIENT_SECRET_WITH_AD);
+        //        /**sdk初始化*/
+        YoukuPlayerConfig.onInitial(this);
     }
 
 
