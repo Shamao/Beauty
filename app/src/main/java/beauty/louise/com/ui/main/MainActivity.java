@@ -12,7 +12,7 @@ import java.util.List;
 import beauty.louise.com.R;
 import beauty.louise.com.bean.MImageBean;
 import beauty.louise.com.view.UIGradientTopBar;
-import beauty.louise.com.view.provider.CoverProvider;
+import beauty.louise.com.view.provider.ImageProvider;
 import beauty.louise.com.zLab.LabActivity;
 import butterknife.BindView;
 import me.drakeet.multitype.MultiTypeAdapter;
@@ -42,8 +42,9 @@ public class MainActivity extends BaseActivity {
     public void initData() {
         mData = new ArrayList<>();
         mData.add(new MImageBean());
+        mData.add(new MImageBean());
         mAdapter = new MultiTypeAdapter(mData);
-        mAdapter.register(MImageBean.class, new CoverProvider());
+        mAdapter.register(MImageBean.class, new ImageProvider());
     }
 
     @Override

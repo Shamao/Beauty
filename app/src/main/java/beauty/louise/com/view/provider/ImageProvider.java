@@ -23,6 +23,6 @@ public class ImageProvider extends ItemViewBinder<MImageBean, ImageViewHolder> {
 
     @Override
     protected void onBindViewHolder(@NonNull ImageViewHolder holder, @NonNull MImageBean item) {
-        holder.fillData();
+        holder.fillData(item);
     }
 }

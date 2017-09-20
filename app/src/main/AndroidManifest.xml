@@ -83,6 +83,8 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".zLab.LabActivity">
         </activity>
+        <activity android:name=".zLab.RecyclerActivity">
+        </activity>
     </application>
 
 </manifest>

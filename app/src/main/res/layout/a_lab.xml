@@ -14,12 +14,16 @@
         app:bbs_left_src="@drawable/ic_back_round"
         app:bbs_title="Hello Lab"/>
 
-    <beauty.louise.com.view.UIRatioImageView
-        android:id="@+id/logo_iv"
+    <TextView
+        android:id="@+id/recycler_module_tv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/ic_launcher"
-        app:horizontal_weight="1"
-        app:vertical_weight="1"/>
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:text="RecyclerView专题"
+        android:textColor="@color/default_black"/>
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>

@@ -2,16 +2,15 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:background="#00f"
+    tools:background="#100f"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
 
-    <ImageView
+    <beauty.louise.com.view.UIRatioImageView
         android:id="@+id/cover_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/loading"/>
-
+        tools:src="@drawable/ic_loading"/>
 </FrameLayout>

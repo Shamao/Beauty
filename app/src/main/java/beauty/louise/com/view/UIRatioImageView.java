@@ -71,6 +71,10 @@ public class UIRatioImageView extends ImageView {
             desiredHeight = (int) (desiredWidth * ratio);
         }
 
+        if (desiredHeight == 0 && desiredWidth == 0) {
+            mBaseLine = HEIGHT;
+        }
+
         if (mBaseLine == HEIGHT) {
             if (mSpecifiedHeight != 0) {
                 desiredHeight = mSpecifiedHeight;
@@ -98,6 +102,25 @@ public class UIRatioImageView extends ImageView {
     public void setHeight(int height) {
         mSpecifiedHeight = height;
         setBaseLine(HEIGHT);
+    }
+
+    public int getVerticalWeight() {
+        return mVerticalWeight;
+    }
+
+    public void setVerticalWeight(int verticalWeight) {
+        mVerticalWeight = verticalWeight;
+        requestLayout();
+    }
+
+    public int getHorizontalWeight() {
+
+        return mHorizontalWeight;
+    }
+
+    public void setHorizontalWeight(int horizontalWeight) {
+        mHorizontalWeight = horizontalWeight;
+        requestLayout();
     }
 
     /**
