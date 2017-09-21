@@ -58,7 +58,7 @@ public class GlideUtils {
         }
 
         if (builder == null) {
-            builder = GlideUtils.displayImagePlaceHolder(context, R.drawable.ic_loading, url);
+            builder = GlideUtils.displayImagePlaceHolder(context, R.drawable.ph_planet, url);
         }
 
         return builder;
@@ -69,8 +69,8 @@ public class GlideUtils {
                 .load(url)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ic_loading)
-                .error(R.drawable.ic_loading);
+                .placeholder(R.drawable.ph_planet)
+                .error(R.drawable.ph_planet);
     }
 
     public static DrawableRequestBuilder displayImage2_1(Context context, String url) {
@@ -78,8 +78,8 @@ public class GlideUtils {
                 .load(url)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ic_loading)
-                .error(R.drawable.ic_loading)
+                .placeholder(R.drawable.ph_planet)
+                .error(R.drawable.ph_planet)
                 ;
 
     }
@@ -89,8 +89,8 @@ public class GlideUtils {
                 .load(url)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ic_loading)
-                .error(R.drawable.ic_loading)
+                .placeholder(R.drawable.ph_planet)
+                .error(R.drawable.ph_planet)
                 ;
     }
 
@@ -100,8 +100,8 @@ public class GlideUtils {
                 .load(url)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ic_loading)
-                .error(R.drawable.ic_loading);
+                .placeholder(R.drawable.ph_planet)
+                .error(R.drawable.ph_planet);
 
     }
 
@@ -111,8 +111,8 @@ public class GlideUtils {
                 .load(url)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ic_loading)
-                .error(R.drawable.ic_loading);
+                .placeholder(R.drawable.ph_planet)
+                .error(R.drawable.ph_planet);
     }
 
     public static DrawableRequestBuilder displayImage1_2(Context context, String url) {
@@ -120,8 +120,8 @@ public class GlideUtils {
                 .load(url)
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ic_loading)
-                .error(R.drawable.ic_loading);
+                .placeholder(R.drawable.ph_planet)
+                .error(R.drawable.ph_planet);
     }
 
 }

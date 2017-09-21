@@ -43,7 +43,7 @@ public class ImageViewHolder extends BaseViewHolder {
         } else if (imageRes > 0) {
             mCoverIv.setImageResource(imageRes);
         } else {
-            mCoverIv.setImageResource(R.drawable.ic_loading);
+            mCoverIv.setImageResource(R.drawable.ph_planet);
         }
     }
 }

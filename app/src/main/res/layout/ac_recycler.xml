@@ -6,16 +6,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/default_grey_bg"
     tools:context="beauty.louise.com.zLab.RecyclerActivity">
 
     <beauty.louise.com.view.UIGradientTopBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/default_white"
         app:bbs_title="RecyclerView专题"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/llh_recycler"
+        android:id="@+id/horizontal_recycler"
         android:layout_width="match_parent"
         android:layout_height="50dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/vertical_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 </LinearLayout>

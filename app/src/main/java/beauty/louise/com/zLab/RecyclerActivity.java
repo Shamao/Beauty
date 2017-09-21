@@ -16,11 +16,17 @@ import princessmakeup.buykee.com.common.base.BaseActivity;
 
 public class RecyclerActivity extends BaseActivity {
 
-    @BindView(R.id.llh_recycler)
-    RecyclerView mLlhRecyclerView;
-    private LinearLayoutManager mLlhLayoutManager;
-    private MultiTypeAdapter mLlhAdapter;
+    @BindView(R.id.horizontal_recycler)
+    RecyclerView mHorizontalRecyclerView;
+    private LinearLayoutManager mHorizontalLayoutManager;
+    private MultiTypeAdapter mHorizontalAdapter;
     private List<MImageBean> mImages;
+
+    @BindView(R.id.vertical_recycler)
+    RecyclerView mVerticalRecyclerView;
+    private LinearLayoutManager mVerticalLayoutManager;
+    private MultiTypeAdapter mVerticalAdapter;
+
 
     @Override
     public int getLayoutId() {
@@ -30,23 +36,32 @@ public class RecyclerActivity extends BaseActivity {
     @Override
     public void initData() {
         mImages = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            mImages.add(new MImageBean());
+        for (int i = 0; i < 20; i++) {
+            mImages.add(new MImageBean(R.drawable.loading, 1, i % 3 + 1));
         }
-        mLlhAdapter = new MultiTypeAdapter(mImages);
-        mLlhAdapter.register(MImageBean.class, new ImageProvider());
+        mHorizontalAdapter = new MultiTypeAdapter(mImages);
+        mHorizontalAdapter.register(MImageBean.class, new ImageProvider());
+
+        mVerticalAdapter = new MultiTypeAdapter(mImages);
+        mVerticalAdapter.register(MImageBean.class, new ImageProvider());
 
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        mLlhRecyclerView.hasFixedSize();
-        mLlhLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        mLlhRecyclerView.setLayoutManager(mLlhLayoutManager);
-        mLlhRecyclerView.setAdapter(mLlhAdapter);
-        //        LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
-        //        linearSnapHelper.attachToRecyclerView(mLlhRecyclerView);
-        //        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
-        //        pagerSnapHelper.attachToRecyclerView(mLlhRecyclerView);
+        mHorizontalRecyclerView.hasFixedSize();
+        mHorizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mHorizontalRecyclerView.setLayoutManager(mHorizontalLayoutManager);
+        mHorizontalRecyclerView.setAdapter(mHorizontalAdapter);
+
+        mVerticalRecyclerView.hasFixedSize();
+        mVerticalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mVerticalRecyclerView.setLayoutManager(mVerticalLayoutManager);
+        mVerticalRecyclerView.setAdapter(mVerticalAdapter);
+
+        //LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
+        //linearSnapHelper.attachToRecyclerView(mLlhRecyclerView);
+        //PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
+        //pagerSnapHelper.attachToRecyclerView(mLlhRecyclerView);
     }
 }

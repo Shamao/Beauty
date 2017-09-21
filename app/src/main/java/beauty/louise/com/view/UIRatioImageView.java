@@ -53,8 +53,7 @@ public class UIRatioImageView extends ImageView {
             mBaseLine = ta.getInt(R.styleable.UIRatioImageView_base_line, WIDTH);
             ta.recycle();
         }
-        setScaleType(ScaleType.FIT_CENTER
-                    );
+        setScaleType(ScaleType.CENTER_CROP);
     }
 
     @Override

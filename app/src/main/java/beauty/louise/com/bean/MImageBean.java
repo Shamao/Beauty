@@ -13,7 +13,7 @@ public class MImageBean {
     private int mVerticalWeight;
 
     public MImageBean() {
-        this(R.drawable.ic_loading, 2, 1);
+        this(R.drawable.ph_planet, 2, 1);
     }
 
     public MImageBean(int imgRes, int horizontalWeight, int verticalWeight) {
