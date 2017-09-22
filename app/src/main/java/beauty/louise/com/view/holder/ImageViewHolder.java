@@ -29,16 +29,18 @@ public class ImageViewHolder extends BaseViewHolder {
     }
 
     public void fillData(MImageBean item) {
-        int horizontalWeight = item.getHorizontalWeight();
-        int verticalWeight = item.getVerticalWeight();
-        mCoverIv.setHorizontalWeight(item.getHorizontalWeight());
-        mCoverIv.setVerticalWeight(item.getVerticalWeight());
+        int width = item.getWidth();
+        int height = item.getHeight();
+        mCoverIv.setWidth(width);
+        mCoverIv.setHorizontalWeight(width);
+        mCoverIv.setVerticalWeight(height);
 
         String imageUrl = item.getImageUrl();
         int imageRes = item.getImageRes();
         if (!TextUtils.isEmpty(imageUrl)) {
-            GlideUtils.displayImageByRate(itemView.getContext(), imageUrl, horizontalWeight, verticalWeight)
-                    .dontAnimate()
+            GlideUtils.displayImageByRate(itemView.getContext(), imageUrl, width, height)
+                    .crossFade()
+//                    .override(width, height)
                     .into(mCoverIv);
         } else if (imageRes > 0) {
             mCoverIv.setImageResource(imageRes);

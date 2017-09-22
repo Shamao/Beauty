@@ -2,6 +2,7 @@ package beauty.louise.com.Utils;
 
 import android.content.Context;
 
+import com.alibaba.mtl.log.utils.Logger;
 import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -14,7 +15,7 @@ import beauty.louise.com.R;
  */
 
 public class GlideUtils {
-
+    private static final String mTag = GlideUtils.class.getSimpleName();
 
     public static DrawableRequestBuilder displayImagePlaceHolder(Context context, int resId, String url) {
         DrawableRequestBuilder builder = Glide.with(context).load(url);
@@ -36,29 +37,33 @@ public class GlideUtils {
     public static DrawableRequestBuilder displayImageByRate(Context context, String url, int widthWeight, int heightWeight) {
         DrawableRequestBuilder builder = null;
 
-        float ratioH = widthWeight * 1.0f / heightWeight;
+        if (widthWeight == 0 || heightWeight == 0) {
+            return GlideUtils.displayImage1_1(context, url);
+        }
 
-        if (ratioH == 0.5) {
+        float ratioH = widthWeight * 1.0f / heightWeight;
+        float ratioV = heightWeight * 1.0f / widthWeight;
+        if (ratioH == 0.5f) {
             builder = GlideUtils.displayImage1_2(context, url);
-        } else if (ratioH == 1) {
+        } else if (ratioH == 1f) {
             builder = GlideUtils.displayImage1_1(context, url);
-        } else if (ratioH == 2) {
+        } else if (ratioH == 2f) {
             builder = GlideUtils.displayImage2_1(context, url);
-        } else if (ratioH == 3) {
+        } else if (ratioH == 3f) {
             builder = GlideUtils.displayImage3_1(context, url);
         } else {
-            float ratioV = heightWeight * 1.0f / widthWeight;
-            if (ratioV == 0.6) {
+            if (ratioV == 0.6f) {
                 builder = GlideUtils.displayImage5_3(context, url);
-            } else if (ratioV == 0.75) {
+            } else if (ratioV == 0.75f) {
                 builder = GlideUtils.displayImage4_3(context, url);
-            } else if (ratioV == 2) {
+            } else if (ratioV == 2f) {
                 builder = GlideUtils.displayImage1_2(context, url);
             }
         }
 
         if (builder == null) {
-            builder = GlideUtils.displayImagePlaceHolder(context, R.drawable.ph_planet, url);
+            builder = GlideUtils.displayImagePlaceHolder(context, R.drawable.ph_planet, "");
+            Logger.d(mTag, "没有找到ratioH=" + ratioH + ";ratioV=" + ratioV);
         }
 
         return builder;
@@ -79,8 +84,7 @@ public class GlideUtils {
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .placeholder(R.drawable.ph_planet)
-                .error(R.drawable.ph_planet)
-                ;
+                .error(R.drawable.ph_planet);
 
     }
 

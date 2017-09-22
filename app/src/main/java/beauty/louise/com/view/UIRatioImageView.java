@@ -8,7 +8,10 @@ import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
+import com.alibaba.mtl.log.utils.Logger;
+
 import beauty.louise.com.R;
+import beauty.louise.com.Utils.Constant.ConstTag;
 
 /**
  * Created by lsd on 17/9/19.
@@ -16,6 +19,7 @@ import beauty.louise.com.R;
 
 public class UIRatioImageView extends ImageView {
 
+    private static final String mTag = UIRatioImageView.class.getSimpleName() + UIRatioImageView.class.hashCode();
     public static final int WIDTH = 0;
     public static final int HEIGHT = 1;
 
@@ -53,11 +57,12 @@ public class UIRatioImageView extends ImageView {
             mBaseLine = ta.getInt(R.styleable.UIRatioImageView_base_line, WIDTH);
             ta.recycle();
         }
-        setScaleType(ScaleType.CENTER_CROP);
+        setScaleType(ScaleType.FIT_CENTER);
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        Logger.d(ConstTag.S_CUSTOM_VIEW, mTag, "onMeasure");
         int desiredWidth = 0, desiredHeight = 0;
         if (mBaseLine == WIDTH) {
             if (mSpecifiedWidth != 0) {
@@ -70,7 +75,7 @@ public class UIRatioImageView extends ImageView {
             desiredHeight = (int) (desiredWidth * ratio);
         }
 
-        if (desiredHeight == 0 && desiredWidth == 0) {
+        if (desiredHeight == 0 || desiredWidth == 0) {
             mBaseLine = HEIGHT;
         }
 
@@ -85,6 +90,20 @@ public class UIRatioImageView extends ImageView {
         }
 
         setMeasuredDimension(desiredWidth, desiredHeight);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Logger.d(ConstTag.S_CUSTOM_VIEW, mTag, "onLayout");
+
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        Logger.d(ConstTag.S_CUSTOM_VIEW, mTag, "onSizeChanged");
+
     }
 
     /**
@@ -108,8 +127,10 @@ public class UIRatioImageView extends ImageView {
     }
 
     public void setVerticalWeight(int verticalWeight) {
-        mVerticalWeight = verticalWeight;
-        requestLayout();
+        if (verticalWeight > 0) {
+            mVerticalWeight = verticalWeight;
+            requestLayout();
+        }
     }
 
     public int getHorizontalWeight() {
@@ -118,8 +139,10 @@ public class UIRatioImageView extends ImageView {
     }
 
     public void setHorizontalWeight(int horizontalWeight) {
-        mHorizontalWeight = horizontalWeight;
-        requestLayout();
+        if (horizontalWeight > 0) {
+            mHorizontalWeight = horizontalWeight;
+            requestLayout();
+        }
     }
 
     /**
@@ -143,4 +166,6 @@ public class UIRatioImageView extends ImageView {
             super.setScaleType(scaleType);
         }
     }
+
+
 }

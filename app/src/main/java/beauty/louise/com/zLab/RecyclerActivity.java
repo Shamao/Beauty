@@ -2,6 +2,8 @@ package beauty.louise.com.zLab;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
+import android.support.v7.widget.PagerSnapHelper;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -37,7 +39,7 @@ public class RecyclerActivity extends BaseActivity {
     public void initData() {
         mImages = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            mImages.add(new MImageBean(R.drawable.loading, 1, i % 3 + 1));
+            mImages.add(new MImageBean(R.drawable.ph_planet, 1, 1));
         }
         mHorizontalAdapter = new MultiTypeAdapter(mImages);
         mHorizontalAdapter.register(MImageBean.class, new ImageProvider());
@@ -53,15 +55,16 @@ public class RecyclerActivity extends BaseActivity {
         mHorizontalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mHorizontalRecyclerView.setLayoutManager(mHorizontalLayoutManager);
         mHorizontalRecyclerView.setAdapter(mHorizontalAdapter);
+        PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
+        pagerSnapHelper.attachToRecyclerView(mHorizontalRecyclerView);
 
         mVerticalRecyclerView.hasFixedSize();
         mVerticalLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mVerticalRecyclerView.setLayoutManager(mVerticalLayoutManager);
         mVerticalRecyclerView.setAdapter(mVerticalAdapter);
 
-        //LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
-        //linearSnapHelper.attachToRecyclerView(mLlhRecyclerView);
-        //PagerSnapHelper pagerSnapHelper = new PagerSnapHelper();
-        //pagerSnapHelper.attachToRecyclerView(mLlhRecyclerView);
+        LinearSnapHelper linearSnapHelper = new LinearSnapHelper();
+        linearSnapHelper.attachToRecyclerView(mVerticalRecyclerView);
+
     }
 }

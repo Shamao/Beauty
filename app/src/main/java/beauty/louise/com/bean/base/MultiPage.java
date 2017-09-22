@@ -2,6 +2,7 @@ package beauty.louise.com.bean.base;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,5 +41,19 @@ public class MultiPage<T> {
 
     public void setList(List<T> list) {
         mList = list;
+    }
+
+    public void clear() {
+        if (mList != null) {
+            mList.clear();
+        }
+    }
+
+    public void addItem(T t) {
+        if (mList == null) {
+            mList = new ArrayList<>();
+        }
+        mList.add(t);
+
     }
 }

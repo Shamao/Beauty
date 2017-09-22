@@ -10,8 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import beauty.louise.com.R;
+import beauty.louise.com.Utils.DisplayUtils;
 import beauty.louise.com.bean.MImageBean;
+import beauty.louise.com.bean.base.MultiPage;
 import beauty.louise.com.view.UIGradientTopBar;
+import beauty.louise.com.view.provider.BannerProvider;
 import beauty.louise.com.view.provider.ImageProvider;
 import beauty.louise.com.zLab.LabActivity;
 import butterknife.BindView;
@@ -32,6 +35,8 @@ public class MainActivity extends BaseActivity {
     LinearLayoutManager mLayoutManager;
 
     private List<Object> mData;
+    private int mScreenWidth;
+    private int mScreenHeight;
 
     @Override
     public int getLayoutId() {
@@ -40,11 +45,34 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void initData() {
+        mScreenWidth = DisplayUtils.getScreenWidth(this);
+        mScreenHeight = DisplayUtils.getScreenHeight(this);
         mData = new ArrayList<>();
-        mData.add(new MImageBean());
-        mData.add(new MImageBean());
+
+        MultiPage<MImageBean> multiPage = new MultiPage<>();
+        multiPage.clear();
+        multiPage.addItem(
+                new MImageBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", mScreenWidth,
+                               mScreenWidth / 2));
+        multiPage.addItem(
+                new MImageBean("http://static.cosmeapp.com/product/201709/15/18/51/59bbb0c372f23674.jpg", mScreenWidth,
+                               mScreenWidth / 2));
+        multiPage.addItem(
+                new MImageBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", mScreenWidth,
+                               mScreenWidth / 2));
+
+        mData.add(multiPage);
+        //        mData.add(new MImageBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", 2, 1));
+        //        mData.add(new MImageBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 2, 1));
+        //        mData.add(new MImageBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", 2, 1));
+        //        mData.add(new MImageBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 2, 1));
+        //        mData.add(new MImageBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", 2, 1));
+        //        mData.add(new MImageBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 2, 1));
+        //        mData.add(new MImageBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", 2, 1));
+        //        mData.add(new MImageBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 2, 1));
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MImageBean.class, new ImageProvider());
+        mAdapter.register((Class<? extends MultiPage<MImageBean>>) multiPage.getClass(), new BannerProvider());
     }
 
     @Override
@@ -65,6 +93,7 @@ public class MainActivity extends BaseActivity {
                 mSwipeRefreshLayout.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        mAdapter.notifyDataSetChanged();
                         mSwipeRefreshLayout.setRefreshing(false);
                     }
                 }, 800);

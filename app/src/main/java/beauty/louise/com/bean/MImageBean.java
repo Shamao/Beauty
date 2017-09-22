@@ -9,17 +9,31 @@ import beauty.louise.com.R;
 public class MImageBean {
     private String mImageUrl;
     private int mImageRes;
-    private int mHorizontalWeight;
-    private int mVerticalWeight;
+    private int mWidth;
+    private int mHeight;
+
+
+    public MImageBean(String imageUrl, int width, int height) {
+        mImageUrl = imageUrl;
+        mWidth = width;
+        mHeight = height;
+    }
 
     public MImageBean() {
         this(R.drawable.ph_planet, 2, 1);
     }
 
-    public MImageBean(int imgRes, int horizontalWeight, int verticalWeight) {
+    public MImageBean(int imgRes, int width, int height) {
         mImageRes = imgRes;
-        mHorizontalWeight = horizontalWeight;
-        mVerticalWeight = verticalWeight;
+        mWidth = width;
+        mHeight = height;
+    }
+
+    public MImageBean(String imageUrl, int imageRes, int width, int height) {
+        mImageUrl = imageUrl;
+        mImageRes = imageRes;
+        mWidth = width;
+        mHeight = height;
     }
 
     public String getImageUrl() {
@@ -38,19 +52,19 @@ public class MImageBean {
         mImageRes = imageRes;
     }
 
-    public int getHorizontalWeight() {
-        return mHorizontalWeight;
+    public int getWidth() {
+        return mWidth;
     }
 
-    public void setHorizontalWeight(int horizontalWeight) {
-        mHorizontalWeight = horizontalWeight;
+    public void setWidth(int width) {
+        mWidth = width;
     }
 
-    public int getVerticalWeight() {
-        return mVerticalWeight;
+    public int getHeight() {
+        return mHeight;
     }
 
-    public void setVerticalWeight(int verticalWeight) {
-        mVerticalWeight = verticalWeight;
+    public void setHeight(int height) {
+        mHeight = height;
     }
 }
