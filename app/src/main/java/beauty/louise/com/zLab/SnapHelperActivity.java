@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import beauty.louise.com.R;
+import beauty.louise.com.bean.MCoverBean;
 import beauty.louise.com.bean.MImageBean;
+import beauty.louise.com.view.provider.CoverProvider;
 import beauty.louise.com.view.provider.ImageProvider;
 import butterknife.BindView;
 import me.drakeet.multitype.MultiTypeAdapter;
@@ -18,18 +20,17 @@ import princessmakeup.buykee.com.common.base.BaseActivity;
 
 public class SnapHelperActivity extends BaseActivity {
 
-    //data
-    private List<MImageBean> mImages;
-
     @BindView(R.id.linear_snap_recycler)
     RecyclerView mLinearSnapRecyclerView;
     private LinearLayoutManager mLinearSnapLayoutManager;
     private MultiTypeAdapter mLinearSnapAdapter;
+    private List<MImageBean> mLinearImages;
 
     @BindView(R.id.pager_snap_recycler)
     RecyclerView mPagerSnapRecyclerView;
     private LinearLayoutManager mPagerSnapLayoutManager;
     private MultiTypeAdapter mSnapHelperAdapter;
+    private List<MCoverBean> mPagerImages;
 
 
     @Override
@@ -39,15 +40,23 @@ public class SnapHelperActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        mImages = new ArrayList<>();
+        mLinearImages = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-            mImages.add(new MImageBean(R.drawable.ph_planet, 2, 1));
+            mLinearImages.add(new MImageBean());
         }
-        mLinearSnapAdapter = new MultiTypeAdapter(mImages);
+        mLinearSnapAdapter = new MultiTypeAdapter(mLinearImages);
         mLinearSnapAdapter.register(MImageBean.class, new ImageProvider());
 
-        mSnapHelperAdapter = new MultiTypeAdapter(mImages);
-        mSnapHelperAdapter.register(MImageBean.class, new ImageProvider());
+        mPagerImages = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            if (i % 2 == 0) {
+                mPagerImages.add(new MCoverBean(R.drawable.ph_planet, 2, 1));
+            } else {
+                mPagerImages.add(new MCoverBean());
+            }
+        }
+        mSnapHelperAdapter = new MultiTypeAdapter(mPagerImages);
+        mSnapHelperAdapter.register(MCoverBean.class, new CoverProvider());
 
     }
 

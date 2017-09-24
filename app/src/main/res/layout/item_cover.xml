@@ -2,16 +2,14 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:background="#00f"
     android:layout_width="match_parent"
+    tools:background="#400f"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
 
-    <ImageView
+    <beauty.louise.com.view.UIRatioImageView
         android:id="@+id/cover_iv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ph_planet"/>
-
+        tools:src="@drawable/ph_planet"/>
 </FrameLayout>

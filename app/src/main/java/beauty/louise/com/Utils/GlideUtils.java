@@ -38,7 +38,7 @@ public class GlideUtils {
         DrawableRequestBuilder builder = null;
 
         if (widthWeight == 0 || heightWeight == 0) {
-            return GlideUtils.displayImage1_1(context, url);
+            return GlideUtils.displayImagePlaceHolder(context, -1, url);
         }
 
         float ratioH = widthWeight * 1.0f / heightWeight;

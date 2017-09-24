@@ -18,12 +18,12 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/linear_snap_recycler"
         android:layout_width="match_parent"
-        android:layout_height="120dp"/>
+        android:layout_height="180dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/pager_snap_recycler"
         android:layout_width="match_parent"
-        android:layout_height="120dp"/>
+        android:layout_height="180dp"/>
 
 
 </LinearLayout>

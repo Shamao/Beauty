@@ -91,14 +91,15 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        if (mCountDownTimer != null) {
-            mCountDownTimer.cancel();
-        }
+
     }
+
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+        }
     }
 }

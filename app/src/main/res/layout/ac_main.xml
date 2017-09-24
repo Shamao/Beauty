@@ -14,6 +14,11 @@
         android:layout_height="wrap_content"
         app:bbs_title="首页"
         app:bbs_right_src="@drawable/ic_more_round"/>
+    <beauty.louise.com.view.UIRatioImageView
+        android:id="@+id/cover_iv"
+        tools:src="@drawable/ph_planet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
         android:layout_width="match_parent"

@@ -6,30 +6,30 @@ import beauty.louise.com.R;
  * Created by lsd on 17/8/31.
  */
 
-public class MImageBean {
+public class MCoverBean {
     private String mImageUrl;
     private int mImageRes;
     private int mWidth;
     private int mHeight;
 
 
-    public MImageBean(String imageUrl, int width, int height) {
+    public MCoverBean(String imageUrl, int width, int height) {
         mImageUrl = imageUrl;
         mWidth = width;
         mHeight = height;
     }
 
-    public MImageBean() {
+    public MCoverBean() {
         this(R.drawable.ph_planet, 0, 0);
     }
 
-    public MImageBean(int imgRes, int width, int height) {
+    public MCoverBean(int imgRes, int width, int height) {
         mImageRes = imgRes;
         mWidth = width;
         mHeight = height;
     }
 
-    public MImageBean(String imageUrl, int imageRes, int width, int height) {
+    public MCoverBean(String imageUrl, int imageRes, int width, int height) {
         mImageUrl = imageUrl;
         mImageRes = imageRes;
         mWidth = width;

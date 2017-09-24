@@ -52,17 +52,23 @@ public class UIRatioImageView extends ImageView {
     private void init(Context context, AttributeSet attrs) {
         if (attrs != null) {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.UIRatioImageView);
-            mHorizontalWeight = ta.getInt(R.styleable.UIRatioImageView_horizontal_weight, 1);
-            mVerticalWeight = ta.getInt(R.styleable.UIRatioImageView_vertical_weight, 1);
+            mHorizontalWeight = ta.getInt(R.styleable.UIRatioImageView_horizontal_weight, 0);
+            mVerticalWeight = ta.getInt(R.styleable.UIRatioImageView_vertical_weight, 0);
             mBaseLine = ta.getInt(R.styleable.UIRatioImageView_base_line, WIDTH);
             ta.recycle();
         }
         setScaleType(ScaleType.FIT_CENTER);
     }
 
+    //calculate imageView'size（width and height）
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         Logger.d(ConstTag.S_CUSTOM_VIEW, mTag, "onMeasure");
+        if (mHorizontalWeight == 0 || mVerticalWeight == 0) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+            return;
+        }
+
         int desiredWidth = 0, desiredHeight = 0;
         if (mBaseLine == WIDTH) {
             if (mSpecifiedWidth != 0) {
@@ -70,8 +76,8 @@ public class UIRatioImageView extends ImageView {
             } else {
                 desiredWidth = MeasureSpec.getSize(widthMeasureSpec);
             }
-            float ratio = (mVerticalWeight * 1.0f) / mHorizontalWeight;
 
+            float ratio = (mVerticalWeight * 1.0f) / mHorizontalWeight;
             desiredHeight = (int) (desiredWidth * ratio);
         }
 
@@ -85,11 +91,18 @@ public class UIRatioImageView extends ImageView {
             } else {
                 desiredHeight = MeasureSpec.getSize(heightMeasureSpec);
             }
-            float ratio = (mHorizontalWeight * 1.0f) / mVerticalWeight;
-            desiredWidth = (int) (desiredHeight * ratio);
+
+            if (mVerticalWeight != 0 || mHorizontalWeight != 0) {
+                float ratio = (mHorizontalWeight * 1.0f) / mVerticalWeight;
+                desiredWidth = (int) (desiredHeight * ratio);
+            }
         }
 
-        setMeasuredDimension(desiredWidth, desiredHeight);
+        if (desiredWidth > 0 && desiredHeight > 0) {
+            setMeasuredDimension(desiredWidth, desiredHeight);
+        } else {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        }
     }
 
     @Override
@@ -127,10 +140,8 @@ public class UIRatioImageView extends ImageView {
     }
 
     public void setVerticalWeight(int verticalWeight) {
-        if (verticalWeight > 0) {
             mVerticalWeight = verticalWeight;
             requestLayout();
-        }
     }
 
     public int getHorizontalWeight() {
@@ -139,10 +150,8 @@ public class UIRatioImageView extends ImageView {
     }
 
     public void setHorizontalWeight(int horizontalWeight) {
-        if (horizontalWeight > 0) {
             mHorizontalWeight = horizontalWeight;
             requestLayout();
-        }
     }
 
     /**

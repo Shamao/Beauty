@@ -11,8 +11,9 @@ import java.util.List;
 
 import beauty.louise.com.R;
 import beauty.louise.com.base.BaseViewHolder;
+import beauty.louise.com.bean.MCoverBean;
 import beauty.louise.com.bean.MImageBean;
-import beauty.louise.com.view.provider.ImageProvider;
+import beauty.louise.com.view.provider.CoverProvider;
 import butterknife.BindView;
 import me.drakeet.multitype.MultiTypeAdapter;
 
@@ -28,7 +29,7 @@ public class BannerViewHolder extends BaseViewHolder {
     @BindView(R.id.banner_recycler)
     RecyclerView mBannerRV;
     MultiTypeAdapter mBannerAdapter;
-    List<MImageBean> mData;
+    List<MCoverBean> mData;
     int mResultWidth;
     int mResultHeight;
 
@@ -38,7 +39,7 @@ public class BannerViewHolder extends BaseViewHolder {
         mResultHeight = (int) (mResultWidth * 0.5f);
         mData = new ArrayList<>();
         mBannerAdapter = new MultiTypeAdapter(mData);
-        mBannerAdapter.register(MImageBean.class, new ImageProvider());
+        mBannerAdapter.register(MCoverBean.class, new CoverProvider());
         mBannerRV.setHasFixedSize(true);
         mBannerRV.setLayoutManager(
                 new LinearLayoutManager(itemView.getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -47,7 +48,7 @@ public class BannerViewHolder extends BaseViewHolder {
         pagerSnapHelper.attachToRecyclerView(mBannerRV);
     }
 
-    public void fillData(List<MImageBean> data) {
+    public void fillData(List<MCoverBean> data) {
         ViewGroup.LayoutParams lp = mBannerRV.getLayoutParams();
         if (lp == null) {
             lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mResultHeight);
