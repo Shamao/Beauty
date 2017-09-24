@@ -83,7 +83,7 @@
             android:screenOrientation="landscape"/>
         <activity android:name=".zLab.LabActivity">
         </activity>
-        <activity android:name=".zLab.RecyclerActivity">
+        <activity android:name=".zLab.SnapHelperActivity">
         </activity>
     </application>
 

@@ -7,23 +7,23 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/default_grey_bg"
-    tools:context="beauty.louise.com.zLab.RecyclerActivity">
+    tools:context="beauty.louise.com.zLab.SnapHelperActivity">
 
     <beauty.louise.com.view.UIGradientTopBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/default_white"
-        app:bbs_title="RecyclerView专题"/>
+        app:bbs_title="RecyclerView之SnapHelper专题"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/horizontal_recycler"
+        android:id="@+id/linear_snap_recycler"
         android:layout_width="match_parent"
         android:layout_height="120dp"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/vertical_recycler"
+        android:id="@+id/pager_snap_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="120dp"/>
 
 
 </LinearLayout>

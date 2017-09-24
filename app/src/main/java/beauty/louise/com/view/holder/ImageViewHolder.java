@@ -31,11 +31,10 @@ public class ImageViewHolder extends BaseViewHolder {
     public void fillData(MImageBean item) {
         int width = item.getWidth();
         int height = item.getHeight();
-        mCoverIv.setWidth(width);
         mCoverIv.setHorizontalWeight(width);
         mCoverIv.setVerticalWeight(height);
 
-        String imageUrl = item.getImageUrl();
+        String imageUrl = "";
         int imageRes = item.getImageRes();
         if (!TextUtils.isEmpty(imageUrl)) {
             GlideUtils.displayImageByRate(itemView.getContext(), imageUrl, width, height)

@@ -34,6 +34,6 @@ public class LabActivity extends BaseActivity {
 
     @OnClick(R.id.recycler_module_tv)
     void onRecyclerModuletClick(View view) {
-        ActivityUtils.startActivity(this, RecyclerActivity.class);
+        ActivityUtils.startActivity(this, SnapHelperActivity.class);
     }
 }
