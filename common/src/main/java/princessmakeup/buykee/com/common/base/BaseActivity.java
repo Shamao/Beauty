@@ -2,6 +2,7 @@ package princessmakeup.buykee.com.common.base;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
@@ -9,6 +10,7 @@ import butterknife.ButterKnife;
 import princessmakeup.buykee.com.common.manager.AppManager;
 import princessmakeup.buykee.com.common.utils.Logger;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
+import pub.devrel.easypermissions.EasyPermissions;
 
 
 /**
@@ -101,5 +103,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Logger.d(ConstTag.LifeCycle, mTag + "-onNewIntent");
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

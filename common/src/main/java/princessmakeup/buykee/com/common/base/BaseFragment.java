@@ -2,6 +2,7 @@ package princessmakeup.buykee.com.common.base;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import princessmakeup.buykee.com.common.utils.Logger;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
+import pub.devrel.easypermissions.EasyPermissions;
 
 /**
  * Created by Steam on 16/12/21.
@@ -126,5 +128,11 @@ public abstract class BaseFragment extends Fragment {
         if (isVisibleToUser) {
             Logger.d(ConstTag.LifeCycle, mTag + "-setUserVisibleHint");
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

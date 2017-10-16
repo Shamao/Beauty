@@ -40,7 +40,7 @@ public class ImageViewHolder extends BaseViewHolder {
         if (!TextUtils.isEmpty(imageUrl)) {
             GlideUtils.displayImageByRate(itemView.getContext(), imageUrl, width, height)
                     .crossFade()
-//                    .override(width, height)
+                    .override(width, height)
                     .into(mCoverIv);
         } else if (imageRes > 0) {
             mCoverIv.setImageResource(imageRes);
