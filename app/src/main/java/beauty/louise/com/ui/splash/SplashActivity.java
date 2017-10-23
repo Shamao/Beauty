@@ -14,6 +14,7 @@ import beauty.louise.com.ui.main.MainActivity;
 import butterknife.BindView;
 import princessmakeup.buykee.com.common.base.BaseActivity;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
+import princessmakeup.buykee.com.common.utils.Logger;
 
 
 public class SplashActivity extends BaseActivity {
@@ -22,7 +23,6 @@ public class SplashActivity extends BaseActivity {
     ImageView mLogoIv;
     @BindView(R.id.count_down_tv)
     TextView mTvCountDown;
-
     CountDownTimer mCountDownTimer;
 
     @Override
@@ -37,8 +37,8 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        startCountDown();
-        translateY();
+        //        startCountDown();
+        //        translateY();
     }
 
     @Override
@@ -48,6 +48,18 @@ public class SplashActivity extends BaseActivity {
     @Override
     public void initListener() {
         super.initListener();
+        mLogoIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Logger.d(mTag, "onClick");
+                startCountDown();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     private void translateY() {

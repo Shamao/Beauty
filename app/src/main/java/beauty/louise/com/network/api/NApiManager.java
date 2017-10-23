@@ -20,6 +20,7 @@ import beauty.louise.com.Utils.SecurityUtils;
 import princessmakeup.buykee.com.common.utils.AppUtils;
 import princessmakeup.buykee.com.common.utils.DisplayUtils;
 import beauty.louise.com.Utils.GsonUtils;
+import princessmakeup.buykee.com.common.utils.NetUtils;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -79,14 +80,14 @@ public class NApiManager {
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
-            if (!AppUtils.isNetworkAvailable(CosmeApp.getInstance())) {  //离线时只取缓存
+            if (!NetUtils.isConnected(CosmeApp.getInstance())) {  //离线时只取缓存
                 request = request.newBuilder()
                         .cacheControl(CacheControl.FORCE_CACHE)
                         .build();
             }
             Response originalResponse = chain.proceed(request);
 
-            if (AppUtils.isNetworkAvailable(CosmeApp.getInstance())) {
+            if (NetUtils.isConnected(CosmeApp.getInstance())) {
                 return originalResponse.newBuilder()
                         .removeHeader("Pragma")
                         .header("Cache-Control", "public, max-age=10")

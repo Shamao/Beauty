@@ -10,6 +10,7 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.OnClick;
 import me.drakeet.multitype.MultiTypeAdapter;
 import princessmakeup.buykee.com.common.base.BaseActivity;
 import princessmakeup.buykee.com.common.utils.StringUtils;
@@ -71,5 +72,10 @@ public class MainActivity extends BaseActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @OnClick(value = {R2.id.scroll_btn})
+    void onScrollClick(View view){
+
     }
 }

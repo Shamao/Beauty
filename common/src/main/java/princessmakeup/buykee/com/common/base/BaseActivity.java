@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import princessmakeup.buykee.com.common.manager.AppManager;
 import princessmakeup.buykee.com.common.utils.Logger;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
@@ -20,6 +21,7 @@ import pub.devrel.easypermissions.EasyPermissions;
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected String mTag;
+    protected Unbinder mUnbinder;
 
     public abstract int getLayoutId();
 
@@ -42,7 +44,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         initInnerData();
         Logger.d(ConstTag.LifeCycle, mTag + "-onCreate");
         Logger.d(ConstTag.ActivityStack, AppManager.getInstance().getAllActivities());
-
         initInnerView(savedInstanceState);
 
         loadData();

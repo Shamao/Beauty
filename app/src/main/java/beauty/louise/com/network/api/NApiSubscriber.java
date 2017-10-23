@@ -7,6 +7,7 @@ import beauty.louise.com.Utils.exception.ApiException;
 import beauty.louise.com.Utils.exception.HasAlertException;
 import beauty.louise.com.ui.views.UIToastUtils;
 import princessmakeup.buykee.com.common.utils.AppUtils;
+import princessmakeup.buykee.com.common.utils.NetUtils;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
 import rx.Subscriber;
 
@@ -51,7 +52,7 @@ public abstract class NApiSubscriber<T> extends Subscriber<T> {
      * @param e
      */
     public void onFailure(Throwable e) {
-        if (!AppUtils.isNetworkAvailable(mContext)) {
+        if (!NetUtils.isNetworkAvailable(mContext)) {
             UIToastUtils.makeText(mContext, "网络不可用", UIToastUtils.LENGTH_LONG).show();
             return;
         }

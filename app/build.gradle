@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'android-apt'
 
 android {
     signingConfigs {
@@ -77,10 +76,17 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testCompile 'junit:junit:4.12'
-    //sdk 
+    //sdk 优酷 需要迁移
     compile(name: 'YoukuPlayerOpenSDK-release', ext: 'aar')
     compile files('libs/mma_sdk.jar')
+    compile files('libs/utdid4all-1.1.5.5.jar')
+    compile 'com.alibaba:fastjson:1.1.56.android'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     compile 'com.android.support:multidex:1.0.0'
+    //
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    //
     compile 'io.reactivex:rxjava:1.2.0'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -90,7 +96,6 @@ dependencies {
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
     if (isBuildModule.toBoolean()) {
         compile project(':common')
     } else {
