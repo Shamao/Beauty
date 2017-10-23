@@ -1,4 +1,4 @@
-package beauty.louise.com.base;
+package princessmakeup.buykee.com.common.base;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

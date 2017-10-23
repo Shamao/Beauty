@@ -18,7 +18,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import beauty.louise.com.CosmeApp;
 import beauty.louise.com.Utils.SecurityUtils;
 import princessmakeup.buykee.com.common.utils.AppUtils;
-import princessmakeup.buykee.com.common.utils.DeviceUtils;
+import princessmakeup.buykee.com.common.utils.DisplayUtils;
 import beauty.louise.com.Utils.GsonUtils;
 import princessmakeup.buykee.com.common.utils.constant.ConstTag;
 import retrofit2.Retrofit;
@@ -112,15 +112,15 @@ public class NApiManager {
             HttpUrl httpUrl = request.url().newBuilder()
                     .addQueryParameter("auth_type", "session")
                     .addQueryParameter("session_id", session_id)
-                    .addQueryParameter("mid", DeviceUtils.getDeviceId(CosmeApp.getInstance()))
+                    .addQueryParameter("mid", DisplayUtils.getDeviceId(CosmeApp.getInstance()))
                     .addQueryParameter("image_size", getImageSize(CosmeApp.getInstance()) + "")
                     .addQueryParameter("client_version", AppUtils.getVersionName(CosmeApp.getInstance()))
                     .addQueryParameter("client_version_code", AppUtils.getVersionCode(CosmeApp.getInstance()) + "")
                     .addQueryParameter("client_channel", AppUtils.getAppChannel(CosmeApp.getInstance()))
                     .addQueryParameter("client_device", AppUtils.getDeviceInfo())
                     .addQueryParameter("from_device", "android")
-                    .addQueryParameter("width", DeviceUtils.getScreenWidth(CosmeApp.getInstance()) + "")
-                    .addQueryParameter("height", DeviceUtils.getScreenHeight(CosmeApp.getInstance()) + "")
+                    .addQueryParameter("width", DisplayUtils.getScreenWidth(CosmeApp.getInstance()) + "")
+                    .addQueryParameter("height", DisplayUtils.getScreenHeight(CosmeApp.getInstance()) + "")
                     .build();
             request = request.newBuilder().url(httpUrl).build();
             request = SecurityUtils.signRequest(request);
@@ -143,7 +143,7 @@ public class NApiManager {
     }
 
     public static String getImageSize(Context context) {
-        if (DeviceUtils.getScreenWidth(context) < 640) {
+        if (DisplayUtils.getScreenWidth(context) < 640) {
             return "480";
         }
         return "640";

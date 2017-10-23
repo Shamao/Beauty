@@ -4,11 +4,8 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Build;
 import android.util.Log;
-import android.util.TypedValue;
 
 
 /**
@@ -36,24 +33,6 @@ public class AppUtils {
             e.printStackTrace();
         }
         return debuggable;
-    }
-
-    public static int getActionBarHeight(Context context) {
-        TypedValue tv = new TypedValue();
-        int actionBarHeight = 0;
-        if (context.getTheme().resolveAttribute(android.R.attr.actionBarSize,
-                                                tv, true)) {
-            actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,
-                                                                     context.getResources().getDisplayMetrics());
-        }
-
-        if (actionBarHeight == 0
-                && context.getTheme().resolveAttribute(
-                android.R.attr.actionBarSize, tv, true)) {
-            actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,
-                                                                     context.getResources().getDisplayMetrics());
-        }
-        return actionBarHeight;
     }
 
     /**
@@ -104,51 +83,5 @@ public class AppUtils {
             e.printStackTrace();
         }
         return "baidu";
-    }
-
-
-    /**
-     * 获得状态栏的高度
-     *
-     * @param context
-     * @return
-     */
-    public static int getStatusHeight(Context context) {
-
-        int statusHeight = -1;
-        try {
-            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
-            Object object = clazz.newInstance();
-            int height = Integer.parseInt(clazz.getField("status_bar_height")
-                                                  .get(object).toString());
-            statusHeight = context.getResources().getDimensionPixelSize(height);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return statusHeight;
-    }
-
-    /**
-     * 判断网络是否可用
-     *
-     * @param context
-     * @return
-     */
-    public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        if (cm != null) {
-            //如果仅仅是用来判断网络连接
-            //则可以使用 cm.getActiveNetworkInfo().isAvailable();
-            NetworkInfo[] info = cm.getAllNetworkInfo();
-            if (info != null) {
-                for (int i = 0; i < info.length; i++) {
-                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
     }
 }
