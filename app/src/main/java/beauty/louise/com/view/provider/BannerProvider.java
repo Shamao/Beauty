@@ -6,9 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import beauty.louise.com.R;
-import beauty.louise.com.bean.MCoverBean;
-import beauty.louise.com.bean.MImageBean;
-import beauty.louise.com.bean.base.MultiPage;
+import beauty.louise.com.bean.helper.MCoverList;
 import beauty.louise.com.view.holder.BannerViewHolder;
 import me.drakeet.multitype.ItemViewBinder;
 
@@ -16,7 +14,7 @@ import me.drakeet.multitype.ItemViewBinder;
  * Created by lsd on 17/9/22.
  */
 
-public class BannerProvider extends ItemViewBinder<MultiPage<MCoverBean>, BannerViewHolder> {
+public class BannerProvider extends ItemViewBinder<MCoverList, BannerViewHolder> {
 
     @NonNull
     @Override
@@ -26,7 +24,7 @@ public class BannerProvider extends ItemViewBinder<MultiPage<MCoverBean>, Banner
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull BannerViewHolder holder, @NonNull MultiPage<MCoverBean> item) {
+    protected void onBindViewHolder(@NonNull BannerViewHolder holder, @NonNull MCoverList item) {
         holder.fillData(item.getList());
     }
 }
