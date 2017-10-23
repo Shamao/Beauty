@@ -37,8 +37,8 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        //        startCountDown();
-        //        translateY();
+                startCountDown();
+                translateY();
     }
 
     @Override
@@ -48,13 +48,6 @@ public class SplashActivity extends BaseActivity {
     @Override
     public void initListener() {
         super.initListener();
-        mLogoIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Logger.d(mTag, "onClick");
-                startCountDown();
-            }
-        });
     }
 
     @Override

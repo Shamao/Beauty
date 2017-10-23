@@ -21,11 +21,13 @@ android {
     }
     buildTypes {
         release {
+            buildConfigField "boolean", "isBuildModule",isBuildModule
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
         debug {
+            buildConfigField "boolean", "isBuildModule", isBuildModule
             signingConfig signingConfigs.release
         }
     }

@@ -1,6 +1,7 @@
 package beauty.louise.com.ui.main;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -11,6 +12,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
+import beauty.louise.com.BuildConfig;
 import beauty.louise.com.R;
 import beauty.louise.com.bean.MCoverBean;
 import beauty.louise.com.bean.MImageBean;
@@ -62,10 +64,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
                 new MCoverBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 100,
                                50));
         mData.add(multiPage);
-        for (int i = 0; i < 10; i++) {
-            mData.add(new MCoverBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 100,
-                                     50));
-        }
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MImageBean.class, new ImageProvider());
         mAdapter.register(MCoverBean.class, new CoverProvider());
@@ -105,14 +103,19 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
 
             @Override
             public void onRightClick(View view) {
-                ActivityUtils.startActivity(MainActivity.this, LabActivity.class);
+                if (!BuildConfig.isBuildModule) {
+                    ActivityUtils.startActivity(MainActivity.this, Intent.ACTION_VIEW, "lab://main", 0);
+                } else {
+                    ActivityUtils.startActivity(MainActivity.this, LabActivity.class);
+                }
             }
         });
     }
 
     @OnClick(R.id.permission_tv)
     void onPermissionClick(View view) {
-        EasyPermissions.requestPermissions(this, null, 1, Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.CAMERA);
+        EasyPermissions.requestPermissions(this, null, 1, Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                           Manifest.permission.CAMERA);
     }
 
 

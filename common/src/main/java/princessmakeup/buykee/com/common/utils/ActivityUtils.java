@@ -3,6 +3,7 @@ package princessmakeup.buykee.com.common.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 
@@ -91,10 +92,14 @@ public class ActivityUtils {
         context.startActivity(intent);
     }
 
-    public static void startActivity(Context context, String action, int flag) {
+    public static void startActivity(Context context, String action, String uri, int flag) {
         Intent intent = new Intent();
         if (!TextUtils.isEmpty(action)) {
             intent.setAction(action);
+        }
+
+        if (!TextUtils.isEmpty(uri)) {
+            intent.setData(Uri.parse(uri));
         }
 
         if (flag > 0) {

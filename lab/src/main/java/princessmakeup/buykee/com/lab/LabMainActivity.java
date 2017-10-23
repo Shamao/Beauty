@@ -17,7 +17,7 @@ import princessmakeup.buykee.com.common.utils.StringUtils;
 import princessmakeup.buykee.com.lab.view.layoutManager.ScrollSpeedLinearLayoutManager;
 import princessmakeup.buykee.com.lab.view.provider.TextProvider;
 
-public class MainActivity extends BaseActivity {
+public class LabMainActivity extends BaseActivity {
 
     private EditText mPositionEt;
     private Button mScrollBtn;

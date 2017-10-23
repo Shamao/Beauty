@@ -8,13 +8,13 @@
     tools:context=".ui.splash.SplashActivity">
     <ImageView
         android:id="@+id/logo_iv"
-        android:layout_width="200dp"
-        android:layout_height="109dp"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/default_splash"/>
+        android:src="@drawable/ic_slogan"/>
     <TextView
         android:id="@+id/count_down_tv"
         android:layout_width="32dp"
