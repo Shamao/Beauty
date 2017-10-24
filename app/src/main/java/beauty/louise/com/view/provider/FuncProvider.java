@@ -23,6 +23,6 @@ public class FuncProvider extends ItemViewBinder<MFuncList, FuncViewHolder> {
 
     @Override
     protected void onBindViewHolder(@NonNull FuncViewHolder holder, @NonNull MFuncList multiPage) {
-
+        holder.fillData(multiPage.getList());
     }
 }

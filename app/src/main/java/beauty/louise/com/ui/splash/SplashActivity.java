@@ -14,7 +14,6 @@ import beauty.louise.com.ui.main.MainActivity;
 import butterknife.BindView;
 import princessmakeup.buykee.com.common.base.BaseActivity;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
-import princessmakeup.buykee.com.common.utils.Logger;
 
 
 public class SplashActivity extends BaseActivity {
@@ -81,7 +80,7 @@ public class SplashActivity extends BaseActivity {
         mCountDownTimer = new CountDownTimer(4000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                mTvCountDown.setText(getString(R.string.count_down, millisUntilFinished / 1000));
+                mTvCountDown.setText(getString(R.string.count_down, (millisUntilFinished / 1000) - 1));
             }
 
             @Override

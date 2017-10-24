@@ -15,15 +15,12 @@ import java.util.List;
 import beauty.louise.com.BuildConfig;
 import beauty.louise.com.R;
 import beauty.louise.com.bean.MCoverBean;
-import beauty.louise.com.bean.MImageBean;
 import beauty.louise.com.bean.bean.MFuncBean;
 import beauty.louise.com.bean.helper.MCoverList;
 import beauty.louise.com.bean.helper.MFuncList;
 import beauty.louise.com.view.UIGradientTopBar;
 import beauty.louise.com.view.provider.BannerProvider;
-import beauty.louise.com.view.provider.CoverProvider;
 import beauty.louise.com.view.provider.FuncProvider;
-import beauty.louise.com.view.provider.ImageProvider;
 import beauty.louise.com.zLab.LabActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -58,16 +55,22 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         List<MCoverBean> coverList = new ArrayList<>();
         coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", 2, 1));
         coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/15/18/51/59bbb0c372f23674.jpg", 2, 1));
-        coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 100,
-                                     50));
+        coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 2, 1));
         mData.add(MCoverList.newInstance(coverList));
+
         List<MFuncBean> funcList = new ArrayList<>();
-        funcList.clear();
+        funcList.add(new MFuncBean());
+        funcList.add(new MFuncBean());
+        funcList.add(new MFuncBean());
+        funcList.add(new MFuncBean());
+
+        funcList.add(new MFuncBean());
+        funcList.add(new MFuncBean());
+        funcList.add(new MFuncBean());
         funcList.add(new MFuncBean());
         mData.add(MFuncList.newInstance(funcList));
+
         mAdapter = new MultiTypeAdapter(mData);
-        mAdapter.register(MImageBean.class, new ImageProvider());
-        mAdapter.register(MCoverBean.class, new CoverProvider());
         mAdapter.register(MCoverList.class, new BannerProvider());
         mAdapter.register(MFuncList.class, new FuncProvider());
     }
