@@ -15,12 +15,16 @@ import java.util.List;
 import beauty.louise.com.BuildConfig;
 import beauty.louise.com.R;
 import beauty.louise.com.bean.MCoverBean;
-import beauty.louise.com.bean.bean.MFuncBean;
+import beauty.louise.com.bean.MFuncBean;
+import beauty.louise.com.bean.MTagBean;
 import beauty.louise.com.bean.helper.MCoverList;
 import beauty.louise.com.bean.helper.MFuncList;
+import beauty.louise.com.bean.helper.MTagList;
 import beauty.louise.com.view.UIGradientTopBar;
 import beauty.louise.com.view.provider.BannerProvider;
+import beauty.louise.com.view.provider.CoverProvider;
 import beauty.louise.com.view.provider.FuncProvider;
+import beauty.louise.com.view.provider.TagProvider;
 import beauty.louise.com.zLab.LabActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -63,16 +67,28 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         funcList.add(new MFuncBean());
         funcList.add(new MFuncBean());
         funcList.add(new MFuncBean());
-
         funcList.add(new MFuncBean());
         funcList.add(new MFuncBean());
         funcList.add(new MFuncBean());
         funcList.add(new MFuncBean());
         mData.add(MFuncList.newInstance(funcList));
 
+        List<MTagBean> tagList = new ArrayList<>();
+        tagList.add(new MTagBean("小小屋"));
+        tagList.add(new MTagBean("今日话题"));
+        tagList.add(new MTagBean("小小屋"));
+        tagList.add(new MTagBean("今日话题"));
+        tagList.add(new MTagBean("小小屋"));
+        tagList.add(new MTagBean("今日话题"));
+        tagList.add(new MTagBean("小小屋"));
+        tagList.add(new MTagBean("今日话题"));
+        tagList.add(new MTagBean("小小屋"));
+        mData.add(MTagList.newInstance(tagList));
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MCoverList.class, new BannerProvider());
         mAdapter.register(MFuncList.class, new FuncProvider());
+        mAdapter.register(MTagList.class, new TagProvider());
+        mAdapter.register(MCoverBean.class, new CoverProvider());
     }
 
     @Override

@@ -3,9 +3,9 @@ package beauty.louise.com.network.api;
 
 import java.util.ArrayList;
 
-import beauty.louise.com.bean.bean.MNoticeCount;
-import beauty.louise.com.bean.bean.MProductCate;
-import beauty.louise.com.bean.bean.UserBean;
+import beauty.louise.com.bean.MNoticeCount;
+import beauty.louise.com.bean.MProductCate;
+import beauty.louise.com.bean.UserBean;
 import beauty.louise.com.network.rx.RxJavaHelper;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

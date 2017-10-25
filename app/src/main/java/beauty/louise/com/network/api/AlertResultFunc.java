@@ -2,7 +2,7 @@ package beauty.louise.com.network.api;
 
 
 import beauty.louise.com.Utils.exception.HasAlertException;
-import beauty.louise.com.bean.bean.AlertData;
+import beauty.louise.com.bean.AlertData;
 import beauty.louise.com.bean.base.BaseResult;
 import beauty.louise.com.Utils.AlertUtils;
 import rx.functions.Func1;

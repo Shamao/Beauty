@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 import okhttp3.ResponseBody;
 import beauty.louise.com.bean.base.BaseResult;
-import beauty.louise.com.bean.bean.MNoticeCount;
-import beauty.louise.com.bean.bean.MProductCate;
-import beauty.louise.com.bean.bean.UserBean;
+import beauty.louise.com.bean.MNoticeCount;
+import beauty.louise.com.bean.MProductCate;
+import beauty.louise.com.bean.UserBean;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 import retrofit2.http.Streaming;

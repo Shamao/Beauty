@@ -2,7 +2,7 @@ package beauty.louise.com.bean.helper;
 
 import java.util.List;
 
-import beauty.louise.com.bean.bean.MFuncBean;
+import beauty.louise.com.bean.MFuncBean;
 
 /**
  * Created by lsd on 2017/10/24.

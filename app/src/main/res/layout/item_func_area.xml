@@ -12,9 +12,11 @@
     app:alignItems="center"
     app:flexDirection="row"
     app:flexWrap="wrap"
+    android:paddingBottom="@dimen/margin_huge"
+    android:paddingTop="@dimen/margin_huge"
     app:dividerDrawableHorizontal="@drawable/divider_white_small"
     app:justifyContent="space_around"
-    app:showDividerHorizontal="beginning|middle|end"
+    app:showDividerHorizontal="middle"
     tools:background="#1f0b9dee">
 
     <!--<ImageView-->

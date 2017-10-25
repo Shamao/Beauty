@@ -10,7 +10,7 @@ import java.util.List;
 
 import beauty.louise.com.R;
 import beauty.louise.com.base.BaseViewHolder;
-import beauty.louise.com.bean.bean.MFuncBean;
+import beauty.louise.com.bean.MFuncBean;
 import beauty.louise.com.view.flexbox.FlexBoxAdapter;
 import beauty.louise.com.view.flexbox.FlexBoxViewHolder;
 import beauty.louise.com.view.flexbox.UIFlexBoxView;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_grey_bg"
+    android:background="@color/default_white"
     android:orientation="vertical"
     tools:context=".ui.main.MainActivity">
 
@@ -40,8 +40,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
             android:layout_margin="@dimen/margin_huge"
-            android:background="@drawable/rect_round_white_small"
+            android:background="@drawable/round_permission"
             android:padding="@dimen/margin_mini"
+            android:gravity="center"
             android:text="权限"
             android:textSize="@dimen/font_small"/>
     </FrameLayout>

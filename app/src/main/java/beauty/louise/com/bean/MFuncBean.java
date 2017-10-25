@@ -1,4 +1,4 @@
-package beauty.louise.com.bean.bean;
+package beauty.louise.com.bean;
 
 import com.google.gson.annotations.SerializedName;
 

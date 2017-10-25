@@ -1,8 +1,6 @@
 package beauty.louise.com.bean;
 
 
-import beauty.louise.com.bean.bean.MNoticeCount;
-
 /**
  * Created by Steam on 16/11/29.
  */

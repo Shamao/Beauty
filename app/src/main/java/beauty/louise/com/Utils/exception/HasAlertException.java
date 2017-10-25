@@ -1,7 +1,7 @@
 package beauty.louise.com.Utils.exception;
 
 
-import beauty.louise.com.bean.bean.MAlert;
+import beauty.louise.com.bean.MAlert;
 
 /**
  * Created by Steam on 16/12/13.

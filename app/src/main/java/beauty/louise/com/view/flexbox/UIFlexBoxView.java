@@ -3,6 +3,7 @@ package beauty.louise.com.view.flexbox;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.google.android.flexbox.FlexboxLayout;
 
@@ -20,7 +21,9 @@ public class UIFlexBoxView extends FlexboxLayout {
 
     private AdapterDataSetObserver mDataSetObserver;
     private int mCurItemCount; // 当前数据源个数
-    private int mSpanCount;
+    private int mSpanCount;//@// TODO: 2017/10/25  spanCount 由view还是adapter 决定
+
+    private OnFlexBoxItemClickListener mListener;
 
     public UIFlexBoxView(Context context) {
         this(context, null);
@@ -82,15 +85,9 @@ public class UIFlexBoxView extends FlexboxLayout {
         mCurItemCount = mAdapter.getCount();
         if (mCurItemCount > 0) {
             for (int i = 0; i < mCurItemCount; i++) {
-                FlexBoxViewHolder holder = null;
-                if (mHolders.size() > i) {
-                    holder = mHolders.get(i);
-                }
+                final FlexBoxViewHolder holder = createViewHolder(i);
 
-                if (holder == null) {
-                    holder = createViewHolder(i);
-                    mHolders.add(holder);
-                }
+                onHandleItmViewListener(i, holder);
 
                 mAdapter.onHandleLayoutParams(holder.itemView, i);
 
@@ -102,6 +99,18 @@ public class UIFlexBoxView extends FlexboxLayout {
         }
     }
 
+    private void onHandleItmViewListener(int i, final FlexBoxViewHolder holder) {
+        final int finalI = i;
+        holder.itemView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onItemClick(holder.itemView, finalI);
+                }
+            }
+        });
+    }
+
     /**
      * 创建ViewHolder
      *
@@ -109,9 +118,18 @@ public class UIFlexBoxView extends FlexboxLayout {
      * @return
      */
     private FlexBoxViewHolder createViewHolder(int position) {
-        FlexBoxViewHolder holder = mAdapter.onCreateViewHolder(this);
-        if (holder.itemView.getParent() == null) {// 未添加到父布局中需要添加，已经添加的不需要再次添加
-            this.addView(holder.itemView, position);
+
+        FlexBoxViewHolder holder = null;
+        if (mHolders.size() > position) {
+            holder = mHolders.get(position);
+        }
+
+        if (holder == null) {
+            holder = mAdapter.onCreateViewHolder(this);
+            if (holder.itemView.getParent() == null) {// 未添加到父布局中需要添加，已经添加的不需要再次添加
+                this.addView(holder.itemView, position);
+            }
+            mHolders.add(holder);
         }
         return holder;
     }
@@ -130,5 +148,9 @@ public class UIFlexBoxView extends FlexboxLayout {
         public void onInvalidated() {
             super.onInvalidated();
         }
+    }
+
+    public void setOnFlexBoxItemClickListener(OnFlexBoxItemClickListener listener) {
+        mListener = listener;
     }
 }
