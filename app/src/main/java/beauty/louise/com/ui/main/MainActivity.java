@@ -27,7 +27,6 @@ import beauty.louise.com.view.provider.CoverProvider;
 import beauty.louise.com.view.provider.FuncProvider;
 import beauty.louise.com.view.provider.ImageProvider;
 import beauty.louise.com.view.provider.TagProvider;
-import beauty.louise.com.zLab.LabActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.drakeet.multitype.MultiTypeAdapter;
@@ -91,8 +90,8 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
         mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
         mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-2", 74, 24));
+        mData.add(new MImageBean("", 74, 24));
 
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MCoverList.class, new BannerProvider());
@@ -137,7 +136,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
                 if (!BuildConfig.isBuildModule) {
                     ActivityUtils.startActivity(MainActivity.this, Intent.ACTION_VIEW, "lab://main", 0);
                 } else {
-                    ActivityUtils.startActivity(MainActivity.this, LabActivity.class);
                 }
             }
         });

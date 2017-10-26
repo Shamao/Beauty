@@ -40,7 +40,6 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:allowBackup">
 
-        <!--  -->
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -56,8 +55,6 @@
             android:screenOrientation="portrait"/>
         <!-- Schame -->
         <activity android:name=".ui.SchemaFilterActivity">
-        </activity>
-        <activity android:name=".ui.weex.WeexActivity">
         </activity>
         <!-- uMeng -->
         <meta-data
@@ -81,8 +78,6 @@
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
-        <activity android:name=".zLab.LabActivity">
-        </activity>
         <activity android:name=".zLab.SnapHelperActivity">
         </activity>
     </application>

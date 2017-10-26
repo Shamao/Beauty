@@ -35,6 +35,7 @@ public class LabMainActivity extends BaseActivity {
     @Override
     public void initData() {
         mData = new ArrayList<>();
+        mData.add("自定义Drawable");
         for (int i = 0; i < 250; i++) {
             mData.add(i + "");
         }
