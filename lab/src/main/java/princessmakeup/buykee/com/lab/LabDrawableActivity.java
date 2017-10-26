@@ -2,17 +2,22 @@ package princessmakeup.buykee.com.lab;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import princessmakeup.buykee.com.common.base.BaseActivity;
 import princessmakeup.buykee.com.common.view.drawable.PlaceHolderDrawable;
 
 public class LabDrawableActivity extends BaseActivity {
+
     @BindView(R2.id.lab_iv_1)
     ImageView mLabIv1;
-    @BindView(R2.id.lab_iv_2)
-    ImageView mLabIv2;
+    @BindView(R2.id.ratio_et)
+    EditText mRatioEt;
+
 
     @Override
     public int getLayoutId() {
@@ -30,11 +35,11 @@ public class LabDrawableActivity extends BaseActivity {
                 new PlaceHolderDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.ic_placeholder));
         placeHolderDrawable1.setBounds(0, 0, 600, 1200);
         mLabIv1.setImageDrawable(placeHolderDrawable1);
-        //
-        PlaceHolderDrawable placeHolderDrawable2 =
-                new PlaceHolderDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.ic_placeholder_2));
-        placeHolderDrawable1.setBounds(0, 0, 900, 300);
-        mLabIv2.setImageDrawable(placeHolderDrawable2);
+    }
+
+    @OnClick(R2.id.start_btn)
+    void onStartClick(View view) {
+        int
     }
 
 }
