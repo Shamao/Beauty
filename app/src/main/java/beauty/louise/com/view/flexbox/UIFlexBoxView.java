@@ -21,7 +21,9 @@ public class UIFlexBoxView extends FlexboxLayout {
 
     private AdapterDataSetObserver mDataSetObserver;
     private int mCurItemCount; // 当前数据源个数
-    private int mSpanCount;//@// TODO: 2017/10/25  spanCount 由view还是adapter 决定
+    private int mSpanCount;
+
+
 
     private OnFlexBoxItemClickListener mListener;
 
@@ -89,7 +91,7 @@ public class UIFlexBoxView extends FlexboxLayout {
 
                 onHandleItmViewListener(i, holder);
 
-                mAdapter.onHandleLayoutParams(holder.itemView, i);
+                mAdapter.onHandleLayoutParams(holder.itemView, mSpanCount, i);
 
                 mAdapter.onBindViewHolder(holder, i);
             }
@@ -152,5 +154,13 @@ public class UIFlexBoxView extends FlexboxLayout {
 
     public void setOnFlexBoxItemClickListener(OnFlexBoxItemClickListener listener) {
         mListener = listener;
+    }
+
+    public int getSpanCount() {
+        return mSpanCount;
+    }
+
+    public void setSpanCount(int spanCount) {
+        mSpanCount = spanCount;
     }
 }

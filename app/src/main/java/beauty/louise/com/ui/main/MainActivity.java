@@ -16,6 +16,7 @@ import beauty.louise.com.BuildConfig;
 import beauty.louise.com.R;
 import beauty.louise.com.bean.MCoverBean;
 import beauty.louise.com.bean.MFuncBean;
+import beauty.louise.com.bean.MImageBean;
 import beauty.louise.com.bean.MTagBean;
 import beauty.louise.com.bean.helper.MCoverList;
 import beauty.louise.com.bean.helper.MFuncList;
@@ -24,6 +25,7 @@ import beauty.louise.com.view.UIGradientTopBar;
 import beauty.louise.com.view.provider.BannerProvider;
 import beauty.louise.com.view.provider.CoverProvider;
 import beauty.louise.com.view.provider.FuncProvider;
+import beauty.louise.com.view.provider.ImageProvider;
 import beauty.louise.com.view.provider.TagProvider;
 import beauty.louise.com.zLab.LabActivity;
 import butterknife.BindView;
@@ -84,17 +86,25 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         tagList.add(new MTagBean("今日话题"));
         tagList.add(new MTagBean("小小屋"));
         mData.add(MTagList.newInstance(tagList));
+
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
+
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MCoverList.class, new BannerProvider());
         mAdapter.register(MFuncList.class, new FuncProvider());
         mAdapter.register(MTagList.class, new TagProvider());
         mAdapter.register(MCoverBean.class, new CoverProvider());
+        mAdapter.register(MImageBean.class, new ImageProvider());
     }
 
     @Override
     public void initView(Bundle savedInstanceState) {
         mRecyclerView.setHasFixedSize(true);
-
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);

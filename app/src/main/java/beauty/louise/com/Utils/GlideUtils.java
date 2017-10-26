@@ -1,13 +1,14 @@
 package beauty.louise.com.Utils;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 
-import com.alibaba.mtl.log.utils.Logger;
 import com.bumptech.glide.DrawableRequestBuilder;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-
-import beauty.louise.com.R;
 
 
 /**
@@ -26,6 +27,15 @@ public class GlideUtils {
         return builder.centerCrop().diskCacheStrategy(DiskCacheStrategy.SOURCE);
     }
 
+    public static DrawableRequestBuilder displayImagePlaceHolder(Context context, Drawable drawable, String url) {
+        DrawableRequestBuilder builder = Glide.with(context).load(url);
+        if (drawable != null) {
+            builder.placeholder(drawable)
+                    .error(drawable);
+        }
+        return builder.centerCrop().diskCacheStrategy(DiskCacheStrategy.SOURCE);
+    }
+
     //    /**
     //     * 根据长宽比
     //     *
@@ -37,34 +47,17 @@ public class GlideUtils {
     public static DrawableRequestBuilder displayImageByRate(Context context, String url, int widthWeight, int heightWeight) {
         DrawableRequestBuilder builder = null;
 
-        if (widthWeight == 0 || heightWeight == 0) {
+        if (widthWeight < 0 || heightWeight < 0) {
             return GlideUtils.displayImagePlaceHolder(context, -1, url);
         }
 
         float ratioH = widthWeight * 1.0f / heightWeight;
         float ratioV = heightWeight * 1.0f / widthWeight;
-        if (ratioH == 0.5f) {
-            builder = GlideUtils.displayImage1_2(context, url);
-        } else if (ratioH == 1f) {
-            builder = GlideUtils.displayImage1_1(context, url);
-        } else if (ratioH == 2f) {
-            builder = GlideUtils.displayImage2_1(context, url);
-        } else if (ratioH == 3f) {
-            builder = GlideUtils.displayImage3_1(context, url);
-        } else {
-            if (ratioV == 0.6f) {
-                builder = GlideUtils.displayImage5_3(context, url);
-            } else if (ratioV == 0.75f) {
-                builder = GlideUtils.displayImage4_3(context, url);
-            } else if (ratioV == 2f) {
-                builder = GlideUtils.displayImage1_2(context, url);
-            }
-        }
-
-        if (builder == null) {
-            builder = GlideUtils.displayImagePlaceHolder(context, R.drawable.ph_planet, "");
-            Logger.d(mTag, "没有找到ratioH=" + ratioH + ";ratioV=" + ratioV);
-        }
+        ShapeDrawable rect = new ShapeDrawable(new RectShape());
+        rect.setIntrinsicWidth(DisplayUtils.getScreenWidth(context));
+        rect.setIntrinsicHeight(Math.round(DisplayUtils.getScreenWidth(context) * ratioV));
+        rect.getPaint().setColor(Color.GRAY);
+        builder = GlideUtils.displayImagePlaceHolder(context, rect, url);
 
         return builder;
     }
@@ -73,18 +66,18 @@ public class GlideUtils {
         return Glide.with(context)
                 .load(url)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ph_planet)
-                .error(R.drawable.ph_planet);
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE);
+        //                .placeholder(R.drawable.ph_planet)
+        //                .error(R.drawable.ph_planet);
     }
 
     public static DrawableRequestBuilder displayImage2_1(Context context, String url) {
         return Glide.with(context)
                 .load(url)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ph_planet)
-                .error(R.drawable.ph_planet);
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE);
+        //                .placeholder(R.drawable.ph_planet)
+        //                .error(R.drawable.ph_planet);
 
     }
 
@@ -92,10 +85,9 @@ public class GlideUtils {
         return Glide.with(context)
                 .load(url)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ph_planet)
-                .error(R.drawable.ph_planet)
-                ;
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE);
+        //                .placeholder(R.drawable.ph_planet)
+        //                .error(R.drawable.ph_planet)
     }
 
 
@@ -103,9 +95,9 @@ public class GlideUtils {
         return Glide.with(context)
                 .load(url)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ph_planet)
-                .error(R.drawable.ph_planet);
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE);
+        ////                .placeholder(R.drawable.ph_planet)
+        ////                .error(R.drawable.ph_planet);
 
     }
 
@@ -114,18 +106,18 @@ public class GlideUtils {
         return Glide.with(context)
                 .load(url)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ph_planet)
-                .error(R.drawable.ph_planet);
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE);
+        //                .placeholder(R.drawable.ph_planet)
+        //                .error(R.drawable.ph_planet);
     }
 
     public static DrawableRequestBuilder displayImage1_2(Context context, String url) {
         return Glide.with(context)
                 .load(url)
                 .centerCrop()
-                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
-                .placeholder(R.drawable.ph_planet)
-                .error(R.drawable.ph_planet);
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE);
+        //                .placeholder(R.drawable.ph_planet)
+        //                .error(R.drawable.ph_planet);
     }
 
 }

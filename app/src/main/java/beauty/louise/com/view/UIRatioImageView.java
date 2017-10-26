@@ -140,18 +140,21 @@ public class UIRatioImageView extends ImageView {
     }
 
     public void setVerticalWeight(int verticalWeight) {
+        if (mVerticalWeight != verticalWeight) {
             mVerticalWeight = verticalWeight;
             requestLayout();
+        }
     }
 
     public int getHorizontalWeight() {
-
         return mHorizontalWeight;
     }
 
     public void setHorizontalWeight(int horizontalWeight) {
+        if (mHorizontalWeight != horizontalWeight) {
             mHorizontalWeight = horizontalWeight;
             requestLayout();
+        }
     }
 
     /**

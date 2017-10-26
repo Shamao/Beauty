@@ -13,7 +13,7 @@ public abstract class FlexBoxAdapter<T extends FlexBoxViewHolder> {
 
     public abstract T onCreateViewHolder(ViewGroup parent);
 
-    public abstract void onHandleLayoutParams(View view, int position);
+    public abstract void onHandleLayoutParams(View view, int spanCount, int position);
 
     public abstract void onBindViewHolder(T holder, int position);
 

@@ -1,7 +1,8 @@
 package beauty.louise.com.view.holder;
 
-import android.text.TextUtils;
 import android.view.View;
+
+import com.bumptech.glide.request.target.Target;
 
 import beauty.louise.com.R;
 import beauty.louise.com.Utils.GlideUtils;
@@ -35,17 +36,15 @@ public class ImageViewHolder extends BaseViewHolder {
         mCoverIv.setVerticalWeight(height);
         width = mCoverIv.getWidth();
         height = mCoverIv.getHeight();
-        String imageUrl = "";
-        int imageRes = item.getImageRes();
-        if (!TextUtils.isEmpty(imageUrl)) {
+        if (width == 0 || height == 0) {
+            width = Target.SIZE_ORIGINAL;
+            height = Target.SIZE_ORIGINAL;
+        }
+
+        String imageUrl = item.getImageUrl();
             GlideUtils.displayImageByRate(itemView.getContext(), imageUrl, width, height)
-                    .crossFade()
+                    .dontAnimate()
                     .override(width, height)
                     .into(mCoverIv);
-        } else if (imageRes > 0) {
-            mCoverIv.setImageResource(imageRes);
-        } else {
-            mCoverIv.setImageResource(R.drawable.ph_planet);
-        }
     }
 }
