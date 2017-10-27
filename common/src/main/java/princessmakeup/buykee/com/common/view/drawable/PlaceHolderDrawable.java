@@ -3,12 +3,12 @@ package princessmakeup.buykee.com.common.view.drawable;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
 import android.graphics.Rect;
-import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
@@ -61,51 +61,44 @@ public class PlaceHolderDrawable extends Drawable {
     @Override
     public void setBounds(@NonNull Rect bounds) {
         super.setBounds(bounds);
-        mIntrinsicWidth = bounds.right - bounds.left;
-        mIntrinsicHeight = bounds.bottom - bounds.top;
-        Logger.d(mTag, "setBounds", bounds.left, bounds.top, bounds.right, bounds.bottom);
+        if ((mIntrinsicWidth != bounds.right - bounds.left) || (mIntrinsicHeight != bounds.bottom - bounds.top)) {
+            mIntrinsicWidth = bounds.right - bounds.left;
+            mIntrinsicHeight = bounds.bottom - bounds.top;
+            Logger.d(mTag, "setBounds", bounds.left, bounds.top, bounds.right, bounds.bottom);
+        }
     }
 
     @Override
     public void setBounds(int left, int top, int right, int bottom) {
         super.setBounds(left, top, right, bottom);
-        mIntrinsicWidth = right - left;
-        mIntrinsicHeight = bottom - top;
-        Logger.d(mTag, "setBounds", left, top, right, bottom);
+        if ((mIntrinsicWidth != right - left) || (mIntrinsicHeight != bottom - top)) {
+            mIntrinsicWidth = right - left;
+            mIntrinsicHeight = bottom - top;
+            Logger.d(mTag, "setBounds", left, top, right, bottom);
+        }
     }
 
     @Override
     public void draw(@NonNull Canvas canvas) {
         //获取imageView的矩形边框
+        canvas.drawColor(Color.GRAY);
         Rect rect = getBounds();
         Logger.d(mTag, "draw", rect.width(), rect.height(), rect.left, rect.top, rect.right, rect.bottom);
         float scaleWidth = rect.width() * 1.0f / mBitmap.getWidth();
         float scaleHeight = rect.height() * 1.0f / mBitmap.getHeight();
 
         float scale = scaleHeight > scaleWidth ? scaleWidth : scaleHeight;
-        Bitmap resultBitmap =
-                Bitmap.createScaledBitmap(mBitmap,
-                                          (int) (mBitmap.getWidth() * scale),
-                                          (int) (mBitmap.getHeight() * scale),
-                                          true);
-        //        float scale = Math.max(
-        //                rect.width() * 1.0f / mBitmap.getWidth(),
-        //                rect.height() * 1.0f / mBitmap.getHeight());
-        //        matrix.setScale(scale, scale);
-        //        shader.setLocalMatrix(matrix);
-        shader = new BitmapShader(resultBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-        mPaint.setShader(shader);
-        //        canvas.drawRect(rect, mPaint);
-        //        canvas.translate((rect.width() - mBitmap.getWidth()) / 2, (rect.height() - mBitmap.getHeight()) / 2);
-        int radiusX = resultBitmap.getWidth() / 2;
-        int radiusY = resultBitmap.getHeight() / 2;
-        //        canvas.drawRect(
-        //                rect.width() / 2 - radiusX,
-        //                rect.height() / 2 - radiusY,
-        //                rect.width() / 2 + radiusX,
-        //                rect.height() / 2 + radiusY,
-        //                mPaint);
-        canvas.drawRect(0, 0, rect.width(), rect.height(), mPaint);
+        float resultWidth = mBitmap.getWidth() * scale;
+        float resultHeight = mBitmap.getHeight() * scale;
+        int radiusX = (int) (resultWidth / 2);
+        int radiusY = (int) (resultHeight / 2);
+        canvas.drawBitmap(mBitmap,
+                          null,
+                          new Rect(rect.width() / 2 - radiusX,
+                                   rect.height() / 2 - radiusY,
+                                   rect.width() / 2 + radiusX,
+                                   rect.height() / 2 + radiusY),
+                          null);
     }
 
     @Override

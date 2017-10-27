@@ -89,9 +89,30 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
         mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
         mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
+        mData.add(new MImageBean("https://i0.hdslb.com/bfs/archive/cb2c40d4ee57993e9262cba19156c393c3d913c0.jpg@440w_220h.webp", 2, 1));
+        mData.add(new MImageBean("http://upload-images.jianshu.io/upload_images/6497204-83b02a08ee73ecb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240", 549, 337));
+
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-2", 74, 24));    mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
+        mData.add(new MImageBean("https://i0.hdslb.com/bfs/archive/cb2c40d4ee57993e9262cba19156c393c3d913c0.jpg@440w_220h.webp", 2, 1));
+        mData.add(new MImageBean("http://upload-images.jianshu.io/upload_images/6497204-83b02a08ee73ecb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240", 549, 337));
+
         mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
         mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-2", 74, 24));
-        mData.add(new MImageBean("", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
+        mData.add(new MImageBean(
+                "https://i0.hdslb.com/bfs/archive/cb2c40d4ee57993e9262cba19156c393c3d913c0.jpg@440w_220h.webp", 2, 1));
+        mData.add(new MImageBean(
+                "http://upload-images.jianshu.io/upload_images/6497204-83b02a08ee73ecb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
+                549, 337));
+
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
+        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-2", 74, 24));
+
 
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MCoverList.class, new BannerProvider());

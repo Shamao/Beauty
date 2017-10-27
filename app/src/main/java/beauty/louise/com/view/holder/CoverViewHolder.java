@@ -44,7 +44,7 @@ public class CoverViewHolder extends BaseViewHolder {
         String imageUrl = item.getImageUrl();
         int imageRes = item.getImageRes();
         if (!TextUtils.isEmpty(imageUrl)) {
-            GlideUtils.displayImageByRate(itemView.getContext(), imageUrl, width, height)
+            GlideUtils.displayImageByRate(itemView.getContext(), imageUrl)
                     .dontAnimate()
                     .override(width, height)
                     .into(mCoverIv);

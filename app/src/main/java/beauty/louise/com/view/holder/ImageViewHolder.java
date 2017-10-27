@@ -27,9 +27,8 @@ public class ImageViewHolder extends BaseViewHolder {
 
     public ImageViewHolder(View itemView) {
         super(itemView);
-    }
+    }public void fillData(MImageBean item) {
 
-    public void fillData(MImageBean item) {
         int width = item.getWidth();
         int height = item.getHeight();
         mCoverIv.setHorizontalWeight(width);
@@ -42,7 +41,7 @@ public class ImageViewHolder extends BaseViewHolder {
         }
 
         String imageUrl = item.getImageUrl();
-            GlideUtils.displayImageByRate(itemView.getContext(), imageUrl, width, height)
+        GlideUtils.displayImageByRate(itemView.getContext(), imageUrl)
                     .dontAnimate()
                     .override(width, height)
                     .into(mCoverIv);

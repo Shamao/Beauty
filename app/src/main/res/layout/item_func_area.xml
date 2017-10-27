@@ -7,8 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:clipChildren="true"
-    android:clipToPadding="true"
     app:alignItems="center"
     app:flexDirection="row"
     app:flexWrap="wrap"
@@ -18,49 +16,4 @@
     app:justifyContent="space_around"
     app:showDividerHorizontal="middle"
     tools:background="#1f0b9dee">
-
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@mipmap/ic_launcher"-->
-    <!--/>-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@mipmap/ic_launcher"-->
-    <!--/>-->
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@mipmap/ic_launcher"-->
-    <!--/>-->
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@mipmap/ic_launcher"-->
-    <!--/>-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@mipmap/ic_launcher"-->
-    <!--app:layout_wrapBefore="true"/>-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@mipmap/ic_launcher"-->
-    <!--/>-->
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@mipmap/ic_launcher"-->
-    <!--/>-->
-    <!--<ImageView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:src="@mipmap/ic_launcher"-->
-    <!--/>-->
-
 </beauty.louise.com.view.flexbox.UIFlexBoxView>
