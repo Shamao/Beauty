@@ -11,9 +11,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <action android:name="android.intent.action.VIEW"/>
-
                 <data android:host="main" android:scheme="lab"/>
             </intent-filter>
+        </activity>
+
+        <activity android:name=".LabTransitionActivity">
+        </activity>
+        <activity android:name=".LabDrawableActivity">
         </activity>
     </application>
 

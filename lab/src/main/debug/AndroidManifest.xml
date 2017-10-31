@@ -14,9 +14,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ImageDetailActivity">
+        <activity android:name=".LabTransitionActivity">
         </activity>
         <activity android:name=".LabDrawableActivity">
+        </activity>
+        <activity android:name=".LabCanvasActivity">
         </activity>
     </application>
 

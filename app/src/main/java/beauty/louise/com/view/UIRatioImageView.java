@@ -106,16 +106,15 @@ public class UIRatioImageView extends ImageView {
     }
 
     @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-        Logger.d(ConstTag.S_CUSTOM_VIEW, mTag, "onLayout");
-
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        Logger.d(ConstTag.S_CUSTOM_VIEW, mTag, "onSizeChanged", w, h, oldw, oldh);
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-        Logger.d(ConstTag.S_CUSTOM_VIEW, mTag, "onSizeChanged");
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        Logger.d(ConstTag.S_CUSTOM_VIEW, mTag, "onLayout", left, top, right, bottom);
 
     }
 

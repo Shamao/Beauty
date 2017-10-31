@@ -13,6 +13,8 @@ import java.util.List;
 import butterknife.OnClick;
 import me.drakeet.multitype.MultiTypeAdapter;
 import princessmakeup.buykee.com.common.base.BaseActivity;
+import princessmakeup.buykee.com.common.utils.ActivityUtils;
+import princessmakeup.buykee.com.common.utils.OnRecyclerItemClickListener;
 import princessmakeup.buykee.com.common.utils.StringUtils;
 import princessmakeup.buykee.com.lab.view.layoutManager.ScrollSpeedLinearLayoutManager;
 import princessmakeup.buykee.com.lab.view.provider.TextProvider;
@@ -36,6 +38,8 @@ public class LabMainActivity extends BaseActivity {
     public void initData() {
         mData = new ArrayList<>();
         mData.add("自定义Drawable");
+        mData.add("Transition");
+        mData.add("Canvas");
         for (int i = 0; i < 250; i++) {
             mData.add(i + "");
         }
@@ -64,6 +68,27 @@ public class LabMainActivity extends BaseActivity {
                 mLayoutManager.scrollToPositionWithOffset(position, 0);
             }
         });
+
+        mRecyclerView.addOnItemTouchListener(new OnRecyclerItemClickListener(
+                mRecyclerView,
+                new OnRecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        if (position == 0) {
+                            ActivityUtils.startActivity(LabMainActivity.this, LabDrawableActivity.class);
+                        } else if (position == 1) {
+                            ActivityUtils.startActivity(LabMainActivity.this, LabTransitionActivity.class);
+                        } else if (position == 2) {
+                            ActivityUtils.startActivity(LabMainActivity.this, LabCanvasActivity.class);
+                        }
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+
+                    }
+                }
+        ));
     }
 
     @Override

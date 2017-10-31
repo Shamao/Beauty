@@ -10,7 +10,7 @@ android {
         }
     }
     compileSdkVersion 26
-    buildToolsVersion '26.0.1'
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "beauty.louise.com"
         minSdkVersion 19
@@ -44,20 +44,20 @@ android {
 //        //指定将源码编译的级别，使用下列代码，会将代码编译到兼容1.6的字节码格式
 //        javaVersion JavaVersion.VERSION_1_7
 //    }
-    productFlavors {
-        cosmeapp {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "cosmeapp"]
-        }
-        huawei {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
-        }
-        inew {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "new"]
-        }
-        old {
-            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "old"]
-        }
-    }
+//    productFlavors {
+//        cosmeapp {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "cosmeapp"]
+//        }
+//        huawei {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+//        }
+//        inew {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "new"]
+//        }
+//        old {
+//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "old"]
+//        }
+//    }
 
     sourceSets {
         main {
@@ -84,10 +84,10 @@ dependencies {
     compile files('libs/utdid4all-1.1.5.5.jar')
     compile 'com.alibaba:fastjson:1.1.56.android'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:multidex:1.0.2'
     //
-    compile 'com.jakewharton:butterknife:8.8.1'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     //
     compile 'io.reactivex:rxjava:1.2.0'
     compile 'io.reactivex:rxandroid:1.2.1'
@@ -99,9 +99,13 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     if (isBuildModule.toBoolean()) {
-        compile project(':common')
+        compile(project(':common')) {
+            exclude group: 'com.jakewharton:butterknife'
+        }
     } else {
-        compile project(':lab')
+        compile(project(':lab')) {
+            exclude group: 'com.jakewharton:butterknife'
+        }
     }
 }
 
