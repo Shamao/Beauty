@@ -54,7 +54,7 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
         <!-- Schame -->
-        <activity android:name=".ui.SchemaFilterActivity">
+        <activity android:name="princessmakeup.buykee.com.common.SchemaFilterActivity">
         </activity>
         <!-- uMeng -->
         <!--<meta-data-->

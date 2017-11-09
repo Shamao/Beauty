@@ -5,6 +5,9 @@ package princessmakeup.buykee.com.common.utils.constant;
  */
 
 public class ConstTag {
+
+    public static final String S_SCHEMA = "schema_alias";
+
     public static final String todo = "todo";
 
     public static final String Click = "click";

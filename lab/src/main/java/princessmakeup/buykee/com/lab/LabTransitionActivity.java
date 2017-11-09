@@ -6,6 +6,7 @@ import android.support.transition.Slide;
 import android.support.transition.TransitionManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -20,9 +21,10 @@ import princessmakeup.buykee.com.common.base.BaseActivity;
 import princessmakeup.buykee.com.common.utils.DisplayUtils;
 import princessmakeup.buykee.com.common.utils.OnRecyclerItemClickListener;
 import princessmakeup.buykee.com.common.view.itemdecoration.LinearDecoration;
-import princessmakeup.buykee.com.lab.view.provider.TextProvider;
 
-
+/**
+ * @author ssss
+ */
 public class LabTransitionActivity extends BaseActivity {
 
 
@@ -54,7 +56,7 @@ public class LabTransitionActivity extends BaseActivity {
             mData.add("" + i);
         }
         mAdapter = new MultiTypeAdapter(mData);
-        mAdapter.register(String.class, new TextProvider());
+//        mAdapter.register(String.class, new Menu());
     }
 
     @Override
@@ -103,7 +105,7 @@ public class LabTransitionActivity extends BaseActivity {
     }
 
     private void slideTransition() {
-        TransitionManager.beginDelayedTransition(mContentView, new Slide());
+        TransitionManager.beginDelayedTransition(mContentView, new Slide(Gravity.TOP));
         if (mTextTv.getVisibility() == View.VISIBLE) {
             mTextTv.setVisibility(View.INVISIBLE);
         } else {

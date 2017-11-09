@@ -6,7 +6,16 @@
     android:layout_height="match_parent"
     tools:context="princessmakeup.buykee.com.lab.LabCanvasActivity">
 
-    <princessmakeup.buykee.com.common.view.UICanvasView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+        <FrameLayout android:layout_width="match_parent"
+                     android:layout_height="wrap_content">
+            <princessmakeup.buykee.com.common.view.UICanvasView
+                android:layout_width="match_parent"
+                android:layout_height="3000dp"/>
+        </FrameLayout>
+    </ScrollView>
+
 </FrameLayout>

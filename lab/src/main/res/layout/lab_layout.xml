@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -25,12 +26,18 @@
 
             <ImageView
                 android:layout_width="30dp"
-                android:layout_height="130dp"
+                android:layout_height="500dp"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_placeholder_2"
-                android:translationY="-150dp"/>
+                android:src="@drawable/ic_placeholder_2"/>
         </FrameLayout>
 
     </FrameLayout>
-</FrameLayout>
+    <FrameLayout
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        tools:background="#da8383"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    </FrameLayout>
+</LinearLayout>

@@ -109,5 +109,9 @@ public class UICanvasView extends View {
         canvas.drawLine(0, 900, getContext().getResources().getDisplayMetrics().widthPixels, 900, mPaint);
         canvas.drawLine(0, 1000, getContext().getResources().getDisplayMetrics().widthPixels, 1000, mPaint);
 
+
+        mPaint.setColor(Color.BLACK);
+        mPaint.setStrokeWidth(20);
+        canvas.drawLine(0, 2000, getContext().getResources().getDisplayMetrics().widthPixels, 2000, mPaint);
     }
 }
