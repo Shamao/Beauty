@@ -3,13 +3,11 @@ package princessmakeup.buykee.com.common.view.holder;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.android.arouter.launcher.ARouter;
-
 import butterknife.BindView;
 import princessmakeup.buykee.com.common.R;
 import princessmakeup.buykee.com.common.R2;
 import princessmakeup.buykee.com.common.base.BaseViewHolder;
-import princessmakeup.buykee.com.common.bean.MStringBean;
+import princessmakeup.buykee.com.common.bean.MolStringBean;
 
 /**
  * @author lsd
@@ -29,14 +27,7 @@ public class MenuViewHolder extends BaseViewHolder {
         super(itemView);
     }
 
-    public void fillData(final MStringBean item) {
+    public void fillData(final MolStringBean item) {
         mTextTv.setText(item.getContent());
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //schema 跳转
-                ARouter.getInstance().build(item.getSchema()).navigation();
-            }
-        });
     }
 }

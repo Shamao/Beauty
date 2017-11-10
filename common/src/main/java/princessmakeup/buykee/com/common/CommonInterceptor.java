@@ -1,11 +1,14 @@
 package princessmakeup.buykee.com.common;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.annotation.Interceptor;
 import com.alibaba.android.arouter.facade.callback.InterceptorCallback;
 import com.alibaba.android.arouter.facade.template.IInterceptor;
+
+import princessmakeup.buykee.com.common.utils.constant.ConstTag;
 
 /**
  * @author lsd
@@ -23,6 +26,7 @@ public class CommonInterceptor implements IInterceptor {
      */
     @Override
     public void process(final Postcard postcard, final InterceptorCallback callback) {
+        Log.d(ConstTag.S_PATH, postcard.toString());
         callback.onContinue(postcard);
     }
 

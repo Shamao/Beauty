@@ -12,26 +12,31 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import me.drakeet.multitype.MultiTypeAdapter;
 import princessmakeup.buykee.com.common.base.BaseActivity;
+import princessmakeup.buykee.com.common.bean.MolStringBean;
+import princessmakeup.buykee.com.common.listener.OnRecyclerItemClickListener;
 import princessmakeup.buykee.com.common.utils.DisplayUtils;
-import princessmakeup.buykee.com.common.utils.OnRecyclerItemClickListener;
 import princessmakeup.buykee.com.common.view.itemdecoration.LinearDecoration;
+import princessmakeup.buykee.com.common.view.provider.MenuBlockProvider;
 
 /**
  * @author ssss
  */
+@Route(path = "/lab/transition")
 public class LabTransitionActivity extends BaseActivity {
 
 
     @BindView(R2.id.lab_recycler)
     RecyclerView mRecyclerView;
     MultiTypeAdapter mAdapter;
-    List<String> mData;
+    List<MolStringBean> mData;
     LinearLayoutManager mLayoutManager;
 
     @BindView(R2.id.lab_content)
@@ -50,13 +55,15 @@ public class LabTransitionActivity extends BaseActivity {
     @Override
     public void initData() {
         mData = new ArrayList<>();
-        mData.add("auto");
-        mData.add("slide");
-        for (int i = 0; i < 10; i++) {
-            mData.add("" + i);
-        }
+        mData.add(new MolStringBean("Common", null));
+        mData.add(new MolStringBean("Common", null));
+        mData.add(new MolStringBean("Common", null));
+        mData.add(new MolStringBean("Common", null));
+        mData.add(new MolStringBean("Common", null));
+        mData.add(new MolStringBean("Common", null));
+        mData.add(new MolStringBean("Common", null));
         mAdapter = new MultiTypeAdapter(mData);
-//        mAdapter.register(String.class, new Menu());
+        mAdapter.register(MolStringBean.class, new MenuBlockProvider());
     }
 
     @Override
@@ -75,24 +82,16 @@ public class LabTransitionActivity extends BaseActivity {
     public void initListener() {
         super.initListener();
         mRecyclerView.addOnItemTouchListener(new OnRecyclerItemClickListener(
-                mRecyclerView,
-                new OnRecyclerItemClickListener.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(View view, int position) {
-                        if (position == 0) {
-                            autoTransition();
-                        } else if (position == 1) {
-                            slideTransition();
-                        }
-
-                    }
-
-                    @Override
-                    public void onItemLongClick(View view, int position) {
-
-                    }
-                }));
-
+                mRecyclerView, new OnRecyclerItemClickListener.OnSimpleItemClickLintener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                if (position == 0) {
+                    autoTransition();
+                } else {
+                    slideTransition();
+                }
+            }
+        }));
     }
 
     private void autoTransition() {

@@ -1,4 +1,4 @@
-package princessmakeup.buykee.com.common.utils;
+package princessmakeup.buykee.com.common.listener;
 
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,9 @@ import android.view.MotionEvent;
 import android.view.View;
 
 /**
- * Created by lsd on 17/7/27.
+ *
+ * @author lsd
+ * @date 17/7/27
  */
 
 public class OnRecyclerItemClickListener extends RecyclerView.SimpleOnItemTouchListener {
@@ -52,6 +54,17 @@ public class OnRecyclerItemClickListener extends RecyclerView.SimpleOnItemTouchL
         void onItemClick(View view, int position);
 
         void onItemLongClick(View view, int position);
+    }
+
+    public static class OnSimpleItemClickLintener implements OnItemClickListener {
+
+        @Override
+        public void onItemClick(View view, int position) {
+        }
+
+        @Override
+        public void onItemLongClick(View view, int position) {
+        }
     }
 
 }

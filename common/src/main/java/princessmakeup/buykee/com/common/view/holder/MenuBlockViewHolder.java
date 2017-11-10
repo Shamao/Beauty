@@ -7,7 +7,7 @@ import butterknife.BindView;
 import princessmakeup.buykee.com.common.R;
 import princessmakeup.buykee.com.common.R2;
 import princessmakeup.buykee.com.common.base.BaseViewHolder;
-import princessmakeup.buykee.com.common.bean.MStringBean;
+import princessmakeup.buykee.com.common.bean.MolStringBean;
 
 /**
  * @author lsd
@@ -27,7 +27,7 @@ public class MenuBlockViewHolder extends BaseViewHolder {
         super(itemView);
     }
 
-    public void fillData(MStringBean item) {
+    public void fillData(MolStringBean item) {
         mTextTv.setText(item.getContent());
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

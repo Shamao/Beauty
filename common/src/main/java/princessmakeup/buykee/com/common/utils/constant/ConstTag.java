@@ -8,6 +8,8 @@ public class ConstTag {
 
     public static final String S_SCHEMA = "schema_alias";
 
+    public static final String S_PATH = "lsd_path";
+
     public static final String todo = "todo";
 
     public static final String Click = "click";
@@ -16,7 +18,10 @@ public class ConstTag {
 
     public static final String Error = "error";
 
-    public static final String LifeCycle = "life_cycle";//适用于生命周期
+    /**
+     * 适用于生命周期
+     */
+    public static final String LifeCycle = "life_cycle";
 
     public static final String ActivityStack = "activity_stack";
 

@@ -13,8 +13,8 @@
             <!-- Schame -->
             <intent-filter>
                 <data
-                    android:host="m.aliyun.com"
-                    android:scheme="arouter"/>
+                    android:host="lsd.design.com"
+                    android:scheme="lsd"/>
 
                 <action android:name="android.intent.action.VIEW"/>
 
@@ -30,10 +30,10 @@
                 <category android:name="android.intent.category.BROWSABLE"/>
 
                 <data
-                    android:host="m.aliyun.com"
+                    android:host="lsd.design.com"
                     android:scheme="http"/>
                 <data
-                    android:host="m.aliyun.com"
+                    android:host="lsd.design.com"
                     android:scheme="https"/>
             </intent-filter>
         </activity>

@@ -1,10 +1,13 @@
 package princessmakeup.buykee.com.lab;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.alibaba.android.arouter.launcher.ARouter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +16,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.drakeet.multitype.MultiTypeAdapter;
 import princessmakeup.buykee.com.common.base.BaseActivity;
-import princessmakeup.buykee.com.common.bean.MStringBean;
+import princessmakeup.buykee.com.common.bean.MolStringBean;
+import princessmakeup.buykee.com.common.listener.OnRecyclerItemClickListener;
 import princessmakeup.buykee.com.common.utils.StringUtils;
 import princessmakeup.buykee.com.common.view.provider.MenuProvider;
 import princessmakeup.buykee.com.lab.view.layoutManager.ScrollSpeedLinearLayoutManager;
@@ -31,7 +35,7 @@ public class LabMainActivity extends BaseActivity {
     RecyclerView mRecyclerView;
     MultiTypeAdapter mAdapter;
     ScrollSpeedLinearLayoutManager mLayoutManager;
-    List<MStringBean> mData;
+    List<MolStringBean> mData;
 
     @Override
     public int getLayoutId() {
@@ -41,11 +45,11 @@ public class LabMainActivity extends BaseActivity {
     @Override
     public void initData() {
         mData = new ArrayList<>();
-        mData.add(new MStringBean(MStringBean.Type.LINE, "Common", "/common/common"));
-        mData.add(new MStringBean(MStringBean.Type.LINE, "transition专题", "/lab-alias/transition-alias"));
-        mData.add(new MStringBean(MStringBean.Type.LINE, "Canvas", "/lab/canvas"));
+        mData.add(new MolStringBean("Common专题", "lsd://lsd.design.com/common/common"));
+        mData.add(new MolStringBean("transition专题", "http://lsd.design.com/lab/transition"));
+        mData.add(new MolStringBean("Canvas专题", "https://lsd.design.com/lab/canvas"));
         mAdapter = new MultiTypeAdapter(mData);
-        mAdapter.register(MStringBean.class, new MenuProvider());
+        mAdapter.register(MolStringBean.class, new MenuProvider());
     }
 
     @Override
@@ -54,6 +58,21 @@ public class LabMainActivity extends BaseActivity {
         mLayoutManager = new ScrollSpeedLinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void initListener() {
+        super.initListener();
+        mRecyclerView.addOnItemTouchListener(new OnRecyclerItemClickListener(
+                mRecyclerView, new OnRecyclerItemClickListener.OnSimpleItemClickLintener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                super.onItemClick(view, position);
+                String schema = mData.get(position).getSchema();
+                Uri uri = Uri.parse(schema);
+                ARouter.getInstance().build(uri).navigation();
+            }
+        }));
     }
 
     @Override

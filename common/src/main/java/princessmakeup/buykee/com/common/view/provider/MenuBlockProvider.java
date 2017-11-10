@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import me.drakeet.multitype.ItemViewBinder;
-import princessmakeup.buykee.com.common.bean.MStringBean;
+import princessmakeup.buykee.com.common.bean.MolStringBean;
 import princessmakeup.buykee.com.common.view.holder.MenuBlockViewHolder;
 
 /**
@@ -14,7 +14,8 @@ import princessmakeup.buykee.com.common.view.holder.MenuBlockViewHolder;
  * @date 2017/11/9.
  */
 
-public class MenuBlockProvider extends ItemViewBinder<MStringBean, MenuBlockViewHolder> {
+public class MenuBlockProvider extends ItemViewBinder<MolStringBean, MenuBlockViewHolder> {
+
     @NonNull
     @Override
     protected MenuBlockViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
@@ -23,7 +24,7 @@ public class MenuBlockProvider extends ItemViewBinder<MStringBean, MenuBlockView
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull MenuBlockViewHolder holder, @NonNull MStringBean item) {
+    protected void onBindViewHolder(@NonNull MenuBlockViewHolder holder, @NonNull MolStringBean item) {
         holder.fillData(item);
     }
 }
