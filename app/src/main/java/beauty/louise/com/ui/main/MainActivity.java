@@ -31,8 +31,10 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import me.drakeet.multitype.MultiTypeAdapter;
 import princessmakeup.buykee.com.common.base.BaseActivity;
+import princessmakeup.buykee.com.common.bean.MolColumnBean;
 import princessmakeup.buykee.com.common.utils.ActivityUtils;
 import princessmakeup.buykee.com.common.utils.Logger;
+import princessmakeup.buykee.com.common.view.provider.ColumnProvider;
 import pub.devrel.easypermissions.EasyPermissions;
 
 
@@ -56,7 +58,8 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
     @Override
     public void initData() {
         mData = new ArrayList<>();
-
+        MolColumnBean labColumn = new MolColumnBean("Lab实验室", "入口 >>", "http://lsd.design.com/lab/main");
+        mData.add(labColumn);
         List<MCoverBean> coverList = new ArrayList<>();
         coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", 2, 1));
         coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/15/18/51/59bbb0c372f23674.jpg", 2, 1));
@@ -75,6 +78,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         mData.add(MFuncList.newInstance(funcList));
 
         List<MTagBean> tagList = new ArrayList<>();
+
         tagList.add(new MTagBean("小小屋"));
         tagList.add(new MTagBean("今日话题"));
         tagList.add(new MTagBean("小小屋"));
@@ -120,6 +124,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         mAdapter.register(MTagList.class, new TagProvider());
         mAdapter.register(MCoverBean.class, new CoverProvider());
         mAdapter.register(MImageBean.class, new ImageProvider());
+        mAdapter.register(MolColumnBean.class, new ColumnProvider());
     }
 
     @Override

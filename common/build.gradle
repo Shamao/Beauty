@@ -16,9 +16,8 @@ android {
                 arguments = [moduleName: project.getName()]
             }
         }
-
-
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -46,4 +45,7 @@ dependencies {
     //ARouter
     compile 'com.alibaba:arouter-api:1.2.4'
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+    compile ('com.alibaba.android:vlayout:1.2.2@aar') {
+        transitive = true
+    }
 }

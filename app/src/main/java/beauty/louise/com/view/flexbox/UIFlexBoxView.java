@@ -128,7 +128,8 @@ public class UIFlexBoxView extends FlexboxLayout {
 
         if (holder == null) {
             holder = mAdapter.onCreateViewHolder(this);
-            if (holder.itemView.getParent() == null) {// 未添加到父布局中需要添加，已经添加的不需要再次添加
+            if (holder.itemView.getParent() == null) {
+                // 未添加到父布局中需要添加，已经添加的不需要再次添加
                 this.addView(holder.itemView, position);
             }
             mHolders.add(holder);

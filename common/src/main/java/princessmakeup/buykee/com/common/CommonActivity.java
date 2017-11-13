@@ -1,19 +1,32 @@
 package princessmakeup.buykee.com.common;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+
+import princessmakeup.buykee.com.common.base.BaseActivity;
 
 /**
  * @author lsd
  */
 @Route(path = "/common/common")
-public class CommonActivity extends AppCompatActivity {
+public class CommonActivity extends BaseActivity {
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.ac_common);
+    public int getLayoutId() {
+        return R.layout.ac_common;
     }
+
+    @Override
+    public void initData() {
+
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
+
+    }
+
+
 }
