@@ -1,5 +1,6 @@
 package princessmakeup.buykee.com.common.view.holder;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.view.Gravity;
@@ -15,6 +16,7 @@ import princessmakeup.buykee.com.common.R2;
 import princessmakeup.buykee.com.common.base.BaseViewHolder;
 import princessmakeup.buykee.com.common.bean.MolColumnBean;
 import princessmakeup.buykee.com.common.bean.MolLayoutBean;
+import princessmakeup.buykee.com.common.utils.ActivityUtils;
 
 /**
  * @author lsd
@@ -45,10 +47,11 @@ public class ColumnViewHolder extends BaseViewHolder {
         mDescTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String schema = columnBean.getSchema();
+                String schema = columnBean.getDescSchema();
                 if (schema.contains("://")) {
                     Uri uri = Uri.parse(schema);
-                    ARouter.getInstance().build(uri).navigation();
+                    ActivityUtils.startActivity(getContext(), Intent.ACTION_VIEW, schema, 0);
+//                    ARouter.getInstance().build(uri).navigation();
                 } else {
                     ARouter.getInstance().build(schema).navigation();
 

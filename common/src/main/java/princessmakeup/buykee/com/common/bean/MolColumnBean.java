@@ -9,18 +9,31 @@ public class MolColumnBean {
      * 基础数据
      */
     private String mTitle;
-    private String mSchema;
+    private String mTitleSchema;
     private String mDesc;
+    private String mDescSchema;
     /**
      * 布局信息
      */
     private MolLayoutBean mLayoutBean;
 
-    public MolColumnBean(String title, String desc, String schema) {
-        mTitle = title;
-        mSchema = schema;
-        mDesc = desc;
+    public MolColumnBean() {
     }
+
+    public  MolColumnBean withTitle(String title, String schema) {
+        this.mTitle = title;
+        mTitleSchema = schema;
+        return this;
+
+    }
+
+    public  MolColumnBean withDesc(String desc, String schema) {
+        this.mDesc = desc;
+        mDescSchema = schema;
+        return this;
+
+    }
+
 
     public MolColumnBean withLayout(MolLayoutBean layoutBean) {
         this.mLayoutBean = layoutBean;
@@ -39,13 +52,7 @@ public class MolColumnBean {
         mTitle = title;
     }
 
-    public String getSchema() {
-        return mSchema;
-    }
 
-    public void setSchema(String schema) {
-        mSchema = schema;
-    }
 
     public String getDesc() {
         return mDesc;
@@ -53,5 +60,17 @@ public class MolColumnBean {
 
     public void setDesc(String desc) {
         mDesc = desc;
+    }
+
+    public String getDescSchema() {
+        return mDescSchema;
+    }
+
+    public void setDescSchema(String descSchema) {
+        mDescSchema = descSchema;
+    }
+
+    public MolColumnBean(String titleSchema) {
+        mTitleSchema = titleSchema;
     }
 }

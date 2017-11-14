@@ -2,7 +2,9 @@ package princessmakeup.buykee.com.lab;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -23,6 +25,7 @@ import princessmakeup.buykee.com.common.bean.MolColumnBean;
 import princessmakeup.buykee.com.common.bean.MolLayoutBean;
 import princessmakeup.buykee.com.common.bean.MolSeparatorBean;
 import princessmakeup.buykee.com.common.bean.MolStringBean;
+import princessmakeup.buykee.com.common.bean.MolUserBean;
 import princessmakeup.buykee.com.common.listener.OnRecyclerItemClickListener;
 import princessmakeup.buykee.com.common.utils.DisplayUtils;
 import princessmakeup.buykee.com.common.utils.FontUtils;
@@ -30,6 +33,7 @@ import princessmakeup.buykee.com.common.view.UIAdView;
 import princessmakeup.buykee.com.common.view.provider.ColumnProvider;
 import princessmakeup.buykee.com.common.view.provider.MenuProvider;
 import princessmakeup.buykee.com.common.view.provider.SeparatorProvider;
+import princessmakeup.buykee.com.common.view.provider.UserProvider;
 import princessmakeup.buykee.com.lab.view.layoutManager.ScrollSpeedLinearLayoutManager;
 
 /**
@@ -60,13 +64,18 @@ public class LabMainActivity extends BaseActivity {
     @Override
     public void initData() {
         mData = new ArrayList<>();
-        MolColumnBean columnBean = new MolColumnBean("专题", "更多", null);
+        MolColumnBean columnBean = new MolColumnBean().withTitle("用户推荐", null);
         mData.add(columnBean);
+
+        MolUserBean user = new MolUserBean();
+        mData.add(user);
+
         MolLayoutBean separatorLayoutBean =
                 MolLayoutBean.getInstance().withLayoutParams(0, DisplayUtils.dip2px(this, 20))
                         .withBgResId(R.color.default_pink);
         MolSeparatorBean separatorBean = new MolSeparatorBean().withLayout(separatorLayoutBean);
         mData.add(separatorBean);
+
         mData.add(new MolStringBean("Common专题", "lsd://lsd.design.com/common/common"));
         mData.add(new MolStringBean("transition专题", "http://lsd.design.com/lab/transition"));
         mData.add(new MolStringBean("Canvas专题", "https://lsd.design.com/lab/canvas"));
@@ -85,6 +94,7 @@ public class LabMainActivity extends BaseActivity {
         mAdapter.register(MolStringBean.class, new MenuProvider());
         mAdapter.register(MolSeparatorBean.class, new SeparatorProvider());
         mAdapter.register(MolColumnBean.class, new ColumnProvider());
+        mAdapter.register(MolUserBean.class, new UserProvider());
     }
 
     @Override
@@ -109,8 +119,12 @@ public class LabMainActivity extends BaseActivity {
                 if (viewType == mAdapter.getTypePool().firstIndexOf(MolStringBean.class)) {
                     MolStringBean item = (MolStringBean) mData.get(position);
                     String schema = item.getSchema();
-                    Uri uri = Uri.parse(schema);
-                    ARouter.getInstance().build(uri).navigation();
+                    if (TextUtils.isEmpty(schema)) {
+                        Snackbar.make(LabMainActivity.this.getRootView(), "Hahaha", Snackbar.LENGTH_SHORT).show();
+                    } else {
+                        Uri uri = Uri.parse(schema);
+                        ARouter.getInstance().build(uri).navigation();
+                    }
                 }
             }
         }));

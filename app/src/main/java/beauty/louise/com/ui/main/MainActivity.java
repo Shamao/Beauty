@@ -58,7 +58,8 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
     @Override
     public void initData() {
         mData = new ArrayList<>();
-        MolColumnBean labColumn = new MolColumnBean("Lab实验室", "入口 >>", "http://lsd.design.com/lab/main");
+        MolColumnBean labColumn =
+                new MolColumnBean().withTitle("Lab实验室", null).withDesc("入口 >>", "http://lsd.design.com/lab/main");
         mData.add(labColumn);
         List<MCoverBean> coverList = new ArrayList<>();
         coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", 2, 1));
@@ -89,34 +90,6 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         tagList.add(new MTagBean("今日话题"));
         tagList.add(new MTagBean("小小屋"));
         mData.add(MTagList.newInstance(tagList));
-
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
-        mData.add(new MImageBean("https://i0.hdslb.com/bfs/archive/cb2c40d4ee57993e9262cba19156c393c3d913c0.jpg@440w_220h.webp", 2, 1));
-        mData.add(new MImageBean("http://upload-images.jianshu.io/upload_images/6497204-83b02a08ee73ecb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240", 549, 337));
-
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-2", 74, 24));    mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
-        mData.add(new MImageBean("https://i0.hdslb.com/bfs/archive/cb2c40d4ee57993e9262cba19156c393c3d913c0.jpg@440w_220h.webp", 2, 1));
-        mData.add(new MImageBean("http://upload-images.jianshu.io/upload_images/6497204-83b02a08ee73ecb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240", 549, 337));
-
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-2", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-240.jpg", 74, 24));
-        mData.add(new MImageBean(
-                "https://i0.hdslb.com/bfs/archive/cb2c40d4ee57993e9262cba19156c393c3d913c0.jpg@440w_220h.webp", 2, 1));
-        mData.add(new MImageBean(
-                "http://upload-images.jianshu.io/upload_images/6497204-83b02a08ee73ecb1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240",
-                549, 337));
-
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1b92vlgoQMeJjy0FpXXcTxpXa-740-240.png", 74, 24));
-        mData.add(new MImageBean("https://img.alicdn.com/tfs/TB1seiEcGagSKJjy0FhXXcrbFXa-740-2", 74, 24));
-
 
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MCoverList.class, new BannerProvider());
