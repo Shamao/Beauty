@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".LabCanvasActivity">
         </activity>
+        <activity android:name=".LabVLayoutActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -79,6 +79,7 @@ public class LabMainActivity extends BaseActivity {
         mData.add(new MolStringBean("Common专题", "lsd://lsd.design.com/common/common"));
         mData.add(new MolStringBean("transition专题", "http://lsd.design.com/lab/transition"));
         mData.add(new MolStringBean("Canvas专题", "https://lsd.design.com/lab/canvas"));
+        mData.add(new MolStringBean("VLayout专题", "https://lsd.design.com/lab/vLayout"));
         mData.add(new MolStringBean("待定", ""));
         mData.add(new MolStringBean("待定", ""));
         mData.add(new MolStringBean("待定", ""));
