@@ -2,7 +2,7 @@ package beauty.louise.com.network.api;
 
 
 import beauty.louise.com.Utils.exception.ApiException;
-import beauty.louise.com.bean.base.BaseResult;
+import buykee.com.common.base.BaseResult;
 import rx.functions.Func1;
 
 /**

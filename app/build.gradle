@@ -18,10 +18,15 @@ android {
         versionCode 8000
         versionName "8.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
     }
     buildTypes {
         release {
-            buildConfigField "boolean", "isBuildModule",isBuildModule
+            buildConfigField "boolean", "isBuildModule", isBuildModule
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
@@ -88,7 +93,6 @@ dependencies {
     //
     compile 'com.jakewharton:butterknife:8.4.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-    //
     compile 'io.reactivex:rxjava:1.2.0'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -97,7 +101,8 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.alibaba:arouter-api:1.2.4'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+
     if (isBuildModule.toBoolean()) {
         compile(project(':common')) {
             exclude group: 'com.jakewharton:butterknife'
@@ -108,7 +113,6 @@ dependencies {
         }
     }
 }
-
 
 //apt {
 //    arguments {

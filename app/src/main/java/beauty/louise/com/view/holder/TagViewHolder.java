@@ -5,13 +5,13 @@ import android.view.View;
 import java.util.List;
 
 import beauty.louise.com.R;
-import beauty.louise.com.base.BaseViewHolder;
+import buykee.com.common.manager.SchemaManager;
 import beauty.louise.com.bean.MTagBean;
 import beauty.louise.com.view.adapter.TagAdapter;
 import beauty.louise.com.view.flexbox.OnFlexBoxItemClickListener;
 import beauty.louise.com.view.flexbox.UIFlexBoxView;
 import butterknife.BindView;
-import princessmakeup.buykee.com.common.utils.ToastUtils;
+import buykee.com.common.base.BaseViewHolder;
 
 /**
  * Created by lsd on 2017/10/25.
@@ -30,13 +30,14 @@ public class TagViewHolder extends BaseViewHolder {
         super(itemView);
     }
 
-    public void fillData(List<MTagBean> list) {
+    public void fillData(final List<MTagBean> list) {
         mAdapter = new TagAdapter(list);
         mTagView.setAdapter(mAdapter);
         mTagView.setOnFlexBoxItemClickListener(new OnFlexBoxItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                ToastUtils.showShort(view.getContext(), "大兄弟 别走" + position);
+                MTagBean item = list.get(position);
+                SchemaManager.getInstance().autoRedirect(item.getSchema());
             }
         });
     }

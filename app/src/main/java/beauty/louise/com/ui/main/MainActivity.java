@@ -30,11 +30,15 @@ import beauty.louise.com.view.provider.TagProvider;
 import butterknife.BindView;
 import butterknife.OnClick;
 import me.drakeet.multitype.MultiTypeAdapter;
-import princessmakeup.buykee.com.common.base.BaseActivity;
-import princessmakeup.buykee.com.common.bean.MolColumnBean;
-import princessmakeup.buykee.com.common.utils.ActivityUtils;
-import princessmakeup.buykee.com.common.utils.Logger;
-import princessmakeup.buykee.com.common.view.provider.ColumnProvider;
+import buykee.com.common.base.BaseActivity;
+import buykee.com.common.bean.MolColumnBean;
+import buykee.com.common.bean.MolLayoutBean;
+import buykee.com.common.bean.MolSeparatorBean;
+import buykee.com.common.utils.ActivityUtils;
+import buykee.com.common.utils.DisplayUtils;
+import buykee.com.common.utils.Logger;
+import buykee.com.common.view.provider.ColumnProvider;
+import buykee.com.common.view.provider.SeparatorProvider;
 import pub.devrel.easypermissions.EasyPermissions;
 
 
@@ -58,14 +62,22 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
     @Override
     public void initData() {
         mData = new ArrayList<>();
-        MolColumnBean labColumn =
-                new MolColumnBean().withTitle("Lab实验室", null).withDesc("入口 >>", "http://lsd.design.com/lab/main");
-        mData.add(labColumn);
+
         List<MCoverBean> coverList = new ArrayList<>();
         coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/21/09/57/59c31c82d54e4535.jpg", 2, 1));
         coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/15/18/51/59bbb0c372f23674.jpg", 2, 1));
         coverList.add(new MCoverBean("http://static.cosmeapp.com/product/201709/22/10/11/59c47154775f1691.jpg", 2, 1));
         mData.add(MCoverList.newInstance(coverList));
+
+        MolColumnBean labColumn =
+                new MolColumnBean().withTitle("Lab实验室", null).withDesc("入口 >>", "http://lsd.design.com/lab/main");
+        mData.add(labColumn);
+
+
+        MolLayoutBean separatorLayoutBean = MolLayoutBean.getInstance()
+                .withBgResId(R.color.default_grey_bg).withLayoutParams(0, DisplayUtils.dip2px(this, 10));
+        MolSeparatorBean separatorBean = new MolSeparatorBean().withLayout(separatorLayoutBean);
+        mData.add(separatorBean);
 
         List<MFuncBean> funcList = new ArrayList<>();
         funcList.add(new MFuncBean());
@@ -80,7 +92,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
 
         List<MTagBean> tagList = new ArrayList<>();
 
-        tagList.add(new MTagBean("小小屋"));
+        tagList.add(new MTagBean("日历控件").withSchema("/main/calendar"));
         tagList.add(new MTagBean("今日话题"));
         tagList.add(new MTagBean("小小屋"));
         tagList.add(new MTagBean("今日话题"));
@@ -98,6 +110,7 @@ public class MainActivity extends BaseActivity implements EasyPermissions.Permis
         mAdapter.register(MCoverBean.class, new CoverProvider());
         mAdapter.register(MImageBean.class, new ImageProvider());
         mAdapter.register(MolColumnBean.class, new ColumnProvider());
+        mAdapter.register(MolSeparatorBean.class, new SeparatorProvider());
     }
 
     @Override

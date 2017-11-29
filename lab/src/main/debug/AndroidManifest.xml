@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="princessmakeup.buykee.com.lab">
+          package="buykee.com.lab">
 
     <application
         android:name=".LabApplication"
@@ -22,6 +22,8 @@
         <activity android:name=".LabCanvasActivity">
         </activity>
         <activity android:name=".LabVLayoutActivity">
+        </activity>
+        <activity android:name=".CoordinatorActivity">
         </activity>
     </application>
 

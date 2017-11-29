@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="princessmakeup.buykee.com.lab.LabCanvasActivity">
+    tools:context="buykee.com.lab.LabCanvasActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         android:fillViewport="true">
         <FrameLayout android:layout_width="match_parent"
                      android:layout_height="wrap_content">
-            <princessmakeup.buykee.com.common.view.UICanvasView
+            <buykee.com.common.view.UICanvasView
                 android:layout_width="match_parent"
                 android:layout_height="3000dp"/>
         </FrameLayout>

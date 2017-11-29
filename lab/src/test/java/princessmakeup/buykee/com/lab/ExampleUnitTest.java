@@ -1,8 +1,6 @@
-package princessmakeup.buykee.com.lab;
+package buykee.com.lab;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +10,10 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+       int i1= 100;
+       int i2 = i1;
+       i1= 200;
+       Common.println(String.valueOf(i2));
+       Common.println(String.valueOf(i1));
     }
 }

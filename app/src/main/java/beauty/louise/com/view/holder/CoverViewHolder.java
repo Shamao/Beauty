@@ -7,10 +7,10 @@ import com.bumptech.glide.request.target.Target;
 
 import beauty.louise.com.R;
 import beauty.louise.com.Utils.GlideUtils;
-import beauty.louise.com.base.BaseViewHolder;
 import beauty.louise.com.bean.MCoverBean;
 import beauty.louise.com.view.UIRatioImageView;
 import butterknife.BindView;
+import buykee.com.common.base.BaseViewHolder;
 
 
 /**

@@ -4,7 +4,7 @@ package beauty.louise.com.network.api;
 import java.util.ArrayList;
 
 import okhttp3.ResponseBody;
-import beauty.louise.com.bean.base.BaseResult;
+import buykee.com.common.base.BaseResult;
 import beauty.louise.com.bean.MNoticeCount;
 import beauty.louise.com.bean.MProductCate;
 import beauty.louise.com.bean.UserBean;

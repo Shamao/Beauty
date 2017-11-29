@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
-          package="princessmakeup.buykee.com.common">
+          package="buykee.com.common">
 
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 
@@ -38,8 +38,7 @@
                     android:scheme="https"/>
             </intent-filter>
         </activity>
-        <activity android:name=".CommonActivity">
-        </activity>
+        <activity android:name=".CommonActivity"/>
     </application>
 
 </manifest>

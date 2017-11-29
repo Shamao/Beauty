@@ -6,7 +6,7 @@ import android.support.v7.app.AlertDialog;
 import beauty.louise.com.CosmeApp;
 import beauty.louise.com.bean.MAlert;
 import beauty.louise.com.ui.views.UIDialogTextView;
-import princessmakeup.buykee.com.common.manager.AppManager;
+import buykee.com.common.manager.AppManager;
 
 /**
  * Created by Steam on 16/12/13.

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import beauty.louise.com.R;
 import butterknife.BindView;
 import butterknife.OnClick;
-import princessmakeup.buykee.com.common.base.BaseLayout;
+import buykee.com.common.base.BaseLayout;
 
 /**
  * Created by lsd on 17/5/8.

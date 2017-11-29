@@ -9,9 +9,15 @@ import com.google.gson.annotations.SerializedName;
 public class MTagBean {
     @SerializedName("title")
     private String mTitle;
-
+    @SerializedName(value = "schema", alternate = {"redirect_schema"})
+    private String mSchema;
     public MTagBean(String title) {
         mTitle = title;
+    }
+
+    public MTagBean withSchema(String schema) {
+        mSchema = schema;
+        return this;
     }
 
     public String getTitle() {
@@ -20,5 +26,9 @@ public class MTagBean {
 
     public void setTitle(String title) {
         mTitle = title;
+    }
+
+    public String getSchema() {
+        return mSchema;
     }
 }

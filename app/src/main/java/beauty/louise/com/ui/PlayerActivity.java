@@ -21,9 +21,9 @@ import com.youku.cloud.utils.PlayerUtils;
 
 import beauty.louise.com.R;
 import butterknife.BindView;
-import princessmakeup.buykee.com.common.base.BaseActivity;
-import princessmakeup.buykee.com.common.utils.ActivityUtils;
-import princessmakeup.buykee.com.common.utils.Logger;
+import buykee.com.common.base.BaseActivity;
+import buykee.com.common.utils.ActivityUtils;
+import buykee.com.common.utils.Logger;
 
 /**
  * 播放器播放界面

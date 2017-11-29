@@ -12,7 +12,7 @@ import okhttp3.Request;
 import beauty.louise.com.CosmeApp;
 import beauty.louise.com.bean.NoticeCount;
 import beauty.louise.com.network.api.NApiManager;
-import princessmakeup.buykee.com.common.utils.AppUtils;
+import buykee.com.common.utils.AppUtils;
 
 /**
  * Created by lsd on 17/1/19.

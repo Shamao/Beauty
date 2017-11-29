@@ -16,7 +16,7 @@ import beauty.louise.com.view.provider.CoverProvider;
 import beauty.louise.com.view.provider.ImageProvider;
 import butterknife.BindView;
 import me.drakeet.multitype.MultiTypeAdapter;
-import princessmakeup.buykee.com.common.base.BaseActivity;
+import buykee.com.common.base.BaseActivity;
 
 public class SnapHelperActivity extends BaseActivity {
 

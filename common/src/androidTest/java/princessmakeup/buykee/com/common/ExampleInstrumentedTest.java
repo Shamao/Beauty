@@ -1,4 +1,4 @@
-package princessmakeup.buykee.com.common;
+package buykee.com.common;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("princessmakeup.buykee.com.common.test", appContext.getPackageName());
+        assertEquals("buykee.com.common.test", appContext.getPackageName());
     }
 }

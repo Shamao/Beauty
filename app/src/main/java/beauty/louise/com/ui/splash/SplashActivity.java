@@ -12,8 +12,8 @@ import beauty.louise.com.R;
 import beauty.louise.com.Utils.DisplayUtils;
 import beauty.louise.com.ui.main.MainActivity;
 import butterknife.BindView;
-import princessmakeup.buykee.com.common.base.BaseActivity;
-import princessmakeup.buykee.com.common.utils.ActivityUtils;
+import buykee.com.common.base.BaseActivity;
+import buykee.com.common.utils.ActivityUtils;
 
 
 public class SplashActivity extends BaseActivity {
@@ -56,7 +56,7 @@ public class SplashActivity extends BaseActivity {
 
     private void translateY() {
         ValueAnimator animator = ValueAnimator.ofFloat(1, 1.5f);
-        animator.setDuration(2000);
+        animator.setDuration(1000);
         animator.setStartDelay(1000);
         animator.setInterpolator(new AccelerateInterpolator());
         animator.start();
@@ -77,7 +77,7 @@ public class SplashActivity extends BaseActivity {
      */
     private void startCountDown() {
         mTvCountDown.setVisibility(View.VISIBLE);
-        mCountDownTimer = new CountDownTimer(4000, 1000) {
+        mCountDownTimer = new CountDownTimer(2000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 mTvCountDown.setText(getString(R.string.count_down, (millisUntilFinished / 1000) - 1));

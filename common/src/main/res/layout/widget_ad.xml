@@ -21,25 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:background="#00d0ff"
-        android:text="@string/hello_world"/>
-    <!--<ImageView-->
-    <!--android:id="@+id/imageView"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_marginTop="10dp"-->
-    <!--android:background="@color/colorAccent"-->
-    <!--android:scaleType="fitCenter"-->
-    <!--app:layout_constraintDimensionRatio="2:1"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintStart_toStartOf="parent"-->
-    <!--app:layout_constraintTop_toBottomOf="@+id/textView"-->
-    <!--app:srcCompat="@drawable/ic_placeholder"/>-->
-    <!--<TextView-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="ad"-->
-    <!--app:layout_constraintEnd_toEndOf="@+id/imageView"-->
-    <!--app:layout_constraintTop_toTopOf="@+id/imageView"-->
-    <!--tools:background="#999"/>-->
+        android:text="这是一条硬广告"/>
 
 </android.support.constraint.ConstraintLayout>

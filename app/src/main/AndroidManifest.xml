@@ -39,7 +39,6 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
         tools:replace="android:icon,android:name,android:allowBackup">
-
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -53,16 +52,15 @@
             android:name=".ui.main.MainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"/>
-        <!-- Schame -->
-        <activity android:name="princessmakeup.buykee.com.common.SchemaFilterActivity">
-        </activity>
+
         <!-- uMeng -->
-        <!--<meta-data-->
-            <!--android:name="UMENG_APPKEY"-->
-            <!--android:value="5876de354544cb3dcb000edf"/>-->
-        <!--<meta-data-->
-            <!--android:name="UMENG_CHANNEL"-->
-            <!--android:value="${UMENG_CHANNEL_VALUE}}"/>-->
+        <!-- <meta-data -->
+        <!-- android:name="UMENG_APPKEY" -->
+        <!-- android:value="5876de354544cb3dcb000edf"/> -->
+        <!-- <meta-data -->
+        <!-- android:name="UMENG_CHANNEL" -->
+        <!-- android:value="${UMENG_CHANNEL_VALUE}}"/> -->
+
 
         <!-- alibaba -->
         <meta-data
@@ -78,8 +76,9 @@
             android:exported="true"
             android:launchMode="singleTask"
             android:screenOrientation="landscape"/>
-        <activity android:name=".zLab.SnapHelperActivity">
-        </activity>
+        <activity android:name=".zLab.SnapHelperActivity"/>
+        <activity android:name=".ui.GuideActivity"/>
+        <activity android:name=".ui.CalendarActivity"/>
     </application>
 
 </manifest>

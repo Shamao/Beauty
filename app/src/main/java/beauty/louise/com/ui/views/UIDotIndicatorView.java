@@ -15,7 +15,7 @@ import java.util.List;
 
 import beauty.louise.com.R;
 import beauty.louise.com.ui.views.Common.IndicatorDotView;
-import princessmakeup.buykee.com.common.utils.Logger;
+import buykee.com.common.utils.Logger;
 
 /**
  * Created by lsd on 17/3/10.

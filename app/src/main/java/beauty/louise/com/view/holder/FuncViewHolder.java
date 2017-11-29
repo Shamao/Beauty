@@ -5,11 +5,11 @@ import android.view.View;
 import java.util.List;
 
 import beauty.louise.com.R;
-import beauty.louise.com.base.BaseViewHolder;
 import beauty.louise.com.bean.MFuncBean;
 import beauty.louise.com.view.adapter.FuncAdapter;
 import beauty.louise.com.view.flexbox.UIFlexBoxView;
 import butterknife.BindView;
+import buykee.com.common.base.BaseViewHolder;
 
 /**
  * Created by lsd on 2017/10/23.

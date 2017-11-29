@@ -6,9 +6,8 @@ import android.util.Log;
 import beauty.louise.com.Utils.exception.ApiException;
 import beauty.louise.com.Utils.exception.HasAlertException;
 import beauty.louise.com.ui.views.UIToastUtils;
-import princessmakeup.buykee.com.common.utils.AppUtils;
-import princessmakeup.buykee.com.common.utils.NetUtils;
-import princessmakeup.buykee.com.common.utils.constant.ConstTag;
+import buykee.com.common.utils.NetUtils;
+import buykee.com.common.utils.constant.ConstTag;
 import rx.Subscriber;
 
 /**

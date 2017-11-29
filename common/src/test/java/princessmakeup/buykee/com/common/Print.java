@@ -1,4 +1,4 @@
-package princessmakeup.buykee.com.common;
+package buykee.com.common;
 
 import java.util.Arrays;
 

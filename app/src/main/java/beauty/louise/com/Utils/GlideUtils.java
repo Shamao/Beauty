@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import beauty.louise.com.R;
-import princessmakeup.buykee.com.common.view.drawable.PlaceHolderDrawable;
+import buykee.com.common.view.drawable.PlaceHolderDrawable;
 
 
 /**
