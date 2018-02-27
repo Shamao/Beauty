@@ -33,12 +33,13 @@
     <uses-feature android:name="android.hardware.camera.autofocus"/>
 
     <application
-        android:name=".CosmeApp"
+        android:name=".AP"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon,android:name,android:allowBackup">
+        >
+        <!--tools:replace="android:icon,android:name,android:allowBackup"-->
         <activity
             android:name=".ui.splash.SplashActivity"
             android:theme="@style/SplashTheme">
@@ -48,37 +49,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
-
-        <!-- uMeng -->
-        <!-- <meta-data -->
-        <!-- android:name="UMENG_APPKEY" -->
-        <!-- android:value="5876de354544cb3dcb000edf"/> -->
-        <!-- <meta-data -->
-        <!-- android:name="UMENG_CHANNEL" -->
-        <!-- android:value="${UMENG_CHANNEL_VALUE}}"/> -->
-
-
-        <!-- alibaba -->
-        <meta-data
-            android:name="com.taobao.android.hotfix.APPSECRET"
-            android:value="e4b3d9e9e861ea23430cdbc14e851c11"/>
-        <meta-data
-            android:name="com.taobao.android.hotfix.RSASECRET"
-            android:value="MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCczC4zuScz4al1U5vepTKQB1dat9tGNqRqN/HqTJxTKVqopI8u/kNodRN7HHBiMvb4Dg6+GvyyWqyfcUhe18Y+FttPFBXpAvF+mtAj/oXV27MyhGjbVi4bFk7b+20IK4CTqxCldKNTCcVnKViztMqF2BbKC6mcL1dNKXLvr5BU8M0xEgvYLYplT2OJHle0KWDSBmDLO0gO4EWbifiEjguOklBRiZ6+JB2WI7REpMu2uoAB3vjjizFZnXEOGS3DCc7j6vLWRbSUwxcJT9G+eHaHcCJT0z4O294qbgJKPIAqnzb4Uz6wejUtwBPhwwv6eb8YCcgr1ZRJfgPeVauC8ukBAgMBAAECggEAf+1erLidsYil16HVhDvIGxbCQLPM5WZjkn3+lCjZSkhtPTa106ODn9AVitZTIutt8EiX4qbmESZFvPiSET9+8N15JPXAQpIyMhdhRly9GRTdCZRacMnJaDQ1NunVtVq41sI1HKkjL/bC5j4nrscMjVMWlNYbFeDSG5R7v+6/lWxzLjma5XIxZ2bcX1H5caE2PmptBx+iMbI9zyo4bPLGDqypJYE5Ofk7fBjsy7AhweAwgUaE83ByqWj60inC5gFIR1jcCY78MNhbouUBNZvBSab4SlnNDekkGAOkCw3k2h+QwNkWLXUEdcIyv7yYtp+XosJECsrU6RnGdG8IhpuiAQKBgQDJvLt0SshUHW4CiKZA6k5ifpQ71odepPjxcGPprvdLZGR3vxWpKNSepFS+AL83az+xP38FIy12zuqp5+u1XFx1TTPL5hYkFr7+013O/MF7Iq4aLF3Imd2WcpLv3PG1cdtgRVlIEWSVjP+0HnShutDk3d193HvnA49OErDmt0PTEQKBgQDG+Pu+hPkrAyzYHqY4TfSUZ2rGH2WHwbpJxb6PCNwXYXbg/2kPFifgDXNqkNwj+YEinToIQLCVrUvUvaYp+Da32yyvLQhwtkxFqNGxbepP0E7s7L3cmvMRN/x9dUdEwFjFbr4QXgNzIIX2GRYg2M7dpN0AaTqFDAa/JlNh3RnW8QKBgCN2CX1np88hXTUU0CSZCy5FEcly7Fi2pwvJtcZd+xpFi2OBM02I39cDC+JaP0J+l7OQdcNxa4x20skK+2Pl2FrGN1SgHUQ6u1gPz22TAG+kqPXw1otsgIbxnOKM8+/xE57YkdkZNZUUM951fArxy8ZvOX/mQeFZvtb6ch4cGNABAoGAaYRy5MdZ6CCH8JjYZ3WX5feuHSFbU5I+O489jlcReOi8BXgNe+2w+dXIRlRKGl3fyL5+nw/HVakQVOK6Mvmp8vitirykBDn42tw7UA/NOcRrhqPJ0CrwCkqZgOLoB6LFsPYYn09sHuq5gBgvrv2rPsmGVgh3+0S0czxc7cI2SNECgYBgQz7VXGSSpV5mE/3pT2PywUSdTtej7Xc4QKNNuEhpB/npCKtXSbvJgdJrFmOQA31Irakqhz1+Ms0g1hhYYDV9bN5oa1LEK9ZigdspYXqPd4ZBfGjt4OTWqHn0O7mxQt2v80QPGpjsKFAaXdkMBwL5Lmb6OGyy0t1vvzaGXqwBRg=="/>
-
-        <activity
-            android:name=".ui.PlayerActivity"
-            android:configChanges="orientation|keyboard|keyboardHidden|screenSize|screenLayout|uiMode"
-            android:exported="true"
-            android:launchMode="singleTask"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".zLab.SnapHelperActivity"/>
-        <activity android:name=".ui.GuideActivity"/>
-        <activity android:name=".ui.CalendarActivity"/>
+        <activity android:name=".MainActivity">
+        </activity>
     </application>
 
 </manifest>

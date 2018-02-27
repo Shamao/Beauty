@@ -1,32 +1,28 @@
 package beauty.louise.com.ui.splash;
 
-import android.animation.ValueAnimator;
+import android.animation.Animator;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.widget.ImageView;
+import android.view.ViewAnimationUtils;
 import android.widget.TextView;
 
+import com.louise.base.base.BaseActivity;
+
 import beauty.louise.com.R;
-import beauty.louise.com.Utils.DisplayUtils;
-import beauty.louise.com.ui.main.MainActivity;
 import butterknife.BindView;
-import buykee.com.common.base.BaseActivity;
-import buykee.com.common.utils.ActivityUtils;
 
 
+/**
+ * @author ssss
+ */
 public class SplashActivity extends BaseActivity {
 
-    @BindView(R.id.logo_iv)
-    ImageView mLogoIv;
-    @BindView(R.id.count_down_tv)
-    TextView mTvCountDown;
-    CountDownTimer mCountDownTimer;
+    @BindView(R.id.title_tv)
+    TextView mTitleTv;
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_splash;
+        return R.layout.ac_splash;
     }
 
     @Override
@@ -36,74 +32,46 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-                startCountDown();
-                translateY();
-    }
-
-    @Override
-    public void loadData() {
-    }
-
-    @Override
-    public void initListener() {
-        super.initListener();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
-    private void translateY() {
-        ValueAnimator animator = ValueAnimator.ofFloat(1, 1.5f);
-        animator.setDuration(1000);
-        animator.setStartDelay(1000);
-        animator.setInterpolator(new AccelerateInterpolator());
-        animator.start();
-
-        final int screenHeight = DisplayUtils.getScreenHeight(SplashActivity.this);
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        mTitleTv.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation) {//1-1.3
-                float value = (float) animation.getAnimatedValue();
-                mLogoIv.setTranslationY(screenHeight * (1 - value));
+            public void onClick(View v) {
+                startAnimator();
             }
         });
     }
 
+    private void startAnimator() {
+        int centerX = (mTitleTv.getLeft() + mTitleTv.getRight()) / 2;
+        int centerY = (mTitleTv.getTop() + mTitleTv.getBottom()) / 2;
 
-    /**
-     * 开启倒计时
-     */
-    private void startCountDown() {
-        mTvCountDown.setVisibility(View.VISIBLE);
-        mCountDownTimer = new CountDownTimer(2000, 1000) {
+        // 获取扩散的半径
+        float finalRadius =
+                (float) Math.hypot((double) mTitleTv.getMeasuredWidth() / 2, (double) mTitleTv.getHeight() / 2);
+        // 定义揭露动画
+        Animator mCircularReveal = ViewAnimationUtils.createCircularReveal(
+                mTitleTv, mTitleTv.getWidth() /2 , mTitleTv.getHeight() /2, 10, 1000);
+        // 设置动画持续时间，并开始动画
+        mCircularReveal.setDuration(2000).start();
+        mCircularReveal.addListener(new Animator.AnimatorListener() {
             @Override
-            public void onTick(long millisUntilFinished) {
-                mTvCountDown.setText(getString(R.string.count_down, (millisUntilFinished / 1000) - 1));
+            public void onAnimationStart(Animator animation) {
+
             }
 
             @Override
-            public void onFinish() {
-                ActivityUtils.startActivity(SplashActivity.this, MainActivity.class);
-                finish();
+            public void onAnimationEnd(Animator animation) {
+                //                ARouter.getInstance().build("/main/main").navigation();
             }
-        };
-        mCountDownTimer.start();
-    }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
+            @Override
+            public void onAnimationCancel(Animator animation) {
 
-    }
+            }
 
+            @Override
+            public void onAnimationRepeat(Animator animation) {
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mCountDownTimer != null) {
-            mCountDownTimer.cancel();
-        }
+            }
+        });
     }
 }

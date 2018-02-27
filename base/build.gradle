@@ -1,0 +1,21 @@
+apply plugin: 'com.android.library'
+apply from: "${gradles.config}"
+
+
+android {
+    defaultConfig {
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+}
+
+dependencies {
+    compile rootProject.ext.thirds.arouter
+
+    compile rootProject.ext.thirds.rxjava2
+    compile rootProject.ext.thirds.retrofit2_rxjava2_adapter
+    compile rootProject.ext.thirds.rxandroid
+    compile rootProject.ext.thirds.retrofit
+    compile rootProject.ext.thirds.retrofit_converter_gson
+    compile rootProject.ext.thirds.retrofit_converter_scalars
+    compile rootProject.ext.thirds.retrofit_logging_interceptor
+}

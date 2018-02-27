@@ -1,0 +1,45 @@
+// 各个组件所使用的基本配置。定义在此。便于对多版本进行统一修改更新
+def rootPath = rootProject.ext
+android {
+    compileSdkVersion rootPath.android.compileSdkVersion
+    buildToolsVersion rootPath.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootPath.android.minSdkVersion
+        targetSdkVersion rootPath.android.targetSdkVersion
+        versionCode rootPath.android.versionCode
+        versionName rootPath.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+
+    compile rootPath.dependencies.multidex
+    compile rootPath.dependencies.appcompatV7
+    compile rootPath.dependencies.constraint_layout
+    compile rootPath.dependencies.recyclerView
+    compile rootPath.thirds.butterknife
+    compile rootPath.thirds.multi_type
+}

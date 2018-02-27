@@ -1,0 +1,35 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.louise.base">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <application>
+        <activity android:name=".SchemaFilterActivity">
+            <!-- Schame -->
+            <intent-filter>
+                <data
+                    android:host="h.design.com"
+                    android:scheme="beauty"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+
+            <!-- App Links -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data
+                    android:host="h.design.com"
+                    android:scheme="beauty"/>
+                <data
+                    android:host="h.design.com"
+                    android:scheme="beauty"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

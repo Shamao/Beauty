@@ -1,44 +1,23 @@
-<LinearLayout
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_white"
-    android:orientation="vertical"
-    tools:context=".ui.main.MainActivity">
+    tools:context="beauty.louise.com.MainActivity">
 
-    <beauty.louise.com.view.UIGradientTopBar
-        android:id="@+id/gradient_bar"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:bbs_right_src="@drawable/ic_more_round"
-        app:bbs_title="首页"/>
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-        </android.support.v4.widget.SwipeRefreshLayout>
-
-        <TextView
-            android:id="@+id/permission_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="@dimen/margin_huge"
-            android:background="@drawable/round_permission"
-            android:padding="@dimen/margin_mini"
-            android:gravity="center"
-            android:text="权限"
-            android:textSize="@dimen/font_small"/>
-    </FrameLayout>
-</LinearLayout>
+        android:background="#65f2e2"
+        android:padding="8dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+    />
+</android.support.constraint.ConstraintLayout>
