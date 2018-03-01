@@ -40,6 +40,8 @@ dependencies {
     compile rootPath.dependencies.appcompatV7
     compile rootPath.dependencies.constraint_layout
     compile rootPath.dependencies.recyclerView
+    compile rootPath.dependencies.constraint_layout
+
     compile rootPath.thirds.butterknife
     compile rootPath.thirds.multi_type
 }

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.louise.base.base.BaseActivity;
 
 import beauty.louise.com.R;
@@ -49,7 +50,7 @@ public class SplashActivity extends BaseActivity {
                 (float) Math.hypot((double) mTitleTv.getMeasuredWidth() / 2, (double) mTitleTv.getHeight() / 2);
         // 定义揭露动画
         Animator mCircularReveal = ViewAnimationUtils.createCircularReveal(
-                mTitleTv, mTitleTv.getWidth() /2 , mTitleTv.getHeight() /2, 10, 1000);
+                mTitleTv, mTitleTv.getWidth() / 2, mTitleTv.getHeight() / 2, 10, 1000);
         // 设置动画持续时间，并开始动画
         mCircularReveal.setDuration(2000).start();
         mCircularReveal.addListener(new Animator.AnimatorListener() {
@@ -60,7 +61,7 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                //                ARouter.getInstance().build("/main/main").navigation();
+                ARouter.getInstance().build("/main/main").navigation();
             }
 
             @Override

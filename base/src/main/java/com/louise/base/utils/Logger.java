@@ -59,7 +59,7 @@ public class Logger {
      * @param <T>
      */
     private static <T> void convert(Level level, String tag, T[] t) {
-        if (BuildConfig.LOG_DEBUG) {
+        if (!BuildConfig.LOG_DEBUG) {
             return;
         }
 
@@ -105,9 +105,7 @@ public class Logger {
     }
 
     public static <T> void d(final String tag, final T... contents) {
-
         convert(Level.debug, tag, contents);
-
     }
 
 }

@@ -3,13 +3,16 @@ package com.louise.lab;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
 import com.louise.base.bean.BaseResult;
 import com.louise.base.bean.gank.MGankWelfareBean;
 import com.louise.base.net.RetrofitManager;
+import com.louise.base.utils.FileUtils;
 import com.louise.base.utils.Logger;
+import com.louise.base.utils.constance.ConstTag;
 import com.louise.lab.adapter.provider.ColumnProvider;
 import com.louise.lab.adapter.provider.SimpleColumnProvider;
 import com.louise.lab.bean.MColumnBean;
@@ -19,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -87,5 +91,13 @@ public class LabMainActivity extends BaseActivity {
                         Logger.d("", "");
                     }
                 });
+    }
+
+    @OnClick(R2.id.lab_cover_iv)
+    void onCoverClick() {
+        Log.d("111", "111");
+        String content1 = FileUtils.readText(this.getResources().openRawResource(R.raw.lab_test_raw));
+        String content2 = FileUtils.readFromRaw(this, R.raw.lab_test_raw);
+        Logger.d(ConstTag.S_TODO, content1, content2);
     }
 }

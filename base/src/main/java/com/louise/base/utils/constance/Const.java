@@ -7,6 +7,7 @@ package com.louise.base.utils.constance;
 
 public class Const {
     public static final String S_PROTOCOL = "beauty://";
-    public static final String S_HOST = "h.design.com";
+    public static final String S_ORIGIN = "beauty://h.design.com?";
+    public static final String S_HOST = "";
     public static final String S_SEPERATOR = "/";
 }

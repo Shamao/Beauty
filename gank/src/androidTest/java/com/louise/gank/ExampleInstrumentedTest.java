@@ -1,4 +1,4 @@
-package com.louise.lab;
+package com.louise.gank;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,7 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.louise.lab.test", appContext.getPackageName());
+        assertEquals("com.louise.gank.test", appContext.getPackageName());
     }
-
 }

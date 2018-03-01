@@ -1,1 +1,1 @@
-include ':app', ':base', ':lab'
+include ':app', ':base', ':lab', ':gank'

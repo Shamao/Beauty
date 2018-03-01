@@ -1,13 +1,13 @@
 package beauty.louise.com;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.louise.base.utils.ActivityUtils;
+import com.alibaba.sdk.android.AppLinkService;
+import com.alibaba.sdk.android.BaseAlibabaSDK;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         mTitleTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ActivityUtils.startActivity(MainActivity.this, Intent.ACTION_VIEW, null, null, "beauty://h.design.com/lab/main",
-                                            null);
+                AppLinkService link = BaseAlibabaSDK.getService(AppLinkService.class);
+                link.jumpDetail(MainActivity.this, "552461663816", null);
             }
         });
     }
