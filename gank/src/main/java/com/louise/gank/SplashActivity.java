@@ -28,8 +28,8 @@ public class SplashActivity extends BaseActivity {
 
 
     @Override
-    public int getLayoutId() {
-        return R.layout.gank_ac_splash;
+    public void initContentLayout() {
+        setContentView(R.layout.gank_ac_splash);
     }
 
     @Override

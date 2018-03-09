@@ -31,7 +31,6 @@ public class RetrofitManager {
     private static File httpCacheDirectory;
     private static OkHttpClient.Builder mOkHttpClientBuilder;
     private static Retrofit.Builder mBuilder;
-    private static Retrofit mRetrofit;
 
     public static class Holder {
         public static RetrofitManager mInstance = new RetrofitManager();
@@ -77,7 +76,16 @@ public class RetrofitManager {
         return mHttpLoggingInterceptor;
     }
 
+    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+
+    /**
+     * Gank  API
+     *
+     * @return
+     */
     public GankApiService createGankApiservice() {
         return mBuilder.baseUrl(GankApiService.S_BASE_URL).build().create(GankApiService.class);
     }
+
+
 }

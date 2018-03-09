@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="welfare" type="com.louise.base.bean.gank.MGankWelfareBean"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/cover_iv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="5:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@tools:sample/avatars"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#7f000000"
+            app:layout_constraintBottom_toBottomOf="@id/cover_iv"
+            app:layout_constraintEnd_toEndOf="@id/cover_iv"
+            app:layout_constraintStart_toStartOf="@id/cover_iv"
+            app:layout_constraintTop_toTopOf="@id/cover_iv"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

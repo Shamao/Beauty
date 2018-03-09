@@ -42,8 +42,8 @@ public class LabMainActivity extends BaseActivity {
     private List<Object> mData;
 
     @Override
-    public int getLayoutId() {
-        return R.layout.lab_ac_main;
+    public void initContentLayout() {
+        setContentView(R.layout.lab_ac_main);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class BaseResult<T> {
     private boolean mError;
 
     @SerializedName(value = "results", alternate = {"'data"})
-    private T mT;
+    private T mData;
 
     public String getStatus() {
         return mStatus;
@@ -32,11 +32,11 @@ public class BaseResult<T> {
         mError = error;
     }
 
-    public T getT() {
-        return mT;
+    public T getData() {
+        return mData;
     }
 
-    public void setT(T t) {
-        mT = t;
+    public void setData(T data) {
+        mData = data;
     }
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#ededd4">
+
+
+    <TextView
+        android:id="@+id/lab_textview3"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        app:layout_goneMarginLeft="48dp"
+        android:text="Tevghv" app:layout_constraintStart_toEndOf="@+id/lab_textview2"
+        tools:layout_editor_absoluteY="144dp"/>
+    <TextView
+        android:id="@+id/lab_textview2"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:visibility="gone"
+        android:layout_marginStart="24dp"
+        android:text="TextView"
+        app:layout_constraintHorizontal_weight="1" app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="144dp"/>
+    <TextView
+        android:id="@+id/lab_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="TextViewvghvghv"
+        app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toEndOf="@+id/lab_barrier" tools:layout_editor_absoluteY="201dp"/>
+    <android.support.constraint.Barrier
+        android:id="@+id/lab_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" app:barrierDirection="right"
+
+        app:constraint_referenced_ids="lab_textview2,lab_textview3" tools:layout_editor_absoluteX="114dp"/>
+</android.support.constraint.ConstraintLayout>

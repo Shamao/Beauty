@@ -18,6 +18,6 @@ public interface GankApiService {
     public static final String S_BASE_URL = "http://gank.io";
 
     @GET("api/data/{category}/{count}/{page}")
-    Observable<BaseResult<List<MGankWelfareBean>>> getGankWelfare(@Path("category") String category, @Path("count") int count, @Path("page") int page);
+    Observable<BaseResult<List<MGankWelfareBean>>> getGankWelfare(@Path("category") String category, @Path("count") int pageSize, @Path("page") int page);
 
 }

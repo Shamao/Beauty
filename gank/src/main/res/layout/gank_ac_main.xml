@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.louise.gank.GankMainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="user" type="com.louise.gank.bean.MUserBean"/>
+        <variable name="movie" type="com.louise.gank.bean.MMovieBean"/>
+        <variable name="activity" type="com.louise.gank.GankMainActivity"/>
+        <variable name="handlers" type="com.louise.gank.GankMainActivity.MyHandlers"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:background="@android:color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="center_horizontal"
+            android:divider="@drawable/gank_divider_white_d8"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:showDividers="middle">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(view)->activity.onUserClick(view, user)}"
+                android:text="@{user.name}"
+                tools:text="@tools:sample/first_names"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{handlers::onClick}"
+                android:text="@{user.desc}"
+                tools:text="@tools:sample/last_names"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{movie.firstName + movie.age}"
+                tools:text="@tools:sample/last_names"/>
+        </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" android:text="Button" tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="345dp"/>
-</android.support.constraint.ConstraintLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:background="#7f7f7f7f"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/gank_item_welfare">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</layout>

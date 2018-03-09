@@ -22,7 +22,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String mTag;
     protected Unbinder mUnbinder;
 
-    public abstract int getLayoutId();
+    public abstract void initContentLayout();
 
     public abstract void initData();
 
@@ -34,12 +34,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void initListener() {
     }
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         InterfaceManager.getInstance().addActivity(this);
-        setContentView(getLayoutId());
+        initContentLayout();
         initInnerData();
         Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onCreate");
         initInnerView(savedInstanceState);

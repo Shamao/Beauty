@@ -21,8 +21,8 @@ public class LabGuideActivity extends BaseActivity {
     private LabGuideAdapter mAdapter;
 
     @Override
-    public int getLayoutId() {
-        return R.layout.lab_ac_guide;
+    public void initContentLayout() {
+        setContentView( R.layout.lab_ac_guide);
     }
 
     @Override

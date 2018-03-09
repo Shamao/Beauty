@@ -1,7 +1,5 @@
 apply plugin: 'com.jakewharton.butterknife'
 dependencies {
-//    annotationProcessor "${third.parcelerApt}"
-//    annotationProcessor "${third.routerApt}"
     annotationProcessor rootProject.ext.thirds.arouterApt
     annotationProcessor rootProject.ext.thirds.butterknifeApt
 }

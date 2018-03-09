@@ -11,6 +11,10 @@ android {
         resourcePrefix "gank_"
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     sourceSets {
         main {
             if (isDebug.toBoolean()) {

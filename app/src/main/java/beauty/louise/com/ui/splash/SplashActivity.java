@@ -22,8 +22,8 @@ public class SplashActivity extends BaseActivity {
     TextView mTitleTv;
 
     @Override
-    public int getLayoutId() {
-        return R.layout.ac_splash;
+    public void initContentLayout() {
+        setContentView(R.layout.ac_splash);
     }
 
     @Override
