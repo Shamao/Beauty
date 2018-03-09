@@ -1,6 +1,7 @@
 package com.louise.gank;
 
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import com.louise.base.bean.gank.MGankWelfareBean;
 import com.louise.base.view.itemDecoration.CommonLinearItemDecoration;
 import com.louise.gank.bean.MUserBean;
 import com.louise.gank.databinding.GankAcMainBinding;
+import com.louise.gank.view.DiagonalDrawable;
 import com.louise.gank.view.provider.WelfareProvider;
 
 import java.util.ArrayList;
@@ -57,6 +59,14 @@ public class GankMainActivity extends BaseActivity {
         mBinding.setUser(new MUserBean("看妹子", "看妹子"));
         mBinding.setActivity(this);
         mBinding.setHandlers(new MyHandlers());
+
+        DiagonalDrawable.Builder builder = new DiagonalDrawable.Builder()
+                .setStartColor(Color.GREEN)
+                .setEndColor(Color.RED)
+                .setReverseLayout(false);
+
+        DiagonalDrawable drawable = builder.build();
+        mBinding.barView.setBackground(drawable);
     }
 
 

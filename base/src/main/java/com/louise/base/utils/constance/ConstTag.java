@@ -13,6 +13,7 @@ public class ConstTag {
     public static String S_REQ = "request";
     public static String S_RES = "response";
     public static String S_VIEW = "view";
+    public static String S_DRAWABLE = "drawable";
 
     public static final String S_ROUTER = "s_router";
 }

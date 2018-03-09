@@ -13,14 +13,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <LinearLayout
-            android:background="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_gravity="center_horizontal"
+            android:background="@android:color/white"
             android:divider="@drawable/gank_divider_white_d8"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:showDividers="middle">
+
+            <View
+                android:id="@+id/bar_view"
+                android:layout_width="48dp"
+                android:layout_height="48dp"/>
             <TextView
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
@@ -43,9 +48,9 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler"
-            android:background="#7f7f7f7f"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#7f7f7f7f"
             tools:listitem="@layout/gank_item_welfare">
 
         </android.support.v7.widget.RecyclerView>
