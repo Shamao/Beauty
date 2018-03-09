@@ -16,10 +16,11 @@ import com.louise.base.utils.Logger;
 import com.louise.base.utils.constance.ConstTag;
 
 /**
+ * refer to https://github.com/massivedisaster/DiagonalDrawable
+ *
  * @author lsd
  * @date 2018/3/9.
  */
-
 public class DiagonalDrawable extends Drawable {
 
     private Paint mPaint;

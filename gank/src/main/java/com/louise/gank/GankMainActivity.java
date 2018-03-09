@@ -61,9 +61,9 @@ public class GankMainActivity extends BaseActivity {
         mBinding.setHandlers(new MyHandlers());
 
         DiagonalDrawable.Builder builder = new DiagonalDrawable.Builder()
-                .setStartColor(Color.GREEN)
-                .setEndColor(Color.RED)
-                .setReverseLayout(false);
+                .setStartColor(Color.parseColor("#E52878"))
+                .setEndColor(Color.parseColor("#EE2A7B"))
+                .setReverseLayout(true);
 
         DiagonalDrawable drawable = builder.build();
         mBinding.barView.setBackground(drawable);
