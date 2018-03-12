@@ -1,9 +1,12 @@
 package com.louise.lab;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
@@ -17,6 +20,7 @@ import com.louise.lab.adapter.provider.ColumnProvider;
 import com.louise.lab.adapter.provider.SimpleColumnProvider;
 import com.louise.lab.bean.MColumnBean;
 import com.louise.lab.bean.MMenuBean;
+import com.louise.lab.view.AdaptiveDrawable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +39,8 @@ import me.drakeet.multitype.MultiTypeAdapter;
 @Route(path = "/lab/main")
 public class LabMainActivity extends BaseActivity {
 
+    @BindView(R2.id.lab_cover_iv)
+    ImageView mCoverIv;
     @BindView(R2.id.lab_recycler)
     RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -64,6 +70,9 @@ public class LabMainActivity extends BaseActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+
+        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.test_cover);
+        mCoverIv.setImageDrawable(new AdaptiveDrawable(bitmap, 10, 1111));
     }
 
     void onTestClick() {

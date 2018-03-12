@@ -1,14 +1,3 @@
 # Beauty
-
-##TOD
-
-
-
-
-O1. ARouter选择 *****
-      2. 完善组件化v
-      3. ~~ 自定义Drawable <---->
-      4. vlayout 组件 v
-      5. 弹幕 https://juejin.im/post/5a03c54c51882531b15aeff4
-
-
+- DiagonalDrawable (refer to https://github.com/massivedisaster/DiagonalDrawable)
+- AdaptiveDrawable 将bitmap 始终居中在Drawable中  可适应于加载图片时不同比例的占位图
