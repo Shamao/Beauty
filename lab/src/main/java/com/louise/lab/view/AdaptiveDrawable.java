@@ -29,7 +29,12 @@ public class AdaptiveDrawable extends Drawable {
     public static final int CORNER_ALL = CORNER_TOP_LEFT | CORNER_TOP_RIGHT | CORNER_BOTTOM_LEFT | CORNER_BOTTOM_RIGHT;
 
 
+    private int mRadius;
+    private int mCorners;
+    private int mBgColor;
+
     private Paint mPaint;
+    private Paint mCornerPaint;
 
     private RectF mBitmapRect;
     private RectF mRectF;
@@ -37,6 +42,14 @@ public class AdaptiveDrawable extends Drawable {
     BitmapShader bitmapShader;
 
     public AdaptiveDrawable(Bitmap bitmap) {
+        this(bitmap, 0, S_NO_CORNOR, Color.TRANSPARENT);
+    }
+
+    public AdaptiveDrawable(Bitmap bitmap, int radius, int corners, int bgColor) {
+        mCorners = corners;
+        mRadius = radius;
+        mBgColor = bgColor;
+
         bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
         mBitmapRect = new RectF(0, 0, bitmap.getWidth(), bitmap.getHeight());
 
@@ -83,24 +96,35 @@ public class AdaptiveDrawable extends Drawable {
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        canvas.drawColor(Color.BLACK);
-        canvas.drawRect(mRectF, mPaint);
-        //        int notRoundedCorners = mCorners ^ CORNER_ALL;
-        //
-        //        if ((notRoundedCorners & CORNER_TOP_LEFT) != 0) {
-        //            canvas.drawRect(0, 0, mCornerRadius, mCornerRadius, mPaint);
-        //        }
-        //        if ((notRoundedCorners & CORNER_TOP_RIGHT) != 0) {
-        //            canvas.drawRect(mRectF.right - mCornerRadius, 0, mRectF.right, mCornerRadius, mPaint);
-        //        }
-        //        if ((notRoundedCorners & CORNER_BOTTOM_LEFT) != 0) {
-        //            canvas.drawRect(0, mRectF.bottom - mCornerRadius, mCornerRadius, mRectF.bottom, mPaint);
-        //        }
-        //        if ((notRoundedCorners & CORNER_BOTTOM_RIGHT) != 0) {
-        //            canvas.drawRect(mRectF.right - mCornerRadius, mRectF.bottom - mCornerRadius, mRectF.right, mRectF.bottom,
-        //                            mPaint);
-        //        }
+        mCornerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mCornerPaint.setStyle(Paint.Style.FILL);
+        mCornerPaint.setColor(mBgColor);
+        RectF bgRectF = transformRectF(getBounds());
+        canvas.drawRoundRect(bgRectF, mRadius, mRadius, mCornerPaint);
+
+        canvas.drawRoundRect(mRectF, 0, 0, mPaint);
+        int notRoundedCorners = mCorners ^ CORNER_ALL;
+
+        if ((notRoundedCorners & CORNER_TOP_LEFT) != 0) {
+            canvas.drawRect(0, 0, mRadius, mRadius, mCornerPaint);
+        }
+
+        if ((notRoundedCorners & CORNER_TOP_RIGHT) != 0) {
+            canvas.drawRect(bgRectF.right - mRadius, 0, bgRectF.right, mRadius, mCornerPaint);
+        }
+        if ((notRoundedCorners & CORNER_BOTTOM_LEFT) != 0) {
+            canvas.drawRect(0, bgRectF.bottom - mRadius, mRadius, bgRectF.bottom, mCornerPaint);
+        }
+        if ((notRoundedCorners & CORNER_BOTTOM_RIGHT) != 0) {
+            canvas.drawRect(bgRectF.right - mRadius, bgRectF.bottom - mRadius, bgRectF.right, bgRectF.bottom,
+                            mCornerPaint);
+        }
     }
+
+    private RectF transformRectF(Rect rect) {
+        return new RectF(rect.left, rect.top, rect.right, rect.bottom);
+    }
+
 
     @Override
     public void setAlpha(int alpha) {

@@ -2,6 +2,7 @@ package com.louise.lab;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -71,8 +72,8 @@ public class LabMainActivity extends BaseActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.test_cover);
-        mCoverIv.setImageDrawable(new AdaptiveDrawable(bitmap, 10, 1111));
+        Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.lab_cover);
+        mCoverIv.setImageDrawable(new AdaptiveDrawable(bitmap, 100, AdaptiveDrawable.S_NO_CORNOR, Color.BLUE));
     }
 
     void onTestClick() {
