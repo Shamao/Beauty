@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_centerInParent="true"
     tools:context="com.louise.lab.LabViewActivity">
 
-    <FrameLayout
-        android:layout_width="200dp"
-        android:layout_height="wrap_content">
+    <com.louise.lab.view.UILabView
+        android:layout_centerInParent="true"
+        android:id="@+id/big_lab_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#ff0"/>
 
-        <com.louise.lab.view.UILabView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#ff0"/>
-    </FrameLayout>
-    <!--<com.louise.lab.view.UILabView-->
-    <!--android:background="#fa8862"-->
-    <!--android:layout_width="100dp"-->
-    <!--android:layout_height="100dp"/>-->
-
-
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

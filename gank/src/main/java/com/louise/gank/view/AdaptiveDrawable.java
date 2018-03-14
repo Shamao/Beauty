@@ -1,4 +1,4 @@
-package com.louise.lab.view;
+package com.louise.gank.view;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
@@ -34,12 +34,11 @@ public class AdaptiveDrawable extends Drawable {
     private int mBgColor;
 
     private Paint mPaint;
-    private Paint mCornerPaint;
 
     private RectF mBitmapRect;
     private RectF mRectF;
 
-    BitmapShader bitmapShader;
+    private BitmapShader bitmapShader;
 
     public AdaptiveDrawable(Bitmap bitmap) {
         this(bitmap, 0, S_NO_CORNOR, Color.TRANSPARENT);
@@ -86,7 +85,6 @@ public class AdaptiveDrawable extends Drawable {
             right = bounds.width() - (bounds.width() - bounds.height() / bitmapRatio) / 2;
         }
 
-
         mRectF = new RectF(left, top, right, bottom);
 
         Matrix shaderMatrix = new Matrix();
@@ -96,35 +94,34 @@ public class AdaptiveDrawable extends Drawable {
 
     @Override
     public void draw(@NonNull Canvas canvas) {
-        mCornerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mCornerPaint.setStyle(Paint.Style.FILL);
-        mCornerPaint.setColor(mBgColor);
+        Paint cornerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        cornerPaint.setStyle(Paint.Style.FILL);
+        cornerPaint.setColor(mBgColor);
         RectF bgRectF = transformRectF(getBounds());
-        canvas.drawRoundRect(bgRectF, mRadius, mRadius, mCornerPaint);
+        canvas.drawRoundRect(bgRectF, mRadius, mRadius, cornerPaint);
 
         canvas.drawRoundRect(mRectF, 0, 0, mPaint);
         int notRoundedCorners = mCorners ^ CORNER_ALL;
 
         if ((notRoundedCorners & CORNER_TOP_LEFT) != 0) {
-            canvas.drawRect(0, 0, mRadius, mRadius, mCornerPaint);
+            canvas.drawRect(0, 0, mRadius, mRadius, cornerPaint);
         }
 
         if ((notRoundedCorners & CORNER_TOP_RIGHT) != 0) {
-            canvas.drawRect(bgRectF.right - mRadius, 0, bgRectF.right, mRadius, mCornerPaint);
+            canvas.drawRect(bgRectF.right - mRadius, 0, bgRectF.right, mRadius, cornerPaint);
         }
         if ((notRoundedCorners & CORNER_BOTTOM_LEFT) != 0) {
-            canvas.drawRect(0, bgRectF.bottom - mRadius, mRadius, bgRectF.bottom, mCornerPaint);
+            canvas.drawRect(0, bgRectF.bottom - mRadius, mRadius, bgRectF.bottom, cornerPaint);
         }
         if ((notRoundedCorners & CORNER_BOTTOM_RIGHT) != 0) {
             canvas.drawRect(bgRectF.right - mRadius, bgRectF.bottom - mRadius, bgRectF.right, bgRectF.bottom,
-                            mCornerPaint);
+                            cornerPaint);
         }
     }
 
     private RectF transformRectF(Rect rect) {
         return new RectF(rect.left, rect.top, rect.right, rect.bottom);
     }
-
 
     @Override
     public void setAlpha(int alpha) {
@@ -139,5 +136,15 @@ public class AdaptiveDrawable extends Drawable {
     @Override
     public int getOpacity() {
         return PixelFormat.TRANSLUCENT;
+    }
+
+    @Override
+    public int getIntrinsicHeight() {
+        return super.getIntrinsicHeight();
+    }
+
+    @Override
+    public int getIntrinsicWidth() {
+        return super.getIntrinsicWidth();
     }
 }

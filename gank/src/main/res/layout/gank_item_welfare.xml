@@ -18,12 +18,12 @@
             app:layout_constraintDimensionRatio="5:3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:src="@tools:sample/avatars"/>
+            tools:src="@drawable/gank_scale"/>
 
         <View
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="#7f000000"
+            android:background="#3f000000"
             app:layout_constraintBottom_toBottomOf="@id/cover_iv"
             app:layout_constraintEnd_toEndOf="@id/cover_iv"
             app:layout_constraintStart_toStartOf="@id/cover_iv"
