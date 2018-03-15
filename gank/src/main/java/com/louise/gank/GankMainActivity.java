@@ -13,6 +13,7 @@ import com.louise.base.view.itemDecoration.CommonLinearItemDecoration;
 import com.louise.gank.bean.MUserBean;
 import com.louise.gank.databinding.GankAcMainBinding;
 import com.louise.gank.view.DiagonalDrawable;
+import com.louise.gank.view.adapter.CommonImageAdapter;
 import com.louise.gank.view.provider.WelfareProvider;
 
 import java.util.ArrayList;
@@ -49,7 +50,9 @@ public class GankMainActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        mBinding.setUser(new MUserBean("sdfsdf","sfsdfa"));
+        mBinding.setUser(new MUserBean("sdfsdf", "sfsdfa"));
+        mBinding.pager.setAdapter(new CommonImageAdapter());
+        mBinding.indicator.setupWithViewPager( mBinding.pager);
         mBinding.recycler.setHasFixedSize(true);
         mBinding.recycler.setLayoutManager(new LinearLayoutManager(this));
         mBinding.recycler.addItemDecoration(mItemDecoration);

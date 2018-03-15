@@ -35,11 +35,20 @@ public class CommonLinearItemDecoration extends RecyclerView.ItemDecoration {
      */
     private int mHorizontalEdgePadding;
 
+    /**
+     * @param originPadding
+     * @param orientation
+     */
     public CommonLinearItemDecoration(int originPadding, int orientation) {
         mOriginPadding = originPadding;
         mOrientation = orientation;
     }
 
+    /**
+     * @param verticalEdgePadding
+     * @param horizontalEdgePadding
+     * @return
+     */
     public CommonLinearItemDecoration withEdge(int verticalEdgePadding, int horizontalEdgePadding) {
         isIncludeEdge = true;
         mVerticalEdgePadding = verticalEdgePadding;

@@ -9,13 +9,14 @@
         android:supportsRtl="true"
         android:theme="@style/lab_AppTheme">
         <activity android:name=".LabMainActivity">
+
+        </activity>
+        <activity android:name=".LabGuideActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".LabGuideActivity"/>
         <activity android:name=".LabViewActivity">
         </activity>
     </application>

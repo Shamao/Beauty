@@ -10,6 +10,7 @@ android {
 
 dependencies {
     compile rootProject.ext.thirds.arouter
+    compile rootProject.ext.dependencies.design
 
     compile rootProject.ext.thirds.rxjava2
     compile rootProject.ext.thirds.retrofit2_rxjava2_adapter
@@ -21,4 +22,5 @@ dependencies {
 
     annotationProcessor rootProject.ext.thirds.glide_compiler
     compile rootProject.ext.thirds.glide
+    compile rootProject.ext.thirds.flex_box_layout
 }

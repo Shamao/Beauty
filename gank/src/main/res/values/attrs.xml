@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UIFlexIndicator">
+        <attr name="gank_select_color" format="color|reference" />
+        <attr name="gank_un_select_color" format="color|reference" />
+        <attr name="gank_min_width" format="dimension" />
+        <attr name="gank_offset" format="dimension" />
+        <attr name="gank_margin" format="dimension" />
+    </declare-styleable>
+</resources>

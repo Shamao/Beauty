@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    <data>
+    <data class="com.louise.gank.databinding.GankItemWelfareBinding">
         <variable name="welfare" type="com.louise.base.bean.gank.MGankWelfareBean"/>
     </data>
     <android.support.constraint.ConstraintLayout
@@ -29,5 +29,13 @@
             app:layout_constraintStart_toStartOf="@id/cover_iv"
             app:layout_constraintTop_toTopOf="@id/cover_iv"/>
 
+        <com.louise.gank.view.UIDotView
+            android:id="@+id/dot_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/cover_iv"
+            app:layout_constraintEnd_toEndOf="@id/cover_iv"
+            app:layout_constraintStart_toStartOf="@id/cover_iv"
+            app:layout_constraintTop_toTopOf="@id/cover_iv"/>
     </android.support.constraint.ConstraintLayout>
 </layout>
