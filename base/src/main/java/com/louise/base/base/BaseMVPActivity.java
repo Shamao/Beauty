@@ -7,3 +7,5 @@ package com.louise.base.base;
 
 abstract public class BaseMVPActivity extends BaseActivity {
 }
+
+

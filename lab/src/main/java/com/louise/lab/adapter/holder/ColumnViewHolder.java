@@ -1,5 +1,6 @@
 package com.louise.lab.adapter.holder;
 
+import android.content.res.ColorStateList;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -32,5 +33,7 @@ public class ColumnViewHolder extends RecyclerView.ViewHolder {
 
     public void fillData(MColumnBean item) {
         mTitleTv.setText(item.getTitle());
+
+        ColorStateList color = itemView.getResources().getColorStateList(R.color.lab_selector_bg_btn);
     }
 }

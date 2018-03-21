@@ -33,8 +33,7 @@ public class GankApi {
         return Holder.mInstance;
     }
 
-    public void getGankWelfare(int pageSize, int page,
-                                                 final Callback<List<MGankWelfareBean>> callback) {
+    public void getGankWelfare(int pageSize, int page, final Callback<List<MGankWelfareBean>> callback) {
         RetrofitManager.getInstance().createGankApiservice().getGankWelfare("福利", pageSize, page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -49,6 +48,5 @@ public class GankApi {
 
                     }
                 });
-
     }
 }

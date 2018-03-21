@@ -1,24 +1,21 @@
 package com.louise.gank.view.provider;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
+import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.louise.base.bean.gank.MGankWelfareBean;
-import com.louise.base.utils.DisplayUtils;
 import com.louise.base.view.glide.GlideApp;
 import com.louise.gank.R;
 import com.louise.gank.databinding.GankItemWelfareBinding;
-import com.louise.gank.view.AdaptiveDrawable;
 import com.louise.gank.view.holder.WelfareViewHolder;
 
 import me.drakeet.multitype.ItemViewBinder;
-
-import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
 
 /**
  * @author lsd
@@ -31,29 +28,30 @@ public class WelfareProvider extends ItemViewBinder<MGankWelfareBean, WelfareVie
     @NonNull
     @Override
     protected WelfareViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
-        binding = GankItemWelfareBinding.inflate(inflater, parent, false);
-        return new WelfareViewHolder(binding.getRoot());
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.gank_item_welfare, parent, false);
+        return new WelfareViewHolder(view);
     }
 
     @Override
     protected void onBindViewHolder(@NonNull WelfareViewHolder holder, @NonNull MGankWelfareBean item) {
-        binding.setWelfare(item);
-        Bitmap bitmap = BitmapFactory.decodeResource(holder.itemView.getContext().getResources(),
-                                                     R.drawable.gank_ph_meizi);
-        AdaptiveDrawable drawable = new AdaptiveDrawable(bitmap, 0, 0, Color.BLACK);
-        drawable.setLevel(50 * holder.getAdapterPosition());
-        ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) binding.coverIv.getLayoutParams();
+        //        binding.setWelfare(item);
+       GankItemWelfareBinding binding =  DataBindingUtil.bind(holder.itemView);
+        TextView tv = binding.descTv;
+        tv.setText(item.getDesc());
+
+        ImageView iv = binding.coverIv;
+        ConstraintLayout.LayoutParams lp = (ConstraintLayout.LayoutParams) iv.getLayoutParams();
         lp.dimensionRatio = "2:" + (holder.getAdapterPosition() % +3 + 1);
-        binding.coverIv.setLayoutParams(lp);
+        iv.setLayoutParams(lp);
 
         GlideApp.with(holder.itemView.getContext())
                 .load(item.getUrl())
                 .fitCenter()
-                .placeholder(drawable)
-                .transition(withCrossFade())
-                .into(binding.coverIv);
-        binding.dotView.withColor(Color.BLACK)
-                .withWidth(DisplayUtils.dip2px(holder.itemView.getContext(), 100))
-                .build();
+                .dontAnimate()
+                .into(iv);
+
+        //        binding.dotView.withColor(Color.BLACK)
+        //                .withWidth(DisplayUtils.dip2px(holder.itemView.getContext(), 100))
+        //                .build();
     }
 }

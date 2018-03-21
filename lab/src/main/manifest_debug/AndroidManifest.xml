@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".LabViewActivity">
         </activity>
+        <activity android:name=".LabOverDrawActivity"/>
     </application>
 
 </manifest>

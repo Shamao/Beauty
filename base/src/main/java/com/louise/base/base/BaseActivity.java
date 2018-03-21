@@ -39,6 +39,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         InterfaceManager.getInstance().addActivity(this);
         initContentLayout();
+        ButterKnife.bind(this);
         initInnerData();
         Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onCreate");
         initInnerView(savedInstanceState);
@@ -50,7 +51,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void initInnerView(Bundle savedInstanceState) {
-        ButterKnife.bind(this);
         initView(savedInstanceState);
     }
 

@@ -3,5 +3,7 @@
     <application>
         <activity android:name=".LabMainActivity"/>
         <activity android:name=".LabGuideActivity"/>
+        <activity android:name=".LabOverDrawActivity"/>
+        <activity android:name=".LabViewActivity"/>
     </application>
 </manifest>

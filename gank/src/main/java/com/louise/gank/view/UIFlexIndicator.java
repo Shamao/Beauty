@@ -1,7 +1,6 @@
 package com.louise.gank.view;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -9,8 +8,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
-import com.louise.gank.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,16 +54,16 @@ public class UIFlexIndicator extends LinearLayout implements ViewPager.OnPageCha
     }
 
     private void initAttrs(AttributeSet attrs) {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.UIFlexIndicator);
-        mSelectColor = typedArray.getColor(R.styleable.UIFlexIndicator_gank_select_color, S_D_SELECT_COLOR);
-        mUnSelectColor = typedArray.getColor(R.styleable.UIFlexIndicator_gank_un_select_color, S_D_UN_SELECT_COLOR);
-
-        mMinWidth =
-                typedArray.getDimensionPixelSize(R.styleable.UIFlexIndicator_gank_min_width, dp2px(S_D_MIN_WIDTH_DP));
-        mOffset =
-                typedArray.getDimensionPixelSize(R.styleable.UIFlexIndicator_gank_offset, dp2px(S_D_OFFSET_DP));
-        margin = typedArray.getDimensionPixelSize(R.styleable.UIFlexIndicator_gank_margin, dp2px(S_D_MARGIN));
-        typedArray.recycle();
+//        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.UIFlexIndicator);
+//        mSelectColor = typedArray.getColor(R.styleable.UIFlexIndicator_gank_select_color, S_D_SELECT_COLOR);
+//        mUnSelectColor = typedArray.getColor(R.styleable.UIFlexIndicator_gank_un_select_color, S_D_UN_SELECT_COLOR);
+//
+//        mMinWidth =
+//                typedArray.getDimensionPixelSize(R.styleable.UIFlexIndicator_gank_min_width, dp2px(S_D_MIN_WIDTH_DP));
+//        mOffset =
+//                typedArray.getDimensionPixelSize(R.styleable.UIFlexIndicator_gank_offset, dp2px(S_D_OFFSET_DP));
+//        margin = typedArray.getDimensionPixelSize(R.styleable.UIFlexIndicator_gank_margin, dp2px(S_D_MARGIN));
+//        typedArray.recycle();
 
         setGravity(Gravity.CENTER);
         setOrientation(LinearLayout.HORIZONTAL);
