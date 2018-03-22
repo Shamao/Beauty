@@ -20,6 +20,7 @@
         <activity android:name=".LabViewActivity">
         </activity>
         <activity android:name=".LabOverDrawActivity"/>
+        <activity android:name=".module.test.LabTestActivity"/>
     </application>
 
 </manifest>

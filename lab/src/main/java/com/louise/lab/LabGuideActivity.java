@@ -10,6 +10,7 @@ import com.louise.lab.adapter.LabGuideAdapter;
 import com.louise.lab.view.ParallaxTransformer;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * @author lsd
@@ -23,7 +24,8 @@ public class LabGuideActivity extends BaseActivity {
 
     @Override
     public void initContentLayout() {
-        setContentView( R.layout.lab_ac_guide);
+        setContentView(R.layout.lab_ac_guide);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -35,7 +37,7 @@ public class LabGuideActivity extends BaseActivity {
     public void initView(Bundle savedInstanceState) {
         mViewPager.setAdapter(mAdapter);
         mViewPager.setPageTransformer(false, new ParallaxTransformer());
-        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+        mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);

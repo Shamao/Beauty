@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**
@@ -35,6 +36,7 @@ public class LabMainActivity extends BaseActivity {
     @Override
     public void initContentLayout() {
         setContentView(R.layout.lab_ac_main);
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -42,6 +44,7 @@ public class LabMainActivity extends BaseActivity {
         mData = new ArrayList<>();
         mData.add(new MColumnBean("引导页"));
         mData.add(new MMenuBean("大本营", "/main/main"));
+        mData.add(new MMenuBean("测试MVP生命周期", "/lab/test"));
         mData.add(new MMenuBean("过度绘制", "/lab/overdraw"));
         //        mData.add(new MMenuBean("视觉差引导页", "/lab/guide"));
         //        mData.add(new MMenuBean("自定义View测试", "/lab/view"));

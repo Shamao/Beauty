@@ -10,11 +10,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.louise.base.manager.InterfaceManager;
 import com.louise.base.utils.Logger;
 import com.louise.base.utils.constance.ConstTag;
 
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -36,17 +34,16 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        InterfaceManager.getInstance().addActivity(this);
-        initContentLayout();
-        ButterKnife.bind(this);
-        initInnerData();
+        mTag = getClass().getSimpleName();
         Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onCreate");
+        super.onCreate(savedInstanceState);
+        initContentLayout();
+        initInnerData();
         initInnerView(savedInstanceState);
 
-        loadData();
-
         initListener();
+
+        loadData();
 
     }
 
@@ -92,7 +89,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        InterfaceManager.getInstance().removeActivity(this);
         super.onDestroy();
         Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onDestroy");
     }
