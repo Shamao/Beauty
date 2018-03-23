@@ -1,5 +1,6 @@
 package com.louise.lab;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -82,7 +83,14 @@ public class LabMainActivity extends BaseActivity {
         mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        //        super.onBackPressed();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// 注意
+        intent.addCategory(Intent.CATEGORY_HOME);
+        this.startActivity(intent);
     }
 }
