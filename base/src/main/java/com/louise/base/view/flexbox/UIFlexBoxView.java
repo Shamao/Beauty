@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Created by lsd on 2017/10/24.
+ * 暂时不支持多类型
  */
 
 public class UIFlexBoxView extends FlexboxLayout {
@@ -92,11 +93,11 @@ public class UIFlexBoxView extends FlexboxLayout {
             for (int i = 0; i < mCurItemCount; i++) {
                 final FlexBoxViewHolder holder = createViewHolder(i);
 
-                onHandleItmViewListener(i, holder);
-
                 mAdapter.onHandleLayoutParams(holder.itemView, mSpanCount, i);
 
                 mAdapter.onBindViewHolder(holder, i);
+
+                onHandleItmViewListener(i, holder);
             }
         } else {
             removeAllViews();
