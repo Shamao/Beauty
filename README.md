@@ -47,3 +47,59 @@ AdaptiveDrawable drawable = new AdaptiveDrawable(bitmap, 0, 0, Color.BLACK);
   .withEdge(padding, pading);
 ```
 
+###
+```
+ /**
+     * @param originBitmap
+     * @param padding
+     * @return
+     * @throws OutOfMemoryException
+     */
+    public static Bitmap getCircleBitmapFitOut(Bitmap originBitmap, int padding) throws OutOfMemoryException {
+        if (originBitmap == null)
+            return null;
+
+        //获取原bitmap的长 宽 中心点 X Y
+        int originWidth = originBitmap.getWidth();
+        int originHeight = originBitmap.getHeight();
+        int originCircleX = originBitmap.getWidth() / 2;
+        int originCircleY = originBitmap.getHeight() / 2;
+        //获取输出bitmap的大小和半径
+        int outputSize = Math.min(originWidth, originHeight);
+        int outputRadius = outputSize / 2;
+        Bitmap output;
+        try {
+            output = Bitmap.createBitmap(outputSize, outputSize, Bitmap.Config.ARGB_8888);
+        } catch (Exception | StackOverflowError e) {
+            e.printStackTrace();
+            output = null;
+        } catch (OutOfMemoryError ex) {
+            throw new OutOfMemoryException(ex.getMessage());
+        }
+
+        if (output == null)
+            return null;
+
+        Canvas canvas = new Canvas(output);
+        // 计算原bitmap需要被绘制的区域
+        int left = originCircleX - outputRadius;
+        int top = originCircleY - outputRadius;
+        int right = originCircleX + outputRadius;
+        int bottom = originCircleY + outputRadius;
+        Rect srcRect = new Rect(left, top, right, bottom);
+        //计算canvas的绘制区域
+        Rect desRect = new Rect(padding, padding, outputSize - padding, outputSize - padding);
+
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        canvas.drawCircle(outputRadius, outputRadius, outputRadius, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(originBitmap, srcRect, desRect, paint);
+
+        return output;
+    }
+```
+
