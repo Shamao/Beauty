@@ -69,6 +69,7 @@ public class Logger {
         }
 
         StringBuilder builder = new StringBuilder();
+        builder.append(".\n");
         builder.append(TOP_BORDER);
         builder.append("\n");
         for (int i = 0; i < t.length; i++) {
