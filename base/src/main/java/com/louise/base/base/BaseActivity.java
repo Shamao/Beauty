@@ -20,22 +20,36 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected String mTag;
     protected Unbinder mUnbinder;
 
+    /**
+     * only call setContentView(int resId) or setContentView(View view)
+     */
     public abstract void initContentLayout();
 
+    /**
+     * init data from intent and basic params
+     */
     public abstract void initData();
 
+    /**
+     * init view
+     */
     public abstract void initView(Bundle savedInstanceState);
 
+    /**
+     * load Data from net
+     */
     public void loadData() {
     }
 
+    /**
+     *  add listener to view or other(eg:)
+     */
     public void initListener() {
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         mTag = getClass().getSimpleName();
-        Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onCreate");
         super.onCreate(savedInstanceState);
         initContentLayout();
         initInnerData();
@@ -56,42 +70,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
     }
 
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onStart");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onReStart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onDestroy");
-    }
 
     @Override
     protected void onNewIntent(Intent intent) {

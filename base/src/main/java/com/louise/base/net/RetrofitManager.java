@@ -19,7 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
- * Created by Steam on 16/11/24.
+ * Created by lsd on 16/11/24.
  */
 
 public class RetrofitManager {
