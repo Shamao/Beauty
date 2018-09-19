@@ -8,6 +8,13 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.sdk.android.AppLinkService;
 import com.alibaba.sdk.android.BaseAlibabaSDK;
+import com.bumptech.glide.Glide;
+import com.louise.base.bean.gank.MGankWelfareBean;
+import com.louise.base.net.RetrofitManager;
+import com.louise.base.utils.ArrayUtils;
+import com.louise.gank.GankApi;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,5 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 link.jumpDetail(MainActivity.this, "552461663816", null);
             }
         });
+
+
     }
 }

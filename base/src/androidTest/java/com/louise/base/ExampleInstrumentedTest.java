@@ -4,10 +4,13 @@ import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.louise.base.utils.Logger;
+import com.louise.base.utils.TimeIntervalUtils;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -23,4 +26,5 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.louise.base.test", appContext.getPackageName());
     }
+
 }

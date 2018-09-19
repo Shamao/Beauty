@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import com.louise.base.net.apiservice.GankApiService;
 import com.louise.base.net.interceptor.CacheInterceptor;
 import com.louise.base.net.interceptor.ParamsInterceptor;
 import com.louise.base.utils.constance.ConstTag;
@@ -24,9 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitManager {
     private Context mContext;
-    private HttpLoggingInterceptor mHttpLoggingInterceptor;
 
-    public static String S_BASE_URL = "/v9/";
 
     private static File httpCacheDirectory;
     private static OkHttpClient.Builder mOkHttpClientBuilder;
@@ -46,13 +43,6 @@ public class RetrofitManager {
         initRetrofitClient();
     }
 
-    private void initRetrofitClient() {
-        mBuilder = new Retrofit.Builder()
-                .client(mOkHttpClientBuilder.build())
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
-    }
-
     private void initOkHttpClient() {
         File cacheDir = new File(mContext.getCacheDir(), "cache");
         Cache cache = new Cache(cacheDir, 10 * 1024 * 1024);
@@ -65,27 +55,35 @@ public class RetrofitManager {
                 .addNetworkInterceptor(getHttpLoggingInterceptor());
     }
 
-    public HttpLoggingInterceptor getHttpLoggingInterceptor() {
-        mHttpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+    private void initRetrofitClient() {
+        mBuilder = new Retrofit.Builder()
+                .client(mOkHttpClientBuilder.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+    }
+
+
+    private HttpLoggingInterceptor getHttpLoggingInterceptor() {
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
                 Log.d(ConstTag.S_RETROFIT, message);
             }
         });
-        mHttpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        return mHttpLoggingInterceptor;
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        return httpLoggingInterceptor;
     }
 
-    // ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
+    ///////////////////////////////////////////////////////////////////////////
+    // 外部调用
+    ///////////////////////////////////////////////////////////////////////////
 
     /**
-     * Gank  API
+     * API
      *
      * @return
      */
-    public GankApiService createGankApiservice() {
-        return mBuilder.baseUrl(GankApiService.S_BASE_URL).build().create(GankApiService.class);
+    public <T> T createGankApiService(String baseUrl, Class<T> clazz) {
+        return mBuilder.baseUrl(baseUrl).build().create(clazz);
     }
-
-
 }

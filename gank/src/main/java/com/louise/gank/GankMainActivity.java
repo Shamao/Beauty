@@ -121,15 +121,16 @@ public class GankMainActivity extends BaseActivity {
     }
 
     private void getGankWelfare() {
-        GankApi.getInstance().getGankWelfare(20, 1, new GankApi.Callback<List<MGankWelfareBean>>() {
-            @Override
-            public void onCallback(List<MGankWelfareBean> data) {
-                mData.clear();
-                mData.addAll(data);
-                mAdapter.notifyDataSetChanged();
-                cancelRefresh();
-            }
-        });
+        GankApi.getInstance().getGankWelfare(20, 1,
+                new GankApi.Callback<List<MGankWelfareBean>>() {
+                    @Override
+                    public void onCallback(List<MGankWelfareBean> data) {
+                        mData.clear();
+                        mData.addAll(data);
+                        mAdapter.notifyDataSetChanged();
+                        cancelRefresh();
+                    }
+                });
     }
 
     @Override

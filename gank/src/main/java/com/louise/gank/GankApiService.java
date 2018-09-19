@@ -1,4 +1,4 @@
-package com.louise.base.net.apiservice;
+package com.louise.gank;
 
 import com.louise.base.bean.BaseResult;
 import com.louise.base.bean.gank.MGankWelfareBean;
@@ -14,7 +14,7 @@ import retrofit2.http.Path;
  * @date 2018/2/7.
  */
 
-public interface GankApiService {
+public interface GankApiService{
     public static final String S_BASE_URL = "http://gank.io";
 
     @GET("api/data/{category}/{count}/{page}")
