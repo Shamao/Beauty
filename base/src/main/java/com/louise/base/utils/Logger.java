@@ -72,6 +72,8 @@ public class Logger {
         builder.append(".\n");
         builder.append(TOP_BORDER);
         builder.append("\n");
+        builder.append(tag);
+        builder.append("===>");
         for (int i = 0; i < t.length; i++) {
             String content;
             if (t[i] instanceof Object[]) {

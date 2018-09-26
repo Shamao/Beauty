@@ -10,6 +10,7 @@ import com.louise.base.view.glide.GlideApp;
 import com.louise.gank.GankApi;
 
 import java.util.List;
+import java.util.Random;
 
 import beauty.louise.com.R;
 
@@ -44,19 +45,23 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void startAnimator() {
-
         GankApi.getInstance().getGankWelfare(20, 1,
                 new GankApi.Callback<List<MGankWelfareBean>>() {
                     @Override
                     public void onCallback(List<MGankWelfareBean> data) {
                         if (ArrayUtils.isNotEmpty(data)) {
-                            MGankWelfareBean item = data.get(0);
+                            int random = new Random().nextInt(data.size());
+                            MGankWelfareBean item = data.get(random);
                             GlideApp.with(SplashActivity.this)
+                                    .asBitmap()
                                     .load(item.getUrl())
-                                    .placeholder(R.drawable.default_splash)
+                                    .placeholder(R.drawable.ic_placeholder)
+                                    .dontAnimate()
                                     .into(mCoverIv);
                         }
                     }
                 });
     }
+
+
 }
