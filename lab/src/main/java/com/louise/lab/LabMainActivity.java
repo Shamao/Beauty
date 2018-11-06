@@ -1,9 +1,9 @@
 package com.louise.lab;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
@@ -33,11 +33,14 @@ public class LabMainActivity extends BaseActivity {
     private MultiTypeAdapter mAdapter;
     private List<Object> mData;
 
+    @Override
+    public int getLayoutId() {
+        return R.layout.lab_ac_main;
+    }
 
     @Override
-    public void initContentLayout() {
-        setContentView(R.layout.lab_ac_main);
-        ButterKnife.bind(this);
+    public View getLayoutView() {
+        return null;
     }
 
     @Override
@@ -46,26 +49,7 @@ public class LabMainActivity extends BaseActivity {
         mData.add(new MColumnBean("引导页"));
         mData.add(new MMenuBean("大本营", "/main/main"));
         mData.add(new MMenuBean("测试MVP生命周期", "/lab/test"));
-        mData.add(new MMenuBean("过度绘制", "/lab/overdraw"));
-        //        mData.add(new MMenuBean("视觉差引导页", "/lab/guide"));
-        //        mData.add(new MMenuBean("自定义View测试", "/lab/view"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
-        //        mData.add(new MColumnBean("未开发"));
+        mData.add(new MMenuBean("过度绘制", "/lab/view"));
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MColumnBean.class, new ColumnProvider());
         mAdapter.register(MMenuBean.class, new SimpleColumnProvider());
@@ -74,6 +58,8 @@ public class LabMainActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        ButterKnife.bind(this);
+
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         int padding = DisplayUtils.dip2px(this, 10);
@@ -83,14 +69,5 @@ public class LabMainActivity extends BaseActivity {
         mRecyclerView.addItemDecoration(itemDecoration);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-    }
-
-    @Override
-    public void onBackPressed() {
-        //        super.onBackPressed();
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// 注意
-        intent.addCategory(Intent.CATEGORY_HOME);
-        this.startActivity(intent);
     }
 }

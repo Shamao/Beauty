@@ -5,5 +5,5 @@ package com.louise.lab.adapter;
  * @date 2018/2/7.
  */
 
-public class BaseViewHolder  {
+public class BaseViewHolder   {
 }

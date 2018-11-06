@@ -15,9 +15,10 @@ import com.louise.lab.R;
 
 @Route(path = "/lab/test")
 public class LabTestActivity extends BaseMVPActivity<LabTestPresenter> implements ILabTestView {
+
     @Override
-    public void initContentLayout() {
-        setContentView(R.layout.lab_ac_view);
+    public int getLayoutId() {
+        return R.layout.lab_ac_view;
     }
 
     @Override

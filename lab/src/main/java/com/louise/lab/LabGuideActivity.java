@@ -2,6 +2,7 @@ package com.louise.lab;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
@@ -22,10 +23,15 @@ public class LabGuideActivity extends BaseActivity {
     ViewPager mViewPager;
     private LabGuideAdapter mAdapter;
 
+
     @Override
-    public void initContentLayout() {
-        setContentView(R.layout.lab_ac_guide);
-        ButterKnife.bind(this);
+    public int getLayoutId() {
+        return R.layout.lab_ac_guide;
+    }
+
+    @Override
+    public View getLayoutView() {
+        return null;
     }
 
     @Override
@@ -35,6 +41,7 @@ public class LabGuideActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        ButterKnife.bind(this);
         mViewPager.setAdapter(mAdapter);
         mViewPager.setPageTransformer(false, new ParallaxTransformer());
         mViewPager.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
