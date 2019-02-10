@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+apply from: "${gradles.config}"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+android{
+//    defaultConfig {
+//        resourcePrefix "ui_"
+//    }
+}
+

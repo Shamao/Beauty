@@ -9,6 +9,7 @@ import android.databinding.ObservableInt;
  * @date 2018/3/5.
  */
 
+
 public class MMovieBean extends BaseObservable{
 
     public final ObservableField<String> firstName =

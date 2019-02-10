@@ -10,11 +10,6 @@ import java.util.Arrays;
  * Created by Administrator on 2016/8/31 0031.
  */
 public class Logger {
-    private static final char TOP_LEFT_CORNER = '╔';
-    private static final char BOTTOM_LEFT_CORNER = '╚';
-    private static final String DOUBLE_DIVIDER = "════════════════════════════════════════════";
-    private static final String TOP_BORDER = TOP_LEFT_CORNER + DOUBLE_DIVIDER;
-    private static final String BOTTOM_BORDER = BOTTOM_LEFT_CORNER + DOUBLE_DIVIDER;
 
     enum Level {
         error, debug, warn, info, verbose
@@ -69,9 +64,9 @@ public class Logger {
         }
 
         StringBuilder builder = new StringBuilder();
-        builder.append(".\n");
-        builder.append(TOP_BORDER);
-        builder.append("\n");
+        //        builder.append(".\n");
+        //        builder.append(TOP_BORDER);
+        //        builder.append("\n");
         builder.append(tag);
         builder.append("===>");
         for (int i = 0; i < t.length; i++) {
@@ -86,8 +81,8 @@ public class Logger {
                 builder.append("-");
             }
         }
-        builder.append("\n");
-        builder.append(BOTTOM_BORDER);
+        //        builder.append("\n");
+        //        builder.append(BOTTOM_BORDER);
         print(level, tag, builder.toString());
     }
 

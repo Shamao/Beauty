@@ -17,9 +17,10 @@ import beauty.louise.com.R;
 public class SplashActivity extends BaseActivity {
     private ImageView mCoverIv;
 
+
     @Override
-    public void initContentLayout() {
-        setContentView(R.layout.ac_splash);
+    public int getLayoutId() {
+        return R.layout.ac_splash;
     }
 
     @Override

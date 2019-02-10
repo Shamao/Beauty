@@ -16,4 +16,6 @@ public class ConstTag {
     public static String S_DRAWABLE = "drawable";
 
     public static final String S_ROUTER = "s_router";
+
+    public static final String S_RECYCLERVIEW = "recycler";
 }

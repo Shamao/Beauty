@@ -1,5 +1,6 @@
 package com.louise.lab;
 
+import android.animation.ValueAnimator;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
+import com.louise.base.utils.Logger;
 import com.louise.lab.adapter.provider.LabAnimDrawableProvider;
 import com.louise.lab.bean.MAnimBean;
 
@@ -69,10 +71,24 @@ public class LabViewActivity extends BaseActivity {
                     mMultiTypeAdapter.notifyItemChanged(0, 1);
                 } else {
                     mDrawable.start();
+                    startAnim();
                     mMultiTypeAdapter.notifyItemChanged(0, 0);
                 }
             }
         });
+    }
 
+    private void startAnim() {
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0,3);
+        valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        valueAnimator.setDuration(100);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int value = (int) animation.getAnimatedValue();
+                Logger.d(mTag, value);
+            }
+        });
+        valueAnimator.start();
     }
 }

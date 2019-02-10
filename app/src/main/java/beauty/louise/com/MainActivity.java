@@ -20,9 +20,10 @@ public class MainActivity extends BaseActivity {
 
     private NoScrollViewPager mNoScrollViewPager;
 
+
     @Override
-    public void initContentLayout() {
-        setContentView(R.layout.ac_main);
+    public int getLayoutId() {
+        return R.layout.ac_main;
     }
 
     @Override

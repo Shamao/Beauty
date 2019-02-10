@@ -5,14 +5,12 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
-
-import java.io.Serializable;
 
 /**
  * 根据容器自适应适配
@@ -77,7 +75,7 @@ public class AdaptiveDrawable extends Drawable {
     }
 
     public int getOpacity() {
-        return -1;
+        return PixelFormat.TRANSLUCENT;
     }
 
     protected void onBoundsChange(Rect paramRect) {

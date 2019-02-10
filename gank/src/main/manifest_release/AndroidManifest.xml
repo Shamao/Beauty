@@ -3,10 +3,11 @@
     <application
         android:name="com.louise.base.base.BaseAP"
         android:allowBackup="true"
-        android:label="@string/app_name"
+        android:label="@string/gank_app_name"
         android:supportsRtl="true"
         android:theme="@style/gank_AppTheme">
-        <activity android:name=".SplashActivity">
-        </activity>
+        <activity android:name=".SplashActivity"/>
+        <activity android:name=".GankMainActivity"
+                  android:theme="@style/gank_AppTheme"/>
     </application>
 </manifest>

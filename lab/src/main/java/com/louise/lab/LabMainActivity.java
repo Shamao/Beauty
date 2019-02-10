@@ -50,6 +50,7 @@ public class LabMainActivity extends BaseActivity {
         mData.add(new MMenuBean("大本营", "/main/main"));
         mData.add(new MMenuBean("测试MVP生命周期", "/lab/test"));
         mData.add(new MMenuBean("过度绘制", "/lab/view"));
+        mData.add(new MMenuBean("RecyclerView", "/lab/recycler"));
         mAdapter = new MultiTypeAdapter(mData);
         mAdapter.register(MColumnBean.class, new ColumnProvider());
         mAdapter.register(MMenuBean.class, new SimpleColumnProvider());
