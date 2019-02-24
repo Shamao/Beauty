@@ -1,5 +1,7 @@
 package com.louise.gank.bean;
 
+import android.arch.persistence.room.Entity;
+
 import java.util.Calendar;
 import java.util.Random;
 
@@ -9,6 +11,7 @@ import java.util.Random;
  * @author lsd
  * @date 2019/1/4.
  */
+@Entity(tableName = "habit")
 public class MHabit {
 
     /**
