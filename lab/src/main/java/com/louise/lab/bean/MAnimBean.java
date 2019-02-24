@@ -5,5 +5,4 @@ package com.louise.lab.bean;
  * @date 2018/11/7.
  */
 public class MAnimBean {
-    private int id;
 }
