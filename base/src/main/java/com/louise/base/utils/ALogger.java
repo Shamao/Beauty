@@ -9,13 +9,13 @@ import java.util.Arrays;
 /**
  * Created by Administrator on 2016/8/31 0031.
  */
-public class Logger {
+public class ALogger {
 
     enum Level {
         error, debug, warn, info, verbose
     }
 
-    private Logger() {
+    private ALogger() {
     }
 
     /**

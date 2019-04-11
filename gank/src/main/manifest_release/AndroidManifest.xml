@@ -6,7 +6,7 @@
         android:label="@string/gank_app_name"
         android:supportsRtl="true"
         android:theme="@style/gank_AppTheme">
-        <activity android:name=".SplashActivity"/>
+        <activity android:name=".GankSplashActivity"/>
         <activity android:name=".GankMainActivity"
                   android:theme="@style/gank_AppTheme"/>
     </application>

@@ -35,6 +35,11 @@ public class CommonLinearItemDecoration extends RecyclerView.ItemDecoration {
      */
     private int mHorizontalEdgePadding;
 
+    public CommonLinearItemDecoration(int originPadding) {
+        this(originPadding, LinearLayoutManager.VERTICAL);
+
+    }
+
     /**
      * @param originPadding
      * @param orientation
@@ -101,7 +106,7 @@ public class CommonLinearItemDecoration extends RecyclerView.ItemDecoration {
             }
 
             if (position == itemCount - 1) {
-                outRect.right= mVerticalEdgePadding;
+                outRect.right = mVerticalEdgePadding;
             }
         }
     }

@@ -12,7 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 
 /**
@@ -56,7 +56,7 @@ public class DiagonalDrawable extends Drawable {
     @Override
     protected void onBoundsChange(Rect bounds) {
         super.onBoundsChange(bounds);
-        Logger.d(ConstTag.S_DRAWABLE, "onBoundsChange");
+        ALogger.d(ConstTag.S_DRAWABLE, "onBoundsChange");
         invalidatePath(isReverseLayout, bounds);
     }
 

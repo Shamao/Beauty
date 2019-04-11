@@ -11,7 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 
 import butterknife.Unbinder;
@@ -89,7 +89,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Logger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onNewIntent");
+        ALogger.d(ConstTag.S_LIFE_CYCLE, mTag + "-onNewIntent");
     }
     // ---- ---- ---- ---- ---- ---- ---- ---- ---- ----
 }

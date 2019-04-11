@@ -25,7 +25,7 @@ public class FileUtils {
         byte[] buffer = new byte[1024];
         try {
             while ((in.read(buffer)) != -1) {
-                Logger.d(ConstTag.S_TODO, buffer);
+                ALogger.d(ConstTag.S_TODO, buffer);
                 builder.append(new String(buffer, 0, 17));
             }
         } catch (IOException e) {

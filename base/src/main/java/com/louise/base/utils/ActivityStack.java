@@ -34,7 +34,7 @@ public class ActivityStack {
             return;
         }
         mActivityList.add(activity);
-        Logger.d(S_TAG, "addActivity", mActivityList.toString());
+        ALogger.d(S_TAG, "addActivity", mActivityList.toString());
     }
 
     public void removeActivity(Activity activity) {
@@ -42,7 +42,7 @@ public class ActivityStack {
             return;
         }
         mActivityList.remove(activity);
-        Logger.d(S_TAG, "removeActivity", mActivityList.toString());
+        ALogger.d(S_TAG, "removeActivity", mActivityList.toString());
     }
 
     /**

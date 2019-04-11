@@ -1,6 +1,6 @@
 package com.louise.base.base.mvp;
 
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 
 /**
@@ -23,19 +23,19 @@ public abstract class BasePresenter<V extends IBaseView> implements IBasePresent
 
     @Override
     public void onActivityCreate() {
-        Logger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityCreate");
+        ALogger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityCreate");
         isFirstLoad = false;
         initData();
     }
 
     @Override
     public void onActivityStart() {
-        Logger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityStart");
+        ALogger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityStart");
     }
 
     @Override
     public void onActivityResume() {
-        Logger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityResume");
+        ALogger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityResume");
         if (isFirstLoad) {
             return;
         }
@@ -44,23 +44,23 @@ public abstract class BasePresenter<V extends IBaseView> implements IBasePresent
 
     @Override
     public void onActivityPause() {
-        Logger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityPause");
+        ALogger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityPause");
 
     }
 
     @Override
     public void onActivityStop() {
-        Logger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityStop");
+        ALogger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityStop");
     }
 
     @Override
     public void onActivityDestroy() {
-        Logger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityDestroy");
+        ALogger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityDestroy");
         mView = null;
     }
 
     @Override
     public void onActivityRestart() {
-        Logger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityRestart");
+        ALogger.d(ConstTag.S_LIFE_CYCLE, "P---> onActivityRestart");
     }
 }

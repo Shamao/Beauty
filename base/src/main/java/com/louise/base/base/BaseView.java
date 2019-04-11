@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 
 /**
@@ -43,25 +43,25 @@ public abstract class BaseView extends View {
 
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
-        Logger.d(ConstTag.S_VIEW, mTag, "onMeasure", widthMode, widthSize, heightMode, heightSize);
+        ALogger.d(ConstTag.S_VIEW, mTag, "onMeasure", widthMode, widthSize, heightMode, heightSize);
     }
 
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
-        Logger.d(ConstTag.S_VIEW, mTag, "onLayout");
+        ALogger.d(ConstTag.S_VIEW, mTag, "onLayout");
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        Logger.d(ConstTag.S_VIEW, mTag, "onSizeChanged");
+        ALogger.d(ConstTag.S_VIEW, mTag, "onSizeChanged");
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        Logger.d(ConstTag.S_VIEW, mTag, "onDraw");
+        ALogger.d(ConstTag.S_VIEW, mTag, "onDraw");
     }
 }
 

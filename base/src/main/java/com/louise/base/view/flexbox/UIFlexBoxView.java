@@ -17,7 +17,8 @@ import java.util.List;
  */
 
 public class UIFlexBoxView extends FlexboxLayout {
-    private static final String mTag = UIFlexBoxView.class.getSimpleName();
+    private static final String S_TAG = UIFlexBoxView.class.getSimpleName();
+
     private FlexBoxAdapter mAdapter;
     private List<FlexBoxViewHolder> mHolders;
 

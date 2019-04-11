@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.SparseArray;
 
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 
 import java.lang.ref.WeakReference;
 
@@ -61,9 +61,9 @@ public class HandlerManager {
             super.handleMessage(msg);
             WeakReference<OnHandleMessageListener> weakReference = mWeakReferences.get(msg.what);
             if (weakReference == null) {
-                Logger.d(TAG, "current msg without OnHandleMessageListener");
+                ALogger.d(TAG, "current msg without OnHandleMessageListener");
             } else if (weakReference.get() == null) {
-                Logger.d(TAG, "listener is alloc");
+                ALogger.d(TAG, "listener is alloc");
                 mWeakReferences.remove(msg.what);
             } else {
                 weakReference.get().handleMessage(msg);

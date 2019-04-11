@@ -8,11 +8,11 @@ import android.view.View;
  */
 
 public class FlexBoxViewHolder {
+
     public View itemView;
 
     public FlexBoxViewHolder(View view) {
         this.itemView = view;
     }
-
 
 }

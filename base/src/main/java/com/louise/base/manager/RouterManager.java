@@ -7,7 +7,7 @@ import com.alibaba.android.arouter.facade.Postcard;
 import com.alibaba.android.arouter.facade.callback.NavigationCallback;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.louise.base.utils.ActivityUtils;
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.Const;
 import com.louise.base.utils.constance.ConstTag;
 
@@ -27,16 +27,16 @@ public class RouterManager {
     }
 
     public void navigation(final Context context, final String path) {
-        Logger.d(ConstTag.S_ROUTER, "path", path);
+        ALogger.d(ConstTag.S_ROUTER, "path", path);
         ARouter.getInstance().build(path).navigation(context, new NavigationCallback() {
             @Override
             public void onFound(Postcard postcard) {
-                Logger.d(ConstTag.S_ROUTER, "onFound");
+                ALogger.d(ConstTag.S_ROUTER, "onFound");
             }
 
             @Override
             public void onLost(Postcard postcard) {
-                Logger.d(ConstTag.S_ROUTER, "onLost");
+                ALogger.d(ConstTag.S_ROUTER, "onLost");
                 String scheme =
                         Const.S_PROTOCOL + Const.S_HOST + path;
                 ActivityUtils.startActivity(context, Intent.ACTION_VIEW, null, null, scheme, null);
@@ -44,12 +44,12 @@ public class RouterManager {
 
             @Override
             public void onArrival(Postcard postcard) {
-                Logger.d(ConstTag.S_ROUTER, "onArrival");
+                ALogger.d(ConstTag.S_ROUTER, "onArrival");
             }
 
             @Override
             public void onInterrupt(Postcard postcard) {
-                Logger.d(ConstTag.S_ROUTER, "onArrival");
+                ALogger.d(ConstTag.S_ROUTER, "onArrival");
             }
         });
     }

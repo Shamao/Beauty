@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
     <declare-styleable name="gank_UIFlexIndicator">
         <attr name="gank_select_color" format="color|reference"/>
         <attr name="gank_un_select_color" format="color|reference"/>
@@ -13,4 +15,6 @@
         <attr name="gank_init_height" format="dimension|reference"/>
         <attr name="gank_dot_color" format="color|reference"/>
     </declare-styleable>
+
+
 </resources>

@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.louise.gank.SplashActivity">
+    tools:context="com.louise.gank.GankSplashActivity">
 
-    <View
-        android:background="#ff0"
+    <cc.hiy.baseui.UITitleBar
+        app:bar_left_text="左边1"
+        app:bar_bg_alpha="0.5"
+        app:bar_title_text="@string/gank_app_name"
+        android:id="@+id/title_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/ui_title_height"/>
+        android:layout_height="90dp"
+        android:background="#ff0"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/habit_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#eeeeee"
         android:overScrollMode="never"
         app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-    >
+        tools:listitem="@layout/gank_item_view_habit">
 
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>

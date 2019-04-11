@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -30,14 +31,14 @@
         android:textSize="13sp"
         tools:text="减肥1234"/>
 
-    <TextView
-        android:id="@+id/habit_goal_tv"
+    <com.louise.base.view.flexbox.UIFlexBoxView
+        android:id="@+id/habit_flex_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/habit_thumb_iv"
-        android:layout_marginTop="10dp"
-        android:background="#7fe0e0e0"
-        android:padding="10dp"
-        android:textSize="12sp"
-        tools:text="我要瘦成一道闪电"/>
+        android:layout_marginTop="14dp"
+        app:flexDirection="row"
+        app:justifyContent="space_between"
+        tools:background="#ff0"
+        tools:layout_height="100dp"/>
 </RelativeLayout>

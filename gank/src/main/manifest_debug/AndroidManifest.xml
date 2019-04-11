@@ -8,7 +8,7 @@
         android:label="@string/gank_app_name"
         android:supportsRtl="true"
         android:theme="@style/gank_AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity android:name=".GankSplashActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
 
