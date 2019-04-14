@@ -48,9 +48,6 @@ public class GankMainActivity extends BaseActivity {
         mTitleBar = findViewById(R.id.title_bar);
         TitleViewProvider provider = new TitleViewProvider(this);
         provider.setText("左边");
-
-
-        
         mTitleBar.updateCenterViewProvider(provider);
 
 
