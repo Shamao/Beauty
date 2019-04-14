@@ -16,7 +16,9 @@ import com.louise.gank.view.provider.HabitProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-import cc.hiy.baseui.UITitleBar;
+import cc.hiy.baseui.titlebar.UITitleBar;
+import cc.hiy.baseui.titlebar.provider.TextDrawViewProvider;
+import cc.hiy.baseui.titlebar.provider.TitleViewProvider;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**
@@ -44,13 +46,13 @@ public class GankMainActivity extends BaseActivity {
     @Override
     public void initView(Bundle savedInstanceState) {
         mTitleBar = findViewById(R.id.title_bar);
-        //        mTitleBar.setLeftSrc(getResources().getDrawable(R.drawable.ic_close));
-        //        mTitleBar.setLeftContent("左边");
+        TextDrawViewProvider provider = (TextDrawViewProvider) mTitleBar.getLeftViewHolder();
+        provider.setText("左边");
 
-        //        mTitleBar.setRightSrc(getResources().getDrawable(R.drawable.ic_close));
-        //        mTitleBar.setRightContent("右边");
-        //
-        //        mTitleBar.setTitle("标题");
+        TitleViewProvider provider1= (TitleViewProvider) mTitleBar.getMiddleViewHolder();
+        provider1.setText("标题");
+
+
 
         mHabitRv = findViewById(R.id.habit_rv);
         mHabitRv.setHasFixedSize(true);
@@ -89,7 +91,7 @@ public class GankMainActivity extends BaseActivity {
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 ALogger.d(mTag, "onScroll = " + getScollYDistance());
-
+                dy = getScollYDistance();
                 if (dy < 500) {
                     mTitleBar.setViewAlpha(dy * 1.0f / 500);
                 } else {

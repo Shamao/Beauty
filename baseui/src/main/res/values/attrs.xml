@@ -2,37 +2,5 @@
 <resources>
     <declare-styleable name="UITitleBar">
         <attr name="bar_bg_alpha" format="float"/>
-        <attr name="bar_bg" format="color|dimension"/>
-
-        <attr name="bar_left_switch">
-            <flag name="close" value="0"/>
-            <flag name="open" value="1"/>
-        </attr>
-        <attr name="bar_left_view_alpha" format="float"/>
-        <attr name="bar_left_padding" format="dimension|reference"/>
-        <attr name="bar_left_src" format="reference"/>
-        <attr name="bar_left_text" format="string|reference"/>
-        <attr name="bar_left_text_size" format="dimension|reference"/>
-        <attr name="bar_left_text_color" format="color|reference"/>
-
-        <attr name="bar_right_switch">
-            <flag name="close" value="0"/>
-            <flag name="open" value="1"/>
-        </attr>
-        <attr name="bar_right_view_alpha" format="float"/>
-        <attr name="bar_right_padding" format="dimension|reference"/>
-        <attr name="bar_right_src" format="reference"/>
-        <attr name="bar_right_text" format="string|reference"/>
-        <attr name="bar_right_text_size" format="dimension|reference"/>
-        <attr name="bar_right_text_color" format="color|reference"/>
-
-        <attr name="bar_title_switch">
-            <flag name="close" value="0"/>
-            <flag name="open" value="1"/>
-        </attr>
-        <attr name="bar_title_view_alpha" format="float"/>
-        <attr name="bar_title_text" format="string|reference"/>
-        <attr name="bar_title_text_size" format="dimension|reference"/>
-        <attr name="bar_title_text_color" format="color|reference"/>
     </declare-styleable>
 </resources>

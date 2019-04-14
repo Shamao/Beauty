@@ -8,10 +8,7 @@
     android:orientation="vertical"
     tools:context="com.louise.gank.GankSplashActivity">
 
-    <cc.hiy.baseui.UITitleBar
-        app:bar_left_text="左边1"
-        app:bar_bg_alpha="0.5"
-        app:bar_title_text="@string/gank_app_name"
+    <cc.hiy.baseui.titlebar.UITitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="90dp"
