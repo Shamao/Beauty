@@ -52,12 +52,15 @@ public class GankMainActivity extends BaseActivity {
         TitleViewProvider provider1 = new TitleViewProvider(this);
         provider1.setText("左边1");
         mTitleBar.updateLeftViewProvider(provider1);
+
+
+
         TitleViewProvider provider2 = new TitleViewProvider(this);
         provider2.setText("左边2");
         mTitleBar.updateRightViewProvider(provider2);
 
 
-        
+
         DividerViewProvider dividerViewProvider = new DividerViewProvider(this);
         mTitleBar.updateBottomViewProvider(dividerViewProvider);
 
