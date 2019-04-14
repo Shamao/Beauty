@@ -3,6 +3,7 @@ package cc.hiy.baseui.titlebar.provider;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ public class TextDrawViewProvider extends IViewProvider<TextView> {
     @Override
     TextView onCreateView(Context context) {
         TextView tv = new TextView(context);
+        Log.d("UITitleBar", (tv.getLayoutParams() == null) + "" );
         tv.setGravity(Gravity.CENTER);
         return tv;
     }

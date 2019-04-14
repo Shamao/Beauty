@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import cc.hiy.baseui.R;
 import cc.hiy.baseui.titlebar.provider.IViewProvider;
-import cc.hiy.baseui.titlebar.utils.Location;
 
 /**
  * 标题栏
@@ -21,6 +21,7 @@ import cc.hiy.baseui.titlebar.utils.Location;
  */
 public abstract class UIBaseTitleBar extends RelativeLayout implements IUITitleBar {
     private static final String S_TAG = "UITitleBar";
+    IProviderPackager mIProviderPackager;
     /**
      * 全局
      */
@@ -28,27 +29,22 @@ public abstract class UIBaseTitleBar extends RelativeLayout implements IUITitleB
     /**
      * 左 View
      */
-    protected IViewProvider mLeftViewHolder;
+    protected IViewProvider mLeftViewProvider;
 
     /**
      * 右 View
      */
-    protected IViewProvider mRightViewHolder;
+    protected IViewProvider mRightViewProvider;
 
     /**
      * 中 View
      */
-    protected IViewProvider mMiddleViewHolder;
-
-    /**
-     * 上 View
-     */
-    protected IViewProvider mTopViewHolder;
+    protected IViewProvider mCenterViewProvider;
 
     /**
      * 下 View
      */
-    protected IViewProvider mBottomViewHolder;
+    protected IViewProvider mBottomViewProvider;
 
 
     public UIBaseTitleBar(Context context) {
@@ -83,16 +79,6 @@ public abstract class UIBaseTitleBar extends RelativeLayout implements IUITitleB
      */
     private void initView() {
         setViewAlpha(mViewAlpha);
-
-        initLeftView();
-
-        initRightView();
-
-        initMiddleView();
-
-        initTopView();
-
-        initBottomView();
     }
 
     public void setViewAlpha(float alpha) {
@@ -108,53 +94,54 @@ public abstract class UIBaseTitleBar extends RelativeLayout implements IUITitleB
     ///////////////////////////////////////////////////////////////////////////
     // 中 View
     ///////////////////////////////////////////////////////////////////////////
-    private void initMiddleView() {
-        mMiddleViewHolder = onCreateViewHolder(Location.CENTER);
-        if (mMiddleViewHolder == null) {
+
+    private void addCenterView() {
+        if (mCenterViewProvider == null) {
             return;
         }
-        mMiddleViewHolder.setId(R.id.title_bar_middle_view);
-        LayoutParams lp = (LayoutParams) mMiddleViewHolder.view.getLayoutParams();
+        View view = mCenterViewProvider.view;
+        view.setId(R.id.title_bar_middle_view);
+        LayoutParams lp = (LayoutParams) view.getLayoutParams();
         if (lp == null) {
             lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         }
         lp.addRule(RelativeLayout.CENTER_IN_PARENT, 1);
-        addView(mMiddleViewHolder.view, lp);
+        checkChildParent(view);
+        addView(view, lp);
     }
 
     ///////////////////////////////////////////////////////////////////////////
     // 左 View
     ///////////////////////////////////////////////////////////////////////////
 
-    private void initLeftView() {
-        mLeftViewHolder = onCreateViewHolder(Location.LEFT);
-        if (mLeftViewHolder == null) {
+    private void addLeftView() {
+        if (mLeftViewProvider == null) {
             return;
         }
-
-        mLeftViewHolder.setId(R.id.title_bar_left_view);
-        LayoutParams lp = (LayoutParams) mLeftViewHolder.view.getLayoutParams();
+        View view = mLeftViewProvider.view;
+        view.setId(R.id.title_bar_left_view);
+        LayoutParams lp = (LayoutParams) view.getLayoutParams();
         if (lp == null) {
             lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         }
         lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 1);
-        addView(mLeftViewHolder.view, lp);
+        checkChildParent(view);
+        addView(view, lp);
     }
 
 
     ///////////////////////////////////////////////////////////////////////////
     // 右 View
     ///////////////////////////////////////////////////////////////////////////
-
-    private void initRightView() {
-        mRightViewHolder = onCreateViewHolder(Location.RIGHT);
-        if (mRightViewHolder == null) {
+    private void addRightView() {
+        if (mRightViewProvider == null) {
             return;
         }
 
-        mRightViewHolder.setId(R.id.title_bar_right_view);
+        View view = mRightViewProvider.view;
+        view.setId(R.id.title_bar_right_view);
 
-        LayoutParams lp = (LayoutParams) mRightViewHolder.view.getLayoutParams();
+        LayoutParams lp = (LayoutParams) mRightViewProvider.view.getLayoutParams();
         if (lp == null) {
             lp = new LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -162,62 +149,87 @@ public abstract class UIBaseTitleBar extends RelativeLayout implements IUITitleB
         }
 
         lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
-        addView(mRightViewHolder.view, lp);
-    }
-
-
-    ///////////////////////////////////////////////////////////////////////////
-    // 上 View
-    ///////////////////////////////////////////////////////////////////////////
-    private void initTopView() {
-        mTopViewHolder = onCreateViewHolder(Location.TOP);
-        if (mTopViewHolder == null) {
-            return;
-        }
-
-        mTopViewHolder.setId(R.id.title_bar_top_view);
-        LayoutParams lp = (LayoutParams) mTopViewHolder.view.getLayoutParams();
-        if (lp == null) {
-            lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        }
-        lp.addRule(RelativeLayout.ALIGN_PARENT_TOP, 1);
-        addView(mTopViewHolder.view, lp);
+        checkChildParent(view);
+        addView(mRightViewProvider.view, lp);
     }
 
     ///////////////////////////////////////////////////////////////////////////
     // 下 View
     ///////////////////////////////////////////////////////////////////////////
-    private void initBottomView() {
-        mBottomViewHolder = onCreateViewHolder(Location.BOTTOM);
-        if (mBottomViewHolder == null) {
+    private void addBottomView() {
+        if (mBottomViewProvider == null) {
             return;
         }
-        mBottomViewHolder.setId(R.id.title_bar_bottom_view);
-        LayoutParams lp = (LayoutParams) mBottomViewHolder.view.getLayoutParams();
+
+        mBottomViewProvider.view.setId(R.id.title_bar_bottom_view);
+        LayoutParams lp = (LayoutParams) mBottomViewProvider.view.getLayoutParams();
         if (lp == null) {
             lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
         lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1);
-        addView(mBottomViewHolder.view, lp);
+        addView(mBottomViewProvider.view, lp);
+    }
+//
+//    private IViewProvider onCreateViewHolder(int type) {
+//        if (mIProviderPackager == null) {
+//            mIProviderPackager = new IProviderPackager();
+//        }
+//
+//        return mIProviderPackager.createProvider(getContext(), type);
+//    }
+
+    public void updateLeftViewProvider(IViewProvider viewProvider) {
+        if (mLeftViewProvider != null) {
+            checkChildParent(mLeftViewProvider.view);
+        }
+        mLeftViewProvider = viewProvider;
+        addLeftView();
     }
 
+    public void updateRightViewProvider(IViewProvider viewProvider) {
+        if (mRightViewProvider != null) {
+            checkChildParent(mRightViewProvider.view);
+        }
+        mRightViewProvider = viewProvider;
+        addRightView();
+    }
+
+    public void updateCenterViewProvider(IViewProvider viewProvider) {
+        if (mCenterViewProvider != null) {
+            checkChildParent(mCenterViewProvider.view);
+        }
+        mCenterViewProvider = viewProvider;
+        addCenterView();
+    }
+
+    public void updateBottomViewProvider(IViewProvider viewProvider) {
+        if (mBottomViewProvider != null) {
+            checkChildParent(mBottomViewProvider.view);
+        }
+        mBottomViewProvider = viewProvider;
+        addBottomView();
+    }
+
+    public void checkChildParent(View view) {
+        if (view.getParent() != null) {
+            ((ViewGroup) view.getParent()).removeView(view);
+        }
+    }
+
+
     public IViewProvider getLeftViewHolder() {
-        return mLeftViewHolder;
+        return mLeftViewProvider;
     }
 
     public IViewProvider getRightViewHolder() {
-        return mRightViewHolder;
+        return mRightViewProvider;
     }
 
     public IViewProvider getMiddleViewHolder() {
-        return mMiddleViewHolder;
-    }
-
-    public IViewProvider getTopViewHolder() {
-        return mTopViewHolder;
+        return mCenterViewProvider;
     }
 
     public IViewProvider getBottomViewHolder() {
-        return mBottomViewHolder;
+        return mBottomViewProvider;
     }
 }

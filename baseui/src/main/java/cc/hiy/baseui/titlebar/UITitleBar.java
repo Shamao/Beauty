@@ -3,12 +3,6 @@ package cc.hiy.baseui.titlebar;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import cc.hiy.baseui.titlebar.provider.DividerViewProvider;
-import cc.hiy.baseui.titlebar.provider.IViewProvider;
-import cc.hiy.baseui.titlebar.provider.TextDrawViewProvider;
-import cc.hiy.baseui.titlebar.provider.TitleViewProvider;
-import cc.hiy.baseui.titlebar.utils.Location;
-
 /**
  * 标题栏
  * <p>
@@ -29,20 +23,4 @@ public class UITitleBar extends UIBaseTitleBar {
     public UITitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
-
-    @Override
-    public IViewProvider onCreateViewHolder(int type) {
-        switch (type) {
-            case Location.CENTER:
-                return new TitleViewProvider(getContext());
-            case Location.LEFT:
-            case Location.RIGHT:
-                return new TextDrawViewProvider(getContext());
-            case Location.BOTTOM:
-                return new DividerViewProvider(getContext());
-        }
-        return null;
-    }
-
-
 }

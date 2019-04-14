@@ -8,5 +8,4 @@ import cc.hiy.baseui.titlebar.provider.IViewProvider;
  */
 public interface IUITitleBar {
 
-    IViewProvider onCreateViewHolder(int type);
 }

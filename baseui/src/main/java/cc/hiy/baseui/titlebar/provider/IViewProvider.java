@@ -19,9 +19,4 @@ public abstract class IViewProvider<V extends View> {
     }
 
     abstract V onCreateView(Context context);
-
-    public void setId(int id) {
-        view.setId(id);
-    }
-
 }

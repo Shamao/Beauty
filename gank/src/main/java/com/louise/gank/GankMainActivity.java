@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cc.hiy.baseui.titlebar.UITitleBar;
-import cc.hiy.baseui.titlebar.provider.TextDrawViewProvider;
+import cc.hiy.baseui.titlebar.provider.DividerViewProvider;
 import cc.hiy.baseui.titlebar.provider.TitleViewProvider;
 import me.drakeet.multitype.MultiTypeAdapter;
 
@@ -46,12 +46,17 @@ public class GankMainActivity extends BaseActivity {
     @Override
     public void initView(Bundle savedInstanceState) {
         mTitleBar = findViewById(R.id.title_bar);
-        TextDrawViewProvider provider = (TextDrawViewProvider) mTitleBar.getLeftViewHolder();
+        TitleViewProvider provider = new TitleViewProvider(this);
         provider.setText("左边");
-
-        TitleViewProvider provider1= (TitleViewProvider) mTitleBar.getMiddleViewHolder();
-        provider1.setText("标题");
-
+        mTitleBar.updateCenterViewProvider(provider);
+        TitleViewProvider provider1 = new TitleViewProvider(this);
+        provider1.setText("左边1");
+        mTitleBar.updateLeftViewProvider(provider1);
+        TitleViewProvider provider2 = new TitleViewProvider(this);
+        provider2.setText("左边2");
+        mTitleBar.updateRightViewProvider(provider2);
+        DividerViewProvider dividerViewProvider = new DividerViewProvider(this);
+        mTitleBar.updateBottomViewProvider(dividerViewProvider);
 
 
         mHabitRv = findViewById(R.id.habit_rv);
