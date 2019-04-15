@@ -45,24 +45,7 @@ public class GankMainActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        mTitleBar = findViewById(R.id.title_bar);
-        TitleViewProvider provider = new TitleViewProvider(this);
-        provider.setText("左边");
-        mTitleBar.updateCenterViewProvider(provider);
-        TitleViewProvider provider1 = new TitleViewProvider(this);
-        provider1.setText("左边1");
-        mTitleBar.updateLeftViewProvider(provider1);
-
-
-
-        TitleViewProvider provider2 = new TitleViewProvider(this);
-        provider2.setText("左边2");
-        mTitleBar.updateRightViewProvider(provider2);
-
-
-
-        DividerViewProvider dividerViewProvider = new DividerViewProvider(this);
-        mTitleBar.updateBottomViewProvider(dividerViewProvider);
+        initTitleView();
 
 
         mHabitRv = findViewById(R.id.habit_rv);
@@ -73,6 +56,16 @@ public class GankMainActivity extends BaseActivity {
         mAdapter = new MultiTypeAdapter(mDatas);
         mAdapter.register(MHabit.class, new HabitProvider());
         mHabitRv.setAdapter(mAdapter);
+    }
+
+    private void initTitleView() {
+        mTitleBar = findViewById(R.id.title_bar);
+        TitleViewProvider provider = new TitleViewProvider(this);
+        provider.setText("习惯广场");
+        mTitleBar.updateCenterViewProvider(provider);
+
+        DividerViewProvider dividerViewProvider = new DividerViewProvider(this);
+        mTitleBar.updateBottomViewProvider(dividerViewProvider);
     }
 
     @Override

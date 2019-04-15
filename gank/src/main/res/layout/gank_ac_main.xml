@@ -11,8 +11,7 @@
     <cc.hiy.baseui.titlebar.UITitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
-        android:layout_height="90dp"
-        android:background="#ff0"/>
+        android:layout_height="48dp"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/habit_rv"

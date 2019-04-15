@@ -2,17 +2,21 @@ package cc.hiy.baseui.titlebar.provider;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.view.Gravity;
 import android.widget.TextView;
 
 /**
+ * 标题辣 样式
+ *
  * @author lsd
  * @date 2019/4/5.
  */
 @SuppressLint("AppCompatCustomView")
 public class TitleViewProvider extends IViewProvider<TextView> {
+    @ColorInt
+    public static final  int COLOR_333 = 0xFF333333;
+    public static final  int DP_16 = 16;
 
     public TitleViewProvider(Context context) {
         super(context);
@@ -21,20 +25,15 @@ public class TitleViewProvider extends IViewProvider<TextView> {
     @Override
     TextView onCreateView(Context context) {
         TextView tv = new TextView(context);
-        tv.setTextSize(16);
-        tv.setTextColor(Color.RED);
+        tv.setTextSize(DP_16);
+        tv.setTextColor(COLOR_333);
         tv.setGravity(Gravity.CENTER);
         return tv;
     }
 
 
-
     public void setText(CharSequence charSequence) {
         view.setText(charSequence);
-    }
-
-    public void setDraw(Drawable left, Drawable right) {
-        view.setCompoundDrawablesRelative(left, null, right, null);
     }
 
     public void setTextSize(int dp) {

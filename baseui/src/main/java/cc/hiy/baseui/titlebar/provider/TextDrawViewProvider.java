@@ -8,6 +8,8 @@ import android.view.Gravity;
 import android.widget.TextView;
 
 /**
+ * 正常左右两侧 文本 + img 的样式
+ *
  * @author lsd
  * @date 2019/4/5.
  */
