@@ -3,6 +3,7 @@ apply from: "${gradles.config}"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile rootProject.ext.thirds.flex_box_layout
 }
 
 android{

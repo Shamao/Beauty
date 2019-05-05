@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.louise.base.utils.DisplayUtils;
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 
 /**
@@ -29,7 +29,7 @@ public class LabBehavior extends CoordinatorLayout.Behavior<RecyclerView> {
 
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, RecyclerView child, int layoutDirection) {
-        Logger.d(ConstTag.S_VIEW, "onLayoutChild");
+        ALogger.d(ConstTag.S_VIEW, "onLayoutChild");
         parent.onLayoutChild(child, layoutDirection);
         child.offsetChildrenVertical((int) (DisplayUtils.getScreenWidth(parent.getContext()) * 0.6));
         return true;

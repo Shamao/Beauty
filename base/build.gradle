@@ -22,5 +22,4 @@ dependencies {
 
     annotationProcessor rootProject.ext.thirds.glide_compiler
     compile rootProject.ext.thirds.glide
-    compile rootProject.ext.thirds.flex_box_layout
 }

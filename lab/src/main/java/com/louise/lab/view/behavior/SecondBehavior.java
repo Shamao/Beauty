@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 
 /**
@@ -26,7 +26,7 @@ public class SecondBehavior extends CoordinatorLayout.Behavior<ConstraintLayout>
 
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, ConstraintLayout child, int layoutDirection) {
-        Logger.d(ConstTag.S_VIEW, "onLayoutChild");
+        ALogger.d(ConstTag.S_VIEW, "onLayoutChild");
         parent.onLayoutChild(child, layoutDirection);
         return true;
     }
@@ -38,7 +38,7 @@ public class SecondBehavior extends CoordinatorLayout.Behavior<ConstraintLayout>
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, ConstraintLayout child, View dependency) {
-        Logger.d(ConstTag.S_VIEW, "onDependentViewChanged", dependency.getTop(), dependency.getScrollY());
+        ALogger.d(ConstTag.S_VIEW, "onDependentViewChanged", dependency.getTop(), dependency.getScrollY());
         if (dependency.getTop() == 0 && dependency.getScrollY() >= 0) {
             return false;
         }

@@ -1,4 +1,4 @@
-package com.louise.base.view.drawable;
+package cc.hiy.baseui.drawable;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -13,7 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /**
- * 根据容器自适应适配
+ * 根据容器自适应适配 todo lsd
  *
  * @author liusaideng
  * @date 2018/9/19 下午4:18

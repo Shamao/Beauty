@@ -23,8 +23,8 @@ public class HandlerManager {
         mHandler.register(what, listener);
     }
 
-    public static void unRegister(int tag) {
-        mHandler.unRegister(tag);
+    public static void unRegister(int what) {
+        mHandler.unRegister(what);
     }
 
     public static void sendEmptyMessage(int what) {

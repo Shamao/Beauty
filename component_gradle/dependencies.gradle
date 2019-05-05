@@ -9,7 +9,6 @@ ext {
             versionName      : '1.0',
     ]
 
-
     COMPONENT_DIR = rootProject.rootDir.absolutePath + "/component_gradle/"
 
     gradles = [
@@ -27,7 +26,7 @@ ext {
             design           : "com.android.support:design:${SUPPORT_VERSION}",
             annotations      : "com.android.support:support-annotations:${SUPPORT_VERSION}",
             multidex         : 'com.android.support:multidex:1.0.1',
-            constraint_layout: 'com.android.support.constraint:constraint-layout:1.1.0-beta3'
+            constraint_layout: 'com.android.support.constraint:constraint-layout:1.1.0-beta3',
     ]
 
 

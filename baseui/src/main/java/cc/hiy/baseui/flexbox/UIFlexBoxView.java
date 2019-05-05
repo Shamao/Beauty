@@ -1,4 +1,4 @@
-package com.louise.base.view.flexbox;
+package cc.hiy.baseui.flexbox;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -19,7 +19,7 @@ import java.util.List;
 public class UIFlexBoxView extends FlexboxLayout {
     private static final String S_TAG = UIFlexBoxView.class.getSimpleName();
 
-    private FlexBoxAdapter mAdapter;
+    private FlexBoxAdapter<FlexBoxViewHolder> mAdapter;
     private List<FlexBoxViewHolder> mHolders;
 
     private AdapterDataSetObserver mDataSetObserver;
@@ -66,7 +66,7 @@ public class UIFlexBoxView extends FlexboxLayout {
         }
     }
 
-    public void setAdapter(FlexBoxAdapter adapter) {
+    public void setAdapter(FlexBoxAdapter<FlexBoxViewHolder> adapter) {
         if (mAdapter != null && mDataSetObserver != null) {
             mAdapter.unregisterDataSetObserver(mDataSetObserver);
         }
@@ -94,7 +94,7 @@ public class UIFlexBoxView extends FlexboxLayout {
             for (int i = 0; i < mCurItemCount; i++) {
                 final FlexBoxViewHolder holder = createViewHolder(i);
 
-                mAdapter.onHandleLayoutParams(holder.itemView, mSpanCount, i);
+                mAdapter.onLayoutView(holder.itemView, mSpanCount, i);
 
                 mAdapter.onBindViewHolder(holder, i);
 

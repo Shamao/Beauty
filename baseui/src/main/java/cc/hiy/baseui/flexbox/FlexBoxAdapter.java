@@ -1,4 +1,4 @@
-package com.louise.base.view.flexbox;
+package cc.hiy.baseui.flexbox;
 
 import android.database.DataSetObservable;
 import android.database.DataSetObserver;
@@ -15,7 +15,7 @@ public abstract class FlexBoxAdapter<T extends FlexBoxViewHolder> {
 
     public abstract T onCreateViewHolder(ViewGroup parent);
 
-    public abstract void onHandleLayoutParams(View view, int spanCount, int position);
+    public abstract void onLayoutView(View itemView, int spanCount, int position);
 
     public abstract void onBindViewHolder(T holder, int position);
 

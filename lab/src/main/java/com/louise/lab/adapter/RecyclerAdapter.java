@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 import com.louise.lab.adapter.holder.ColumnViewHolder;
 import com.louise.lab.bean.MColumnBean;
@@ -25,7 +25,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ColumnViewHolder> {
 
     @Override
     public ColumnViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Logger.d(ConstTag.S_RECYCLERVIEW, "onCreateViewHolder");
+        ALogger.d(ConstTag.S_RECYCLERVIEW, "onCreateViewHolder");
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(ColumnViewHolder.getLayoutId(), parent, false);
         return new ColumnViewHolder(view);
@@ -33,7 +33,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ColumnViewHolder> {
 
     @Override
     public void onBindViewHolder(ColumnViewHolder holder, int position) {
-        Logger.d(ConstTag.S_RECYCLERVIEW, "onBindViewHolder-2");
+        ALogger.d(ConstTag.S_RECYCLERVIEW, "onBindViewHolder-2");
         holder.fillData(mData.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +46,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ColumnViewHolder> {
     @Override
     public void onBindViewHolder(ColumnViewHolder holder, int position, List<Object> payloads) {
         super.onBindViewHolder(holder, position, payloads);
-        Logger.d(ConstTag.S_RECYCLERVIEW, "onBindViewHolder-3");
+        ALogger.d(ConstTag.S_RECYCLERVIEW, "onBindViewHolder-3");
     }
 
     @Override
@@ -65,7 +65,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<ColumnViewHolder> {
         super.onViewAttachedToWindow(holder);
         int adapterPosition = holder.getAdapterPosition();
         int layoutPosition = holder.getLayoutPosition();
-        Logger.d(ConstTag.S_RECYCLERVIEW, "adapterPosition = ", adapterPosition, ";layoutPosition =", layoutPosition);
 
     }
 }

@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.louise.base.view.flexbox.UIFlexBoxView;
+import cc.hiy.baseui.flexbox.UIFlexBoxView;
 import com.louise.gank.R;
 import com.louise.gank.bean.MHabit;
 

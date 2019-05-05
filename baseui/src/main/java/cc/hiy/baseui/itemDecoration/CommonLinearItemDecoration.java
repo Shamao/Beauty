@@ -1,4 +1,4 @@
-package com.louise.base.view.itemDecoration;
+package cc.hiy.baseui.itemDecoration;
 
 import android.graphics.Rect;
 import android.support.v7.widget.LinearLayoutManager;

@@ -8,7 +8,7 @@ import android.view.View;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
 import com.louise.base.utils.DisplayUtils;
-import com.louise.base.view.itemDecoration.CommonLinearItemDecoration;
+import cc.hiy.baseui.itemDecoration.CommonLinearItemDecoration;
 import com.louise.lab.adapter.provider.ColumnProvider;
 import com.louise.lab.adapter.provider.SimpleColumnProvider;
 import com.louise.lab.bean.MColumnBean;

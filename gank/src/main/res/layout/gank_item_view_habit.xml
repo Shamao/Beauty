@@ -31,7 +31,7 @@
         android:textSize="13sp"
         tools:text="减肥1234"/>
 
-    <com.louise.base.view.flexbox.UIFlexBoxView
+    <cc.hiy.baseui.flexbox.UIFlexBoxView
         android:id="@+id/habit_flex_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -3,7 +3,7 @@ package com.louise.lab.adapter;
 import android.support.annotation.Nullable;
 import android.support.v7.util.DiffUtil;
 
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public class MainDiffCallBack extends DiffUtil.Callback {
 
     @Override
     public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
-        Logger.d(ConstTag.S_VIEW, "areItemsTheSame", oldItemPosition, newItemPosition);
+        ALogger.d(ConstTag.S_VIEW, "areItemsTheSame", oldItemPosition, newItemPosition);
         return mOldList.get(oldItemPosition).equals(mNewList.get(newItemPosition));
     }
 

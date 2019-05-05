@@ -9,7 +9,7 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
 import com.louise.base.utils.ALogger;
 import com.louise.base.utils.DisplayUtils;
-import com.louise.base.view.itemDecoration.CommonLinearItemDecoration;
+import cc.hiy.baseui.itemDecoration.CommonLinearItemDecoration;
 import com.louise.gank.bean.MHabit;
 import com.louise.gank.view.provider.HabitProvider;
 

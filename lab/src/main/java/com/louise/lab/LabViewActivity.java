@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
-import com.louise.base.utils.Logger;
+import com.louise.base.utils.ALogger;
 import com.louise.lab.adapter.provider.LabAnimDrawableProvider;
 import com.louise.lab.bean.MAnimBean;
 
@@ -86,7 +86,7 @@ public class LabViewActivity extends BaseActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 int value = (int) animation.getAnimatedValue();
-                Logger.d(mTag, value);
+                ALogger.d(mTag, value);
             }
         });
         valueAnimator.start();
