@@ -48,3 +48,4 @@ _sandbox
 # eclipse
 .settings/
 local.properties
+*.hprof
