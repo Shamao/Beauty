@@ -19,7 +19,7 @@ import java.util.List;
 public class UIFlexBoxView extends FlexboxLayout {
     private static final String S_TAG = UIFlexBoxView.class.getSimpleName();
 
-    private FlexBoxAdapter<FlexBoxViewHolder> mAdapter;
+    private FlexBoxAdapter mAdapter;
     private List<FlexBoxViewHolder> mHolders;
 
     private AdapterDataSetObserver mDataSetObserver;
@@ -66,7 +66,7 @@ public class UIFlexBoxView extends FlexboxLayout {
         }
     }
 
-    public void setAdapter(FlexBoxAdapter<FlexBoxViewHolder> adapter) {
+    public void setAdapter(FlexBoxAdapter adapter) {
         if (mAdapter != null && mDataSetObserver != null) {
             mAdapter.unregisterDataSetObserver(mDataSetObserver);
         }

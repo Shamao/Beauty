@@ -44,6 +44,7 @@ public  class UITitleBar extends RelativeLayout {
      * 下 View
      */
     protected IViewProvider mBottomViewProvider;
+
     private  OnTitleBarClickListener mOnTitleBarClickListener;
 
 
@@ -133,6 +134,7 @@ public  class UITitleBar extends RelativeLayout {
             lp = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.MATCH_PARENT);
         }
         lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT, 1);
+        lp.addRule(RelativeLayout.CENTER_VERTICAL, 1);
         checkChildParent(view);
         addView(view, lp);
         view.setOnClickListener(new OnClickListener() {
@@ -165,6 +167,7 @@ public  class UITitleBar extends RelativeLayout {
         }
 
         lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
+        lp.addRule(RelativeLayout.CENTER_VERTICAL, 1);
         checkChildParent(view);
         addView(mRightViewProvider.view, lp);
         view.setOnClickListener(new OnClickListener() {

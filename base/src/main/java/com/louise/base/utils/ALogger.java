@@ -43,7 +43,6 @@ public class ALogger {
                 Log.v(tag, content);
                 break;
         }
-
     }
 
     /**

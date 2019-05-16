@@ -28,14 +28,12 @@ public class TextDrawViewProvider extends IViewProvider<TextView> {
         return tv;
     }
 
-
-
     public void setText(CharSequence charSequence) {
         view.setText(charSequence);
     }
 
     public void setDraw(Drawable left, Drawable right) {
-        view.setCompoundDrawablesRelative(left, null, right, null);
+        view.setCompoundDrawablesWithIntrinsicBounds(left, null, right, null);
     }
 
     public void setTextSize(int dp) {

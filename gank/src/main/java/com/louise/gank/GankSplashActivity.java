@@ -1,6 +1,7 @@
 package com.louise.gank;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -11,6 +12,7 @@ import com.louise.base.base.BaseActivity;
 public class GankSplashActivity extends BaseActivity {
 
     private TextView mSloganTv;
+
     @Override
     public int getLayoutId() {
         return R.layout.gank_ac_splash;
@@ -28,7 +30,14 @@ public class GankSplashActivity extends BaseActivity {
             public void run() {
                 ARouter.getInstance().build("/gank/main").navigation();
             }
-        }, 1000);
+        }, 500);
+
+        mSloganTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build("/gank/main").navigation();
+            }
+        });
     }
 
 

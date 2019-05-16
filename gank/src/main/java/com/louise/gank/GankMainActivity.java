@@ -1,24 +1,35 @@
 package com.louise.gank;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
 import com.louise.base.utils.ALogger;
-import com.louise.base.utils.DisplayUtils;
-import cc.hiy.baseui.itemDecoration.CommonLinearItemDecoration;
 import com.louise.gank.bean.MHabit;
+import com.louise.gank.view.adapter.MainAdAdapter;
 import com.louise.gank.view.provider.HabitProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import cc.hiy.baseui.flexbox.UIFlexBoxView;
+import cc.hiy.baseui.itemDecoration.CommonLinearItemDecoration;
 import cc.hiy.baseui.titlebar.UITitleBar;
-import cc.hiy.baseui.titlebar.provider.DividerViewProvider;
+import cc.hiy.baseui.titlebar.provider.ImageViewProvider;
+import cc.hiy.baseui.titlebar.provider.TextDrawViewProvider;
 import cc.hiy.baseui.titlebar.provider.TitleViewProvider;
+import cc.hiy.baseui.utils.DisplayUtils;
+import cc.hiy.baseui.utils.bitmap.BitmapU;
+import cc.hiy.baseui.utils.bitmap.PathShapeRender;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**
@@ -32,6 +43,9 @@ public class GankMainActivity extends BaseActivity {
     private RecyclerView mHabitRv;
     private MultiTypeAdapter mAdapter;
     private List<Object> mDatas;
+    private UIFlexBoxView mAdFlex;
+
+    private ImageView mIntroIv;
 
     @Override
     public int getLayoutId() {
@@ -47,7 +61,6 @@ public class GankMainActivity extends BaseActivity {
     public void initView(Bundle savedInstanceState) {
         initTitleView();
 
-
         mHabitRv = findViewById(R.id.habit_rv);
         mHabitRv.setHasFixedSize(true);
         mHabitRv.setLayoutManager(new LinearLayoutManager(this));
@@ -56,6 +69,16 @@ public class GankMainActivity extends BaseActivity {
         mAdapter = new MultiTypeAdapter(mDatas);
         mAdapter.register(MHabit.class, new HabitProvider());
         mHabitRv.setAdapter(mAdapter);
+
+        mAdFlex = findViewById(R.id.ad_flex);
+        mAdFlex.setVisibility(View.VISIBLE);
+        mAdFlex.setAdapter(new MainAdAdapter());
+
+
+        mIntroIv = findViewById(R.id.intro_iv);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue);
+        mIntroIv.setImageBitmap(BitmapU.transformBitmap(bitmap, new PathShapeRender()));
+
     }
 
     private void initTitleView() {
@@ -64,8 +87,20 @@ public class GankMainActivity extends BaseActivity {
         provider.setText("习惯广场");
         mTitleBar.updateCenterViewProvider(provider);
 
-        DividerViewProvider dividerViewProvider = new DividerViewProvider(this);
-        mTitleBar.updateBottomViewProvider(dividerViewProvider);
+        TextDrawViewProvider leftProvider = new TextDrawViewProvider(this);
+        Drawable drawable = getResources().getDrawable(R.drawable.ic_close);
+        drawable.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+        leftProvider.setDraw(drawable, null);
+        leftProvider.setText("sss");
+        mTitleBar.updateLeftViewProvider(leftProvider);
+
+        ImageViewProvider imageVIewProvider = new ImageViewProvider(this);
+        mTitleBar.updateRightViewProvider(imageVIewProvider);
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inSampleSize = 8;
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue, options);
+        imageVIewProvider.setImageBitmap(BitmapU.transformBitmap(bitmap, new PathShapeRender()));
+
     }
 
     @Override

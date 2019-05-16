@@ -19,4 +19,18 @@ public abstract class IViewProvider<V extends View> {
     }
 
     abstract V onCreateView(Context context);
+
+
+    public void setOnClickListener(final View.OnClickListener listener) {
+        if (view != null) {
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null) {
+                        listener.onClick(v);
+                    }
+                }
+            });
+        }
+    }
 }

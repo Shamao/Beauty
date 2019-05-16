@@ -13,6 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"/>
 
+    <ImageView
+        android:id="@+id/intro_iv"
+        android:adjustViewBounds="true"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+
+    <cc.hiy.baseui.flexbox.UIFlexBoxView
+        android:id="@+id/ad_flex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:alignContent="center"
+        app:alignItems="center"
+        app:flexWrap="wrap"
+        app:justifyContent="space_around"
+        app:showDivider="middle"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/habit_rv"
         android:layout_width="match_parent"

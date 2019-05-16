@@ -2,8 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.louise.gank">
 
+    <uses-feature
+        android:name="android.hardware.camera2"
+        android:required="true"/>
+    ...
+    <!-- Needed only if your app targets Android 5.0 (API level 21) or higher. -->
+    <uses-feature android:name="android.hardware.location.gps"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
     <application
-        android:name="com.louise.base.base.BaseAP"
+        android:name=".GankApp"
         android:allowBackup="true"
         android:label="@string/gank_app_name"
         android:supportsRtl="true"
@@ -16,8 +29,11 @@
                 <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
         </activity>
-        <activity android:name=".GankMainActivity"
-        android:theme="@style/gank_AppTheme">
+        <activity
+            android:name=".GankMainActivity"
+            android:theme="@style/gank_AppTheme">
+        </activity>
+        <activity android:name=".GankCameraActivity">
         </activity>
     </application>
 
