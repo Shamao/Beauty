@@ -77,7 +77,7 @@ public class ALogger {
             }
             builder.append(content);
             if (i != t.length - 1) {
-                builder.append("-");
+                builder.append("=>");
             }
         }
         //        builder.append("\n");

@@ -7,7 +7,7 @@ import com.squareup.leakcanary.LeakCanary;
  * @author lsd
  * @date 2019/5/12.
  */
-public class GankApp extends BaseAP {
+public class GankAp extends BaseAP {
 
     @Override
     public void onCreate() {
