@@ -9,7 +9,7 @@ import android.view.View;
  */
 public abstract class IViewProvider<V extends View> {
 
-    public V view;
+    protected V view;
 
     public IViewProvider(Context context) {
         view = onCreateView(context);
@@ -32,5 +32,9 @@ public abstract class IViewProvider<V extends View> {
                 }
             });
         }
+    }
+
+    public V getView() {
+        return view;
     }
 }

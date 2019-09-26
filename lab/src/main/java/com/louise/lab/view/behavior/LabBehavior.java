@@ -9,9 +9,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.louise.base.utils.DisplayUtils;
 import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
+
+import cc.hiy.baseui.utils.DisplayUtils;
 
 /**
  * @author lsd

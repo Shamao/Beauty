@@ -11,6 +11,13 @@ android {
         resourcePrefix "lab_"
     }
 
+    dataBinding {
+        enabled = true
+    }
+
+    lintOptions { disable 'MissingTranslation', 'ExtraTranslation' }
+
+
     sourceSets {
         main {
             if (isDebug.toBoolean()) {
@@ -28,4 +35,5 @@ android {
 
 dependencies {
     implementation project(':base')
+    implementation project(':baseui')
 }

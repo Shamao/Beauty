@@ -28,7 +28,6 @@ dependencies {
         implementation project(':gank')
 
     }
-    implementation files('libs/BaichuanApplinkSDK.jar')
 }
 
 

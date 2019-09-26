@@ -19,7 +19,7 @@ public class ImageViewProvider extends IViewProvider<ImageView> {
     @Override
     ImageView onCreateView(Context context) {
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
-                                                                         ViewGroup.LayoutParams.WRAP_CONTENT);
+                ViewGroup.LayoutParams.WRAP_CONTENT);
         ImageView imageView = new ImageView(context);
         imageView.setLayoutParams(lp);
 
@@ -29,6 +29,11 @@ public class ImageViewProvider extends IViewProvider<ImageView> {
 
     public void setImageBitmap(Bitmap bitmap) {
         view.setImageBitmap(bitmap);
+    }
+
+
+    public void setImageResource(int resId) {
+        view.setImageResource(resId);
     }
 
 }

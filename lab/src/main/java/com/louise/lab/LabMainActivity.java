@@ -7,8 +7,9 @@ import android.view.View;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
-import com.louise.base.utils.DisplayUtils;
+
 import cc.hiy.baseui.itemDecoration.CommonLinearItemDecoration;
+
 import com.louise.lab.adapter.provider.ColumnProvider;
 import com.louise.lab.adapter.provider.SimpleColumnProvider;
 import com.louise.lab.bean.MColumnBean;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cc.hiy.baseui.utils.DisplayUtils;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**

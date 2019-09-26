@@ -1,39 +1,28 @@
 package com.louise.gank;
 
 import android.Manifest;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
-import com.louise.base.utils.SettingUtils;
 import com.louise.base.utils.permission.OnRequestPermissionsResultListener;
 import com.louise.base.utils.permission.PermissionUtils;
 import com.louise.gank.bean.MHabit;
-import com.louise.gank.view.adapter.MainAdAdapter;
 import com.louise.gank.view.provider.HabitProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cc.hiy.baseui.flexbox.UIFlexBoxView;
 import cc.hiy.baseui.itemDecoration.CommonLinearItemDecoration;
 import cc.hiy.baseui.titlebar.UITitleBar;
-import cc.hiy.baseui.titlebar.provider.ImageViewProvider;
-import cc.hiy.baseui.titlebar.provider.TextDrawViewProvider;
+import cc.hiy.baseui.titlebar.UITitleDelegate;
 import cc.hiy.baseui.titlebar.provider.TitleViewProvider;
 import cc.hiy.baseui.utils.DisplayUtils;
-import cc.hiy.baseui.utils.bitmap.BitmapU;
-import cc.hiy.baseui.utils.bitmap.PathShapeRender;
 import me.drakeet.multitype.MultiTypeAdapter;
 
 /**
@@ -47,9 +36,6 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
     private RecyclerView mHabitRv;
     private MultiTypeAdapter mAdapter;
     private List<Object> mDatas;
-    private UIFlexBoxView mAdFlex;
-
-    private ImageView mIntroIv;
 
     @Override
     public int getLayoutId() {
@@ -73,56 +59,42 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
         mAdapter = new MultiTypeAdapter(mDatas);
         mAdapter.register(MHabit.class, new HabitProvider());
         mHabitRv.setAdapter(mAdapter);
-
-        mAdFlex = findViewById(R.id.ad_flex);
-        mAdFlex.setVisibility(View.VISIBLE);
-        mAdFlex.setAdapter(new MainAdAdapter());
-
-
-        mIntroIv = findViewById(R.id.intro_iv);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue);
-        mIntroIv.setImageBitmap(BitmapU.transformBitmap(bitmap, new PathShapeRender()));
-
     }
 
     private void initTitleView() {
         mTitleBar = findViewById(R.id.title_bar);
-        TitleViewProvider provider = new TitleViewProvider(this);
-        provider.setText("习惯广场");
-        mTitleBar.updateCenterViewProvider(provider);
-        provider.setOnClickListener(new View.OnClickListener() {
+        UITitleDelegate delegate = new UITitleDelegate();
+        TitleViewProvider titleViewProvider = delegate.bindTitle(this, mTitleBar, "'习惯广场");
+        titleViewProvider.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                SettingUtils.jumpAppSetting(GankMainActivity.this);
+                DoubleClickHelper.checkDoubleClick(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(GankMainActivity.this, "触发了双击", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 
-        TextDrawViewProvider leftProvider = new TextDrawViewProvider(this);
-        Drawable drawable = getResources().getDrawable(R.drawable.ic_close);
-        drawable.setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-        leftProvider.setDraw(drawable, null);
-        leftProvider.setText("sss");
-        mTitleBar.updateLeftViewProvider(leftProvider);
+        delegate.bindLeftBack(this, mTitleBar, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-
-        ImageViewProvider imageVIewProvider = new ImageViewProvider(this);
-        mTitleBar.updateRightViewProvider(imageVIewProvider);
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inSampleSize = 6;
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_blue, options);
-        imageVIewProvider.setImageBitmap(BitmapU.transformBitmap(bitmap, new PathShapeRender()));
-
-        imageVIewProvider.setOnClickListener(new View.OnClickListener() {
+        delegate.bindRightImage(this, mTitleBar, R.drawable.ic_blue, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PermissionUtils.requestPermissions(GankMainActivity.this, 3,
-                                                   Manifest.permission.CAMERA,
-                                                   Manifest.permission.RECORD_AUDIO,
-                                                   Manifest.permission.ACCESS_FINE_LOCATION,
-                                                   Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                        Manifest.permission.CAMERA,
+                        Manifest.permission.RECORD_AUDIO,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
             }
         });
-
     }
 
     @Override
@@ -165,27 +137,6 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
     @Override
     public void loadData() {
         super.loadData();
-        mHabitRv.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mDatas.add(new MHabit());
-                mAdapter.notifyDataSetChanged();
-            }
-        }, 0);
     }
 
     @Override
@@ -197,7 +148,7 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
 
     @Override
     public void onPermissionsGranted(int requestCode, List<String> perms) {
-    
+
     }
 
     @Override

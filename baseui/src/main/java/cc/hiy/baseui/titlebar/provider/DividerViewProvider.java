@@ -26,7 +26,7 @@ public class DividerViewProvider extends IViewProvider<View> {
         View tv = new View(context);
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, dp2px(context, 0.5f));
         tv.setLayoutParams(lp);
-        tv.setBackgroundColor(Color.BLACK);
+        tv.setBackgroundColor(Color.GRAY);
         return tv;
     }
 

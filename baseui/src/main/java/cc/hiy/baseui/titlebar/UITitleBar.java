@@ -19,7 +19,7 @@ import cc.hiy.baseui.titlebar.provider.IViewProvider;
  *
  * @author lsd
  */
-public  class UITitleBar extends RelativeLayout {
+public class UITitleBar extends RelativeLayout {
     private static final String S_TAG = "UITitleBar";
     /**
      * 全局
@@ -45,7 +45,7 @@ public  class UITitleBar extends RelativeLayout {
      */
     protected IViewProvider mBottomViewProvider;
 
-    private  OnTitleBarClickListener mOnTitleBarClickListener;
+    private OnTitleBarClickListener mOnTitleBarClickListener;
 
 
     public UITitleBar(Context context) {
@@ -100,7 +100,7 @@ public  class UITitleBar extends RelativeLayout {
         if (mCenterViewProvider == null) {
             return;
         }
-        View view = mCenterViewProvider.view;
+        View view = mCenterViewProvider.getView();
         view.setId(R.id.title_bar_middle_view);
         LayoutParams lp = (LayoutParams) view.getLayoutParams();
         if (lp == null) {
@@ -127,7 +127,7 @@ public  class UITitleBar extends RelativeLayout {
         if (mLeftViewProvider == null) {
             return;
         }
-        View view = mLeftViewProvider.view;
+        View view = mLeftViewProvider.getView();
         view.setId(R.id.title_bar_left_view);
         LayoutParams lp = (LayoutParams) view.getLayoutParams();
         if (lp == null) {
@@ -156,10 +156,10 @@ public  class UITitleBar extends RelativeLayout {
             return;
         }
 
-        View view = mRightViewProvider.view;
+        View view = mRightViewProvider.getView();
         view.setId(R.id.title_bar_right_view);
 
-        LayoutParams lp = (LayoutParams) mRightViewProvider.view.getLayoutParams();
+        LayoutParams lp = (LayoutParams) view.getLayoutParams();
         if (lp == null) {
             lp = new LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -169,7 +169,7 @@ public  class UITitleBar extends RelativeLayout {
         lp.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, 1);
         lp.addRule(RelativeLayout.CENTER_VERTICAL, 1);
         checkChildParent(view);
-        addView(mRightViewProvider.view, lp);
+        addView(view, lp);
         view.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -188,13 +188,13 @@ public  class UITitleBar extends RelativeLayout {
             return;
         }
 
-        mBottomViewProvider.view.setId(R.id.title_bar_bottom_view);
-        LayoutParams lp = (LayoutParams) mBottomViewProvider.view.getLayoutParams();
+        mBottomViewProvider.getView().setId(R.id.title_bar_bottom_view);
+        LayoutParams lp = (LayoutParams) mBottomViewProvider.getView().getLayoutParams();
         if (lp == null) {
             lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
         lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, 1);
-        addView(mBottomViewProvider.view, lp);
+        addView(mBottomViewProvider.getView(), lp);
     }
 
     /**
@@ -202,33 +202,33 @@ public  class UITitleBar extends RelativeLayout {
      *
      * @param viewProvider
      */
-    public void updateLeftViewProvider(IViewProvider viewProvider) {
+    public void bindLeftViewProvider(IViewProvider viewProvider) {
         if (mLeftViewProvider != null) {
-            checkChildParent(mLeftViewProvider.view);
+            checkChildParent(mLeftViewProvider.getView());
         }
         mLeftViewProvider = viewProvider;
         addLeftView();
     }
 
-    public void updateRightViewProvider(IViewProvider viewProvider) {
+    public void bindRightViewProvider(IViewProvider viewProvider) {
         if (mRightViewProvider != null) {
-            checkChildParent(mRightViewProvider.view);
+            checkChildParent(mRightViewProvider.getView());
         }
         mRightViewProvider = viewProvider;
         addRightView();
     }
 
-    public void updateCenterViewProvider(IViewProvider viewProvider) {
+    public void bindCenterViewProvider(IViewProvider viewProvider) {
         if (mCenterViewProvider != null) {
-            checkChildParent(mCenterViewProvider.view);
+            checkChildParent(mCenterViewProvider.getView());
         }
         mCenterViewProvider = viewProvider;
         addCenterView();
     }
 
-    public void updateBottomViewProvider(IViewProvider viewProvider) {
+    public void bindBottomViewProvider(IViewProvider viewProvider) {
         if (mBottomViewProvider != null) {
-            checkChildParent(mBottomViewProvider.view);
+            checkChildParent(mBottomViewProvider.getView());
         }
         mBottomViewProvider = viewProvider;
         addBottomView();
@@ -236,6 +236,7 @@ public  class UITitleBar extends RelativeLayout {
 
     /**
      * 校验当前View 是否已经在容器中， 若存在则删除  若不存在 不操作
+     *
      * @param view
      */
     public void checkChildParent(View view) {
