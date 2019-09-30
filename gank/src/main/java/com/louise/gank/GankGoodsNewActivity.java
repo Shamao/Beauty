@@ -6,6 +6,7 @@ import android.widget.EditText;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
+import com.louise.base.service.MExecutorService;
 import com.louise.gank.bean.MGoods;
 
 import cc.hiy.baseui.titlebar.UITitleBar;
@@ -59,14 +60,19 @@ public class GankGoodsNewActivity extends BaseActivity {
         final MGoods goods = new MGoods();
         goods.name = goodsName;
 
-        new Thread(new Runnable() {
+
+        MExecutorService.newThreadPool().execute(new Runnable() {
             @Override
             public void run() {
                 RoomHelper.getInstance().insert(goods);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                });
             }
-        }).start();
-
-
+        });
     }
 
 }

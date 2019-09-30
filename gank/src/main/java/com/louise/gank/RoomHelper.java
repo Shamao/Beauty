@@ -1,7 +1,10 @@
 package com.louise.gank;
 
+import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.louise.gank.bean.MGoods;
 import com.louise.gank.db.AppDataBase;
@@ -27,7 +30,17 @@ public class RoomHelper {
     }
 
     public RoomHelper() {
-        db = Room.databaseBuilder(mContext, AppDataBase.class, "gank").build();
+        db = Room.databaseBuilder(mContext, AppDataBase.class, "gank").addCallback(new RoomDatabase.Callback() {
+            @Override
+            public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                super.onCreate(db);
+            }
+
+            @Override
+            public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                super.onOpen(db);
+            }
+        }).build();
     }
 
     public void insert(MGoods goods) {

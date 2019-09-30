@@ -10,6 +10,7 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.louise.base.base.BaseActivity;
+import com.louise.base.service.MExecutorService;
 import com.louise.base.utils.ALogger;
 import com.louise.base.utils.permission.OnRequestPermissionsResultListener;
 import com.louise.base.utils.permission.PermissionUtils;
@@ -141,7 +142,7 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
     public void loadData() {
         super.loadData();
 
-        new Thread(new Runnable() {
+        MExecutorService.newThreadPool().execute(new Runnable() {
             @Override
             public void run() {
                 final List<MGoods> goods = RoomHelper.getInstance().getGoods();
@@ -155,8 +156,13 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
                     }
                 });
             }
-        }).start();
+        });
+    }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        loadData();
     }
 
     @Override
