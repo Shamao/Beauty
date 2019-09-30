@@ -1,6 +1,5 @@
 package com.louise.gank;
 
-import android.Manifest;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,11 +8,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.louise.base.base.BaseActivity;
+import com.louise.base.utils.ALogger;
 import com.louise.base.utils.permission.OnRequestPermissionsResultListener;
 import com.louise.base.utils.permission.PermissionUtils;
-import com.louise.gank.bean.MHabit;
-import com.louise.gank.view.provider.HabitProvider;
+import com.louise.gank.bean.MGoods;
+import com.louise.gank.view.provider.GoodsProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,7 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
         mHabitRv.addItemDecoration(new CommonLinearItemDecoration(DisplayUtils.dip2px(this, 10)));
 
         mAdapter = new MultiTypeAdapter(mDatas);
-        mAdapter.register(MHabit.class, new HabitProvider());
+        mAdapter.register(MGoods.class, new GoodsProvider());
         mHabitRv.setAdapter(mAdapter);
     }
 
@@ -88,11 +89,13 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
         delegate.bindRightImage(this, mTitleBar, R.drawable.ic_blue, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PermissionUtils.requestPermissions(GankMainActivity.this, 3,
-                        Manifest.permission.CAMERA,
-                        Manifest.permission.RECORD_AUDIO,
-                        Manifest.permission.ACCESS_FINE_LOCATION,
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                ARouter.getInstance().build("/gank/goods/new").navigation();
+
+//                PermissionUtils.requestPermissions(GankMainActivity.this, 3,
+//                        Manifest.permission.CAMERA,
+//                        Manifest.permission.RECORD_AUDIO,
+//                        Manifest.permission.ACCESS_FINE_LOCATION,
+//                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
             }
         });
     }
@@ -137,6 +140,23 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
     @Override
     public void loadData() {
         super.loadData();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final List<MGoods> goods = RoomHelper.getInstance().getGoods();
+                ALogger.d(mTag, goods.size());
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        mDatas.addAll(goods);
+                        mAdapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        }).start();
+
     }
 
     @Override

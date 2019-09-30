@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import cc.hiy.baseui.flexbox.UIFlexBoxView;
 import com.louise.gank.R;
+import com.louise.gank.bean.MGoods;
 import com.louise.gank.bean.MHabit;
 
 import cc.hiy.baseui.base.BaseRecyclerViewHolder;
@@ -15,7 +16,7 @@ import cc.hiy.baseui.base.BaseRecyclerViewHolder;
  * @date 2019/1/10.
  *
  */
-public class HabitViewHolder extends BaseRecyclerViewHolder {
+public class GoodsViewHolder extends BaseRecyclerViewHolder {
 
     public static int getLayoutId() {
         return R.layout.gank_item_view_habit;
@@ -23,21 +24,17 @@ public class HabitViewHolder extends BaseRecyclerViewHolder {
 
     private ImageView mThumbIv;
     private TextView mTitleTv;
-    private UIFlexBoxView mDayFlexView;
 
 
-    public HabitViewHolder(View itemView) {
+    public GoodsViewHolder(View itemView) {
         super(itemView);
         mThumbIv = findViewById(R.id.habit_thumb_iv);
         mTitleTv = findViewById(R.id.habit_title_tv);
-        mDayFlexView = findViewById(R.id.habit_flex_view);
     }
 
 
-    public void fillData(MHabit target) {
-            // todo
-         mThumbIv.setImageResource(R.drawable.gank_ic_banner_38);
-         mTitleTv.setText("习惯");
+    public void fillData(MGoods goods) {
+         mTitleTv.setText(goods.id + "" + goods.name);
     }
 
 

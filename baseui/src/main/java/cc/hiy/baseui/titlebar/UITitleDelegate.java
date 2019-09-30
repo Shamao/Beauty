@@ -1,5 +1,6 @@
 package cc.hiy.baseui.titlebar;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 

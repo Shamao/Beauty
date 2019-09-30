@@ -19,5 +19,7 @@ public class GankAp extends BaseAP {
         LeakCanary.install(this);
         super.onCreate();
         // Normal app init code...
+
+        RoomHelper.init(this);
     }
 }
