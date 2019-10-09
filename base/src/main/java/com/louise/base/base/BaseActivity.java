@@ -14,12 +14,10 @@ import android.view.View;
 import com.louise.base.utils.ALogger;
 import com.louise.base.utils.constance.ConstTag;
 
-import butterknife.Unbinder;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected String mTag;
-    protected Unbinder mUnbinder;
 
     /**
      * only call setContentView(int resId) or setContentView(View view)
