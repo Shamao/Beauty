@@ -90,7 +90,7 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
         delegate.bindRightImage(this, mTitleBar, R.drawable.ic_blue, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ARouter.getInstance().build("/gank/goods/new").navigation();
+                ARouter.getInstance().build("/gank/test").withString("name", "lsd").navigation();
 
 //                PermissionUtils.requestPermissions(GankMainActivity.this, 3,
 //                        Manifest.permission.CAMERA,
