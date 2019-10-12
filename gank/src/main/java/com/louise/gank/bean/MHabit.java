@@ -11,7 +11,7 @@ import java.util.Random;
  * @author lsd
  * @date 2019/1/4.
  */
-@Entity(tableName = "habit")
+@Entity(tableName = "goods")
 public class MHabit {
 
     /**

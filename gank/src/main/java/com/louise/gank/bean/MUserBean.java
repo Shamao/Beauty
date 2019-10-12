@@ -8,6 +8,8 @@ import android.databinding.Bindable;
  * @date 2018/3/5.
  */
 
+
+@Deprecated
 public class MUserBean extends BaseObservable{
     private String mName;
     private String mDesc;
