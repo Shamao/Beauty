@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.louise.gank">
+          package="com.louise.gank">
 
     <uses-feature
         android:name="android.hardware.camera2"
-        android:required="true" />
+        android:required="true"/>
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:name=".GankAp"
@@ -17,19 +17,21 @@
         android:label="@string/gank_app_name"
         android:supportsRtl="true"
         android:theme="@style/gank_AppTheme">
-        <activity android:name=".GankGoodsNewActivity"></activity>
+        <activity android:name=".GankGoodsNewActivity"/>
         <activity android:name=".GankSplashActivity">
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
 
-                <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".GankMainActivity"
-            android:theme="@style/gank_AppTheme"></activity>
-        <activity android:name=".GankCameraActivity"></activity>
+            android:theme="@style/gank_AppTheme"/>
+        <activity android:name=".GankCameraActivity"/>
+        <activity android:name=".GankTestAutoWiredActivity">
+        </activity>
     </application>
 
 </manifest>

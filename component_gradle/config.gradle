@@ -45,6 +45,6 @@ dependencies {
     compile rootPath.dependencies.recyclerView
     compile rootPath.dependencies.constraint_layout
     compile rootPath.thirds.multi_type
-    compile rootPath.thirds.butterknife
+//    compile rootPath.thirds.butterknife
 
 }
