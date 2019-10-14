@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.louise.gank.bean.MGoods;
-import com.louise.gank.bean.MHabit;
 import com.louise.gank.view.holder.GoodsViewHolder;
 
 import me.drakeet.multitype.ItemViewBinder;

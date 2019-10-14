@@ -4,16 +4,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.louise.base.base.BaseActivity;
 import com.louise.base.service.MExecutorService;
+import com.louise.gank.bean.MContact;
 import com.louise.gank.bean.MGoods;
+
+import java.util.ArrayList;
 
 import cc.hiy.baseui.titlebar.UITitleBar;
 import cc.hiy.baseui.titlebar.UITitleDelegate;
 
 @Route(path = "/gank/goods/new")
 public class GankGoodsNewActivity extends BaseActivity {
+    @Autowired(name = "true", required = true, desc = "sss")
+    public int type;
 
     private UITitleBar mTitleBar;
     private EditText mGoodsNameEt;
@@ -64,7 +70,17 @@ public class GankGoodsNewActivity extends BaseActivity {
         MExecutorService.newThreadPool().execute(new Runnable() {
             @Override
             public void run() {
+//                RoomHelper.getInstance().insert(goods);
+
+                MContact contact = new MContact();
+                contact.name = "爸爸";
+                contact.phones = new ArrayList<>();
+                contact.phones.add("13777836524");
+                contact.phones.add("18952520273");
+
                 RoomHelper.getInstance().insert(goods);
+                RoomHelper.getInstance().insert(contact);
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

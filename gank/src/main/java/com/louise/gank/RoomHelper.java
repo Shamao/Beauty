@@ -6,9 +6,9 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import com.louise.gank.bean.MContact;
 import com.louise.gank.bean.MGoods;
 import com.louise.gank.db.AppDataBase;
-import com.louise.gank.db.GoodsDao;
 
 import java.util.List;
 
@@ -49,5 +49,14 @@ public class RoomHelper {
 
     public List<MGoods> getGoods() {
         return db.goodsDao().getAll();
+    }
+
+
+    public void insert(MContact contact) {
+        db.contactDao().insertContact(contact);
+    }
+
+    public List<MContact> getContactList() {
+        return db.contactDao().getAll();
     }
 }

@@ -14,7 +14,9 @@ import com.louise.base.service.MExecutorService;
 import com.louise.base.utils.ALogger;
 import com.louise.base.utils.permission.OnRequestPermissionsResultListener;
 import com.louise.base.utils.permission.PermissionUtils;
+import com.louise.gank.bean.MContact;
 import com.louise.gank.bean.MGoods;
+import com.louise.gank.view.provider.ContactProvider;
 import com.louise.gank.view.provider.GoodsProvider;
 
 import java.util.ArrayList;
@@ -60,6 +62,7 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
 
         mAdapter = new MultiTypeAdapter(mDatas);
         mAdapter.register(MGoods.class, new GoodsProvider());
+        mAdapter.register(MContact.class, new ContactProvider());
         mHabitRv.setAdapter(mAdapter);
     }
 
@@ -141,11 +144,10 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
     @Override
     public void loadData() {
         super.loadData();
-
         MExecutorService.newThreadPool().execute(new Runnable() {
             @Override
             public void run() {
-                final List<MGoods> goods = RoomHelper.getInstance().getGoods();
+                final List<MContact> goods = RoomHelper.getInstance().getContactList();
                 ALogger.d(mTag, goods.size());
 
                 runOnUiThread(new Runnable() {
@@ -181,4 +183,5 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
     public void onPermissionsDenied(int requestCode, List<String> perms) {
 
     }
+
 }
