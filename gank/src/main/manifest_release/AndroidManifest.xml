@@ -7,6 +7,7 @@
         android:supportsRtl="true"
         android:theme="@style/gank_AppTheme">
         <activity android:name=".GankSplashActivity"/>
+        <activity android:name=".test.mvc.GankTestAutoWiredActivity"/>
         <activity android:name=".GankMainActivity"
                   android:theme="@style/gank_AppTheme"/>
     </application>

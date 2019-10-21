@@ -1,7 +1,6 @@
 package com.louise.gank;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
@@ -29,16 +28,8 @@ public class GankSplashActivity extends BaseActivity {
             @Override
             public void run() {
                 ARouter.getInstance().build("/gank/main").navigation();
+                finish();
             }
         }, 500);
-
-        mSloganTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ARouter.getInstance().build("/gank/main").navigation();
-            }
-        });
     }
-
-
 }

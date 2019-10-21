@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.GankContactCreateActivity">
+
+    <cc.hiy.baseui.titlebar.UITitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/name_et"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:hint="输入名称"
+        android:imeOptions="actionNext"
+        android:lines="1" />
+
+    <EditText
+        android:id="@+id/phone_et"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="16dp"
+        android:hint="输入电话"
+        android:imeOptions="actionNext" />
+
+    <TextView
+        android:id="@+id/confirm_tv"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:background="#F59E7B"
+        android:text="确定" />
+</LinearLayout>
