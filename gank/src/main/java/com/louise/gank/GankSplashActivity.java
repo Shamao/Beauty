@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.louise.base.base.BaseActivity;
+import com.louise.base.utils.ActivityUtils;
 
 @Route(path = "/gank/splash")
 public class GankSplashActivity extends BaseActivity {

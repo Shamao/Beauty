@@ -5,6 +5,7 @@ import android.widget.ImageView;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.louise.base.base.BaseActivity;
+import com.louise.base.utils.ActivityUtils;
 
 import beauty.louise.com.R;
 
