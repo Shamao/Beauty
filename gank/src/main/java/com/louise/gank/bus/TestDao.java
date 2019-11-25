@@ -11,11 +11,8 @@ import com.alibaba.android.arouter.facade.template.IProvider;
  */
 @Route(path = "/gank1/dao",  name = "111")
 public class TestDao implements IProvider {
-
-
     @Override
     public void init(Context context) {
-
     }
 
     public String getData() {
