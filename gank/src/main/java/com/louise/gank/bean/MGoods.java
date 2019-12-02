@@ -16,4 +16,8 @@ public class MGoods {
 
     @ColumnInfo
     public String name;
+
+
+    @ColumnInfo(name = "expire_date")
+    public long expireDate;
 }
