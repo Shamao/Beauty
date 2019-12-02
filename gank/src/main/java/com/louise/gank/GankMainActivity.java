@@ -16,6 +16,7 @@ import com.louise.base.utils.permission.OnRequestPermissionsResultListener;
 import com.louise.base.utils.permission.PermissionUtils;
 import com.louise.gank.bean.MContact;
 import com.louise.gank.bean.MGoods;
+import com.louise.gank.bus.TestDao;
 import com.louise.gank.view.provider.ContactProvider;
 import com.louise.gank.view.provider.GoodsProvider;
 
@@ -86,7 +87,8 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
         delegate.bindLeftBack(this, mTitleBar, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                ARouter.getInstance().navigation(TestDao.class);
+                //                finish();
             }
         });
 
@@ -95,13 +97,13 @@ public class GankMainActivity extends BaseActivity implements OnRequestPermissio
             public void onClick(View v) {
                 long a = 11;
                 ARouter.getInstance().build("/gank/test").withString("_name", "lsd").withLong("age", a).navigation();
-//                ARouter.getInstance().build("/gank/contact/create").withString("name", "lsd").navigation();
+                //                ARouter.getInstance().build("/gank/contact/create").withString("name", "lsd").navigation();
 
-//                PermissionUtils.requestPermissions(GankMainActivity.this, 3,
-//                        Manifest.permission.CAMERA,
-//                        Manifest.permission.RECORD_AUDIO,
-//                        Manifest.permission.ACCESS_FINE_LOCATION,
-//                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                //                PermissionUtils.requestPermissions(GankMainActivity.this, 3,
+                //                        Manifest.permission.CAMERA,
+                //                        Manifest.permission.RECORD_AUDIO,
+                //                        Manifest.permission.ACCESS_FINE_LOCATION,
+                //                        Manifest.permission.WRITE_EXTERNAL_STORAGE);
             }
         });
     }

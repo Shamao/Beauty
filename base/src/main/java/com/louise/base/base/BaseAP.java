@@ -28,6 +28,7 @@ public class BaseAP extends Application {
             ARouter.openDebug();
             ARouter.openLog();
         }
+
         ARouter.init(this);
 
         RetrofitManager.getInstance().init(this);
